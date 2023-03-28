@@ -1,0 +1,241 @@
+.DekstopNavBar_mainContainer {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--color-brand-blue);
+  box-shadow: var(--container-box-shadow);
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 50px;
+}
+
+.DekstopNavBar_left_Part {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand_container {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.search_InputBox {
+  width: 70%;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 8px 0px;
+  position: relative;
+}
+
+.search_InputBox input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0px 10px;
+  outline: none;
+  border-radius: var(--border-radius);
+}
+
+.search_iconBox {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.DekstopNavBar_center_part {
+  width: 10%;
+  margin: 0px 2%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.DekstopNavBar_center_part button {
+  border: 1px solid #fff;
+  background-color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 7px;
+  width: 100%;
+  box-shadow: var(--container-box-shadow);
+  border-radius: var(--border-radius);
+}
+
+.DekstopNavBar_Right_part {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.DekstopNavBar_sellerPanel {
+  font-size: 1.6rem;
+  margin: 0px 10px;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.bell_IconBox {
+  position: relative;
+  z-index: 1;
+}
+
+.bell_IconBox span {
+  background-color: var(--seconder-color);
+  box-shadow: var(--container-box-shadow);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -7px;
+  z-index: -1;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.userProfileBox {
+  position: relative;
+}
+
+.userIconStyle {
+  cursor: pointer;
+}
+
+.userProfile_DropDown_Box {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  box-shadow: var(--container-box-shadow);
+  left: -80px;
+  top: 40px;
+  z-index: 10px;
+  padding: 30px 0px;
+}
+
+.userProfile_DropDown_Box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 35px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 50px 30px 50px;
+  border-color: transparent transparent #fff transparent;
+  transform: rotate(0deg);
+  z-index: -10px;
+}
+
+.userName h1 {
+  font-size: 1.6rem;
+  padding: 0px 5px;
+}
+
+.userNumberDeatils {
+  display: flex;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.userNumber {
+  margin-right: 0.5rem;
+  padding: 0px 5px;
+}
+
+.OptionBox {
+  display: flex;
+  padding: 10px 5px;
+}
+
+.OptionBox:hover {
+  background-color: #eee;
+  cursor: pointer;
+  transition: 0.5s linear;
+}
+
+.icon_Name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.LogOut_Box {
+  border: 1px solid #eee;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.LogOut_Box button {
+  background-color: var(--color-brand-blue);
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  box-shadow: var(--container-box-shadow);
+}
+
+@media screen and (min-width: 950px) and (max-width: 1295px) {
+  .DekstopNavBar_mainContainer {
+    padding: 0px 10px;
+  }
+  .DekstopNavBar_Right_part {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .DekstopNavBar_mainContainer {
+    padding: 0px 5px;
+  }
+  .DekstopNavBar_center_part {
+    margin: 0px 1%;
+    width: 15%;
+  }
+  .DekstopNavBar_center_part button {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .DekstopNavBar_Right_part {
+    width: 20%;
+  }
+  .DekstopNavBar_sellerPanel {
+    font-size: 1.4rem;
+    margin: 0px 5px;
+    display: none;
+  }
+
+  .search_icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .DekstopNavBar_mainContainer {
+    display: none;
+  }
+}
