@@ -63,7 +63,11 @@ export default function DekstopNavBar() {
             </div>
             {openProfleBox && (
               <>
-                <div className={style.userProfile_DropDown_Box}>
+                <div
+                  className={style.userProfile_DropDown_Box}
+                  onMouseOver={() => setopenProfleBox(true)}
+                  onMouseLeave={() => setopenProfleBox(false)}
+                >
                   <div className={style.Userdeatils}>
                     <div className={style.userName}>
                       <h1>Pawan</h1>
