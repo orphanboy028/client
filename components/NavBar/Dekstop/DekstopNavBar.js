@@ -10,6 +10,7 @@ import requirementIcon from "../../../public/app-static-images/Post-requirement.
 import addIcon from "../../../public/app-static-images/add.png";
 import writeIcon from "../../../public/app-static-images/write.png";
 import Image from "next/image";
+import NotificationBell from "../../../utilsComponents/NotificationBell";
 
 export default function DekstopNavBar() {
   const [openProfleBox, setopenProfleBox] = useState(false);
@@ -40,7 +41,7 @@ export default function DekstopNavBar() {
             <h1>S-Panel</h1>
           </div>
           <div>
-            <div className={style.bell_IconBox}>
+            {/* <div className={style.bell_IconBox}>
               <Image
                 src={bell}
                 alt="bell-icon"
@@ -48,7 +49,8 @@ export default function DekstopNavBar() {
                 className={style.bellImage}
               />
               <span>10</span>
-            </div>
+            </div> */}
+            <NotificationBell w={25} />
           </div>
           <div className={style.userProfileBox}>
             <div>
