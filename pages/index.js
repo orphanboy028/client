@@ -2,6 +2,7 @@ import MCategoriesSlider from "../components/CategoriesSlider/Mobile/MCategories
 import DekstopHomeLayOut from "../components/layouts/Dekstop/DekstopHomeLayOut";
 import MobileHomeNavBar from "../components/NavBar/Mobile/MobileHomeNavBar";
 import HomePageSlider from "../components/HomeBannerSlider/HomePageSlider";
+import HomePageCategories from "../components/HomePageCategories/Dekstop/HomePageCategories";
 
 export default function Home() {
   return (
@@ -10,8 +11,7 @@ export default function Home() {
         <MobileHomeNavBar />
         <MCategoriesSlider />
         <HomePageSlider />
-
-        <h1>Home page</h1>
+        <HomePageCategories />
       </DekstopHomeLayOut>
     </>
   );

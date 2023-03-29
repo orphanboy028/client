@@ -1,0 +1,91 @@
+.HomePageCategories_main_Container {
+  width: 100%;
+  padding: 0px 0px 10px;
+  box-sizing: border-box;
+  height: 300px;
+  padding: 10px;
+  background-color: rgba(40, 116, 240, 0.5);
+  margin: 50px 0px;
+}
+
+.Categories_HeadigBox {
+  padding: 5px 0px;
+}
+
+.Categories_HeadigBox h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.Categories_Main_container {
+  box-sizing: border-box;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+}
+
+.Categories_Main_container_ImageBox {
+  width: 230px;
+  border: 1px solid #eaeaea;
+  background-image: url("../../../public/app-static-images/Home-categories/loaded-circuit-board.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.categorie_Badg {
+  background-color: var(--color-brand-blue);
+  min-width: 100px;
+  padding: 5px;
+  color: #fff;
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.subCategories_container {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+}
+
+.subCategories_Box {
+  margin: 10px 20px;
+  width: 200px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+  box-shadow: var(--box-shadow);
+}
+
+.SubCategoriesImageBox {
+  width: 80%;
+  border: 1px solid #eee;
+  height: 100px;
+  background-image: url("../../../public/app-static-images/Home-categories/electric-tool.jpg");
+  background-size: cover;
+}
+
+.subCategories_NameBox {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Roboto, Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.subCategories_Explor {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #388e3c;
+  padding-top: 8px;
+  font-family: Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
