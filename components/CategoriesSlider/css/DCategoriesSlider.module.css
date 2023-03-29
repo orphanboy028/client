@@ -1,0 +1,112 @@
+.DCategoriesSlider_main_Container {
+  box-shadow: var(--categories-box-shadow);
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.DCategoriesSlider_boxes {
+  height: 110px;
+  width: 150px;
+  margin: 0px 20px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.DCategoriesSlider_cardBox {
+  /* box-shadow: var(--box-shadow); */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+.DCategoriesSlider_Card_imageBox {
+  border: 2px solid var(--border-color-gray);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoriesImage {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}
+
+.categoriesName {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 0px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 910px) {
+  .DCategoriesSlider_main_Container {
+    min-height: 130px;
+  }
+
+  .DCategoriesSlider_boxes {
+    height: 90px;
+    width: 80px;
+    margin: 0px 10px;
+  }
+  .DCategoriesSlider_Card_imageBox {
+    border: 2px solid var(--border-color-gray);
+    height: 40px;
+    width: 40px;
+  }
+  .categoriesImage {
+    width: 35px;
+    height: 35px;
+  }
+  .categoriesName {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .DCategoriesSlider_main_Container {
+    min-height: 130px;
+  }
+
+  .DCategoriesSlider_boxes {
+    height: 90px;
+    width: 60px;
+    margin: 0px 5px;
+  }
+  .DCategoriesSlider_Card_imageBox {
+    border: 2px solid var(--border-color-gray);
+    height: 35px;
+    width: 35px;
+  }
+  .categoriesImage {
+    width: 30px;
+    height: 30px;
+  }
+  .categoriesName {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .DCategoriesSlider_main_Container {
+    display: none;
+  }
+}

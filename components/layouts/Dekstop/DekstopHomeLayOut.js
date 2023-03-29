@@ -1,4 +1,5 @@
 import React from "react";
+import DCategoriesSlider from "../../CategoriesSlider/Dekstop/DCategoriesSlider";
 import DekstopNavBar from "../../NavBar/Dekstop/DekstopNavBar";
 
 export default function DekstopHomeLayOut({ children }) {
@@ -7,6 +8,7 @@ export default function DekstopHomeLayOut({ children }) {
       <div>
         <div>
           <DekstopNavBar />
+          <DCategoriesSlider />
         </div>
         <div>{children}</div>
         <div>Footer</div>
