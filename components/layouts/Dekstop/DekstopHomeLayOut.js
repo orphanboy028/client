@@ -1,5 +1,6 @@
 import React from "react";
 import DCategoriesSlider from "../../CategoriesSlider/Dekstop/DCategoriesSlider";
+
 import DekstopNavBar from "../../NavBar/Dekstop/DekstopNavBar";
 
 export default function DekstopHomeLayOut({ children }) {
