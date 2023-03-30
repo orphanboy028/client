@@ -11,8 +11,10 @@ import addIcon from "../../../public/app-static-images/add.png";
 import writeIcon from "../../../public/app-static-images/write.png";
 import Image from "next/image";
 import NotificationBell from "../../../utilsComponents/NotificationBell";
+import { useRouter } from "next/router";
 
 export default function DekstopNavBar() {
+  const router = useRouter();
   const [openProfleBox, setopenProfleBox] = useState(false);
   return (
     <>
@@ -114,7 +116,9 @@ export default function DekstopNavBar() {
                     </div>
                   </div>
                   <div className={style.LogOut_Box}>
-                    <button>Log Out</button>
+                    <button onClick={() => router.push("/sing-up")}>
+                      Log Out
+                    </button>
                   </div>
                 </div>
               </>

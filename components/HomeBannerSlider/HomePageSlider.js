@@ -31,8 +31,9 @@ export default function HomePageSlider() {
             delay: 3000,
             disableOnInteraction: false,
           }}
+          className={style.SwiperStyle}
         >
-          <SwiperSlide>
+          <SwiperSlide className={style.SwiperSlideStyle}>
             <Image className={style.slider_image} src={slider1} />
           </SwiperSlide>
           <SwiperSlide>
