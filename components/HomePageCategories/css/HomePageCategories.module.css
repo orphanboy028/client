@@ -1,91 +1,206 @@
 .HomePageCategories_main_Container {
   width: 100%;
-  padding: 0px 0px 10px;
-  box-sizing: border-box;
-  height: 300px;
-  padding: 10px;
-  background-color: rgba(40, 116, 240, 0.5);
+}
+
+.HomePageCategories_dekstop_View {
+  display: block;
+  width: 100%;
+}
+
+.DcategoriseCards_main_continaer {
+  width: 100%;
+  border: 1px solid #eee;
   margin: 50px 0px;
+  height: 400px;
+  background-color: var(--trasprant-bg);
+  box-shadow: var(--cat-box-shadow);
 }
 
-.Categories_HeadigBox {
-  padding: 5px 0px;
+.DcategoriseCards_main_continaer {
+  padding: 20px;
 }
 
-.Categories_HeadigBox h1 {
+.DcategoriseCards_categories_Title {
+  padding: 10px 0px;
+}
+
+.DcategoriseCards_categories_Title h1 {
   font-size: 2rem;
   font-weight: 500;
 }
 
-.Categories_Main_container {
-  box-sizing: border-box;
-  height: 250px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+.DcategoriseCards_innerBox {
+  width: 100%;
   display: flex;
-}
-
-.Categories_Main_container_ImageBox {
-  width: 230px;
   border: 1px solid #eaeaea;
-  background-image: url("../../../public/app-static-images/Home-categories/loaded-circuit-board.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 300px;
 }
 
-.categorie_Badg {
-  background-color: var(--color-brand-blue);
-  min-width: 100px;
-  padding: 5px;
-  color: #fff;
-  font-size: 1.6rem;
-  opacity: 0.8;
+.DcategoriseCards_main_ImageBox {
+  width: 300px;
+  box-sizing: border-box;
 }
 
-.subCategories_container {
+.categoriesImageStyle {
+  width: 300px;
+  height: 100%;
+}
+
+.categoriesCard_container {
+  background-color: #fff;
+  width: 100%;
   display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 85%;
 }
 
-.subCategories_Box {
-  margin: 10px 20px;
-  width: 200px;
-  border: 1px solid #eee;
+.subCategories_CardBox {
+  width: 250px;
+  margin: 1% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0px;
-  box-shadow: var(--box-shadow);
+  padding-top: 10px;
+  box-shadow: var(--cat-box-shadow);
 }
 
-.SubCategoriesImageBox {
+.DSubCategoriesCards_ImageBox {
+  border: 1px solid #eaeaea;
   width: 80%;
-  border: 1px solid #eee;
-  height: 100px;
-  background-image: url("../../../public/app-static-images/Home-categories/electric-tool.jpg");
-  background-size: cover;
+  height: 155px;
 }
 
-.subCategories_NameBox {
-  font-size: 1.4rem;
+.DSubCategoriesCards_nameBox {
+  margin-top: 5px;
+  font-size: 1.8rem;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
   font-weight: 500;
-  margin-top: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-family: Roboto, Arial, sans-serif;
-  letter-spacing: 0;
 }
 
-.subCategories_Explor {
-  font-size: 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #388e3c;
-  padding-top: 8px;
+.DSubCategoriesCards_ExploreBox {
+  color: var(--green-color);
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
   font-family: Roboto, Arial, sans-serif;
   cursor: pointer;
+}
+/* mobile hidden */
+
+.HomePageCategories_mobile_view {
+  display: none;
+  width: 100%;
+}
+
+@media screen and (max-width: 1920px) {
+  .subCategories_CardBox:nth-child(1) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1530px) {
+  .subCategories_CardBox:nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .subCategories_CardBox:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .subCategories_CardBox:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .HomePageCategories_dekstop_View {
+    display: none;
+  }
+
+  .HomePageCategories_mobile_view {
+    display: block;
+  }
+
+  .MSubCategoriesCard_main_container {
+    width: 100%;
+    border: 1px solid #eee;
+    margin: 50px 0px;
+    height: 250px;
+    background-color: var(--trasprant-bg);
+    box-shadow: var(--cat-box-shadow);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .McategoriseCards_categories_Title {
+    padding: 5px 0px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+  }
+  .MSubCategoriesCard_inner_container {
+    display: flex;
+    height: 160px;
+    box-shadow: var(--cat-box-shadow);
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  .MSubCategoriesCard_ImageBox {
+    width: 200px;
+    box-sizing: border-box;
+  }
+  .McategoriesImage {
+    width: 200px;
+    height: 100%;
+  }
+
+  .MSubCategoriesCard_Card_Container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .MSubCategoriesCards_ListContainer {
+    width: 45%;
+    box-sizing: border-box;
+    margin: 5px;
+    box-sizing: border-box;
+  }
+  .MSubCategoriesCards_subLists {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 0px;
+  }
+  .MSub_NameBox {
+    width: 70%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+
+  .MSub_IconBox {
+    width: 20%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 }

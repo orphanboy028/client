@@ -30,4 +30,8 @@ html {
   --seconder-color: rgb(230, 69, 69);
   --icon-color: #393939;
   --categories-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16);
+  --trasprant-bg: rgba(40, 116, 240, 0.5);
+  --cat-box-shadow : box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+  --font-family: Roboto,Arial,sans-serif;
+  --green-color: #388e3c;
 }

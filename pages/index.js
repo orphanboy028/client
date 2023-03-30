@@ -2,7 +2,7 @@ import MCategoriesSlider from "../components/CategoriesSlider/Mobile/MCategories
 import DekstopHomeLayOut from "../components/layouts/Dekstop/DekstopHomeLayOut";
 import MobileHomeNavBar from "../components/NavBar/Mobile/MobileHomeNavBar";
 import HomePageSlider from "../components/HomeBannerSlider/HomePageSlider";
-import HomePageCategories from "../components/HomePageCategories/Dekstop/HomePageCategories";
+import HomePageCategories from "../components/HomePageCategories/HomePageCategories";
 
 export default function Home() {
   return (
