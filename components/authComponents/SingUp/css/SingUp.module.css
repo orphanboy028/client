@@ -101,6 +101,26 @@
   color: #e64545;
 }
 
+.suggest_info {
+  margin: 5px 0px;
+  padding: 10px 0px;
+  font-size: 1.4rem;
+  letter-spacing: 1.3px;
+}
+
+/* for Login */
+.Loginform_Box {
+  font-size: 1.6rem;
+  margin-top: 15px;
+}
+
+.Loginform_inputBox input {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgb(213, 219, 226);
+  padding: 7px;
+}
+
 @media screen and (max-width: 550px) {
   .SingUpComponent_main_container {
     padding: 15px;

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../SingUp/css/SingUp.module.css";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 export default function LoginComponent() {
   const {
     register,
@@ -22,13 +23,13 @@ export default function LoginComponent() {
           <div className={styles.SingUpComponent_Form_Title}>
             <h2>Login Account</h2>
           </div>
-          <div className={styles.form_Box}>
+          <div className={styles.Loginform_Box}>
             <form
               className={styles.SingUp_form}
               onSubmit={handleSubmit(onSubmit)}
             >
               <div>
-                <div className={styles.form_input_Filed_Box}>
+                <div className={styles.Loginform_input_Filed_Box}>
                   <div className={styles.form_lableBox}>
                     <label>Email</label>
                   </div>
@@ -55,7 +56,7 @@ export default function LoginComponent() {
                   <div className={styles.form_lableBox}>
                     <label>Password</label>
                   </div>
-                  <div className={styles.form_inputBox}>
+                  <div className={styles.Loginform_inputBox}>
                     <input
                       type="text"
                       placeholder="Paaword(8-20 characters)"
@@ -85,10 +86,22 @@ export default function LoginComponent() {
                       : styles.disabledbtn
                   }
                 >
-                  <button disabled={!isValid}>SEND OTP</button>
+                  <button disabled={!isValid}>LOGIN</button>
                 </div>
               </div>
             </form>
+          </div>
+          <div className={styles.suggest_info}>
+            <p>
+              {" "}
+              If you don't have any account{" "}
+              <Link
+                href={"/sing-up"}
+                style={{ color: "blueviolet", fontWeight: "500" }}
+              >
+                Register now{" "}
+              </Link>{" "}
+            </p>
           </div>
         </div>
       </div>

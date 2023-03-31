@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styles from "../css/SingUp.module.css";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
 export default function SingUpComponent() {
   const {
@@ -214,6 +215,18 @@ export default function SingUpComponent() {
                 </div>
               </div>
             </form>
+          </div>
+          <div className={styles.suggest_info}>
+            <p>
+              {" "}
+              If you have Already account{" "}
+              <Link
+                href={"/login"}
+                style={{ color: "blueviolet", fontWeight: "500" }}
+              >
+                Login Now{" "}
+              </Link>{" "}
+            </p>
           </div>
         </div>
       </div>
