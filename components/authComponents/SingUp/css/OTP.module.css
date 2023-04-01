@@ -1,0 +1,78 @@
+.SingUpComponent_main_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f1f2;
+}
+
+.OTPComponent_Form_container {
+  background: #fff;
+  padding: 30px;
+  width: 500px;
+  box-sizing: border-box;
+  float: left;
+  word-wrap: break-word;
+  min-height: 200px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+}
+
+.OTPComponent_Form_Title {
+  font-weight: 700;
+  font-size: large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.form_Box {
+  font-size: 1.5rem;
+  margin-top: 2px;
+}
+
+.form_lableBox {
+  padding: 5px 0px;
+}
+
+.form_inputBox input {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgb(213, 219, 226);
+  padding: 5px;
+  font-size: 1.4rem;
+}
+
+.form_btn_full_width_Box {
+  margin-top: 10px;
+  color: #fff;
+  border: solid 1px #e64545;
+  background-color: #e64545;
+  height: auto;
+  line-height: inherit;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.disabledbtn {
+  margin-top: 10px;
+  color: #fff;
+  border: solid 1px #eee;
+  background-color: #eee;
+  height: auto;
+  line-height: inherit;
+  padding: 10px;
+  text-align: center;
+  cursor: not-allowed;
+}
+
+.input_ErrorBox {
+  margin: 3px 0px;
+  padding: 1px 0px;
+  font-size: 1.6rem;
+}
+
+.input_Error {
+  color: #e64545;
+}

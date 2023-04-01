@@ -2,6 +2,12 @@ import React, { useState, useRef } from "react";
 import styles from "../css/SingUp.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import Router from "next/router";
+import {
+  singUpNewAccount,
+  getCookies,
+  otpAuth,
+} from "../../../../Actions/UserAuth/userAuth";
 
 export default function SingUpComponent() {
   const {
@@ -16,7 +22,19 @@ export default function SingUpComponent() {
   // Triger on When user click on SingUp Btn
   const pass = watch("password");
 
-  const onSubmit = (data) => {};
+  const onSubmit = async (formdata) => {
+    try {
+      const jsonData = JSON.stringify(formdata);
+      const result = await singUpNewAccount(formdata);
+      const { data } = result;
+      console.log(data);
+      otpAuth(data, () => {
+        Router.push(`/otp-verification/${getCookies()}`);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className={styles.SingUpComponent_main_container}>
