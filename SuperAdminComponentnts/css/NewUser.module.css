@@ -1,0 +1,10 @@
+.NewUsers_container {
+  box-shadow: var(--template-box-shadow);
+  font-size: 1.6rem;
+  padding: 1.5rem 0px;
+  margin-top: 3rem;
+}
+
+.NewUsers_card_TitleBox {
+  font-size: 1.8rem;
+}
