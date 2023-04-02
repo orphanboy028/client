@@ -2,6 +2,9 @@ import React from "react";
 import styles from "../SingUp/css/SingUp.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { loginAccount, authenticate } from "../../../Actions/UserAuth/userAuth";
 export default function LoginComponent() {
   const {
     register,
@@ -15,9 +18,32 @@ export default function LoginComponent() {
   // Triger on When user click on SingUp Btn
   const pass = watch("password");
 
-  const onSubmit = (data) => {};
+  const onSubmit = async (formdata) => {
+    try {
+      const jsonData = JSON.stringify(formdata);
+      const result = await loginAccount(formdata);
+      if (result.data.status === "Fails") {
+        console.log(result.data.message);
+        toast.error(result.data.message);
+      }
+
+      const { data } = result;
+      console.log(data);
+      authenticate(data, () => {
+        if (data.user.role === "user") {
+          // Router.push("/");
+          toast.success("Login sucessfully");
+        } else if (data.user.role === "admin") {
+          // Router.push("/super-admin");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
+      <ToastContainer />
       <div className={styles.SingUpComponent_main_container}>
         <div className={styles.LoginComponent_Form_container}>
           <div className={styles.SingUpComponent_Form_Title}>

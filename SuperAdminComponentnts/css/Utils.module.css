@@ -1,0 +1,35 @@
+.offcanvas {
+  width: 200px !important;
+}
+
+@media (max-width: 767px) {
+  .offcanvas {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .offcanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.table_header {
+  padding: 15px 5px;
+}
+
+.TableCard_Resposive {
+  overflow-x: auto;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.table_Header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+}

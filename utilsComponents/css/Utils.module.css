@@ -46,3 +46,16 @@
   right: 10px;
   cursor: pointer;
 }
+
+.LoadingSpinerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 100vh;
+}
+
+.loadingSpiner {
+  width: 10rem;
+  height: 10rem;
+}
