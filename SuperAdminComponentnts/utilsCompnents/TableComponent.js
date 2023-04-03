@@ -1,14 +1,13 @@
 import React from "react";
 import style from "../css/Utils.module.css";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
+import { compareAsc, format } from "date-fns";
+import verifiedIcon from "../../public/app-static-images/verified.png";
+import pending from "../../public/app-static-images/remove.png";
+import Image from "next/image";
 
-const data = [
-  { id: 1, name: "John Doe", age: 25, email: "johndoe@example.com" },
-  { id: 2, name: "Jane Doe", age: 30, email: "janedoe@example.com" },
-  { id: 3, name: "Bob Smith", age: 45, email: "bobsmith@example.com" },
-];
-
-export default function TableComponent() {
+export default function TableComponent({ allusers }) {
+  console.log(allusers);
   return (
     <>
       <div className={`card ${style.TableCard_Resposive}`}>
@@ -18,21 +17,45 @@ export default function TableComponent() {
         <Table responsive="sm" striped bordered hover size="sm">
           <thead className={`${style.table_Header}`}>
             <tr>
-              <th className="text-center">ID</th>
+              <th className="text-center">S.NO</th>
+              <th className="text-center">Date</th>
               <th className="text-center">Name</th>
-              <th className="text-center">Age</th>
+              <th className="text-center">Mobile Number</th>
               <th>Email</th>
+              <th className="text-center">@verify</th>
+              <th className="text-center">User Profile</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((row) => {
+            {allusers.map((user, i) => {
               return (
-                <tr key={row.id}>
-                  <td className="text-center">{row.id}</td>
-                  <td className="text-center">{row.name}</td>
-                  <td className="text-center">{row.age}</td>
-                  <td>{row.email}</td>
-                </tr>
+                <>
+                  <tr key={user._id} id={user._id}>
+                    <td className="text-center">{i + 1}</td>
+                    <td className="text-center">
+                      {format(new Date(user.createdAt), "dd-MM-yyyy")}
+                    </td>
+                    <td className="text-center">{user.name}</td>
+                    <td className="text-center">{user.mobileNumber}</td>
+                    <td>{user.email}</td>
+                    <td className="text-center">
+                      {user.isActive ? (
+                        <Image
+                          src={verifiedIcon}
+                          width={20}
+                          alt="verified-email"
+                        />
+                      ) : (
+                        <>
+                          <Image src={pending} width={20} alt="pending email" />
+                        </>
+                      )}
+                    </td>
+                    <td className="text-center">
+                      <Button variant="primary">User Profile</Button>
+                    </td>
+                  </tr>
+                </>
               );
             })}
           </tbody>

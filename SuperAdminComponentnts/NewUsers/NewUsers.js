@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import style from "../css/NewUser.module.css";
 import charIcon from "../../public/admin-images/chart-success.png";
 import threedots from "../../public/admin-images/dots.png";
@@ -6,7 +6,16 @@ import Image from "next/image";
 import Dropdown from "react-bootstrap/Dropdown";
 import SideStatsCard from "../utilsCompnents/SideStatsCard";
 import TableComponent from "../utilsCompnents/TableComponent";
+import { UserContext } from "../../ContaxtApi/UserContaxApi";
+import { getLoginCookies } from "../../Actions/UserAuth/userAuth";
+
 export default function NewUsers() {
+  const { getusers, allusers } = useContext(UserContext);
+
+  useEffect(() => {
+    getusers();
+  }, []);
+
   return (
     <>
       <div className={`row  ${style.NewUsers_container}`}>
@@ -38,7 +47,7 @@ export default function NewUsers() {
         </div>
       </div>
       <div className={`row p-3  ${style.NewUsers_container}`}>
-        <TableComponent />
+        <TableComponent allusers={allusers} />
       </div>
     </>
   );
