@@ -4,18 +4,33 @@ import logo from "../../../public/app-static-images/flipkart-plus.png";
 import searchIcon from "../../../public/app-static-images/search.png";
 import bell from "../../../public/app-static-images/bell.png";
 import userIcon from "../../../public/app-static-images/user.png";
+import Dropdown from "react-bootstrap/Dropdown";
+import Image from "next/image";
+import NotificationBell from "../../../utilsComponents/NotificationBell";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import DekstopNavBarDropDown from "../../../utilsComponents/DekstopNavBarDropDown";
 import verified from "../../../public/app-static-images/verified.png";
+import Button from "react-bootstrap/Button";
 import homeIcon from "../../../public/app-static-images/home.png";
 import requirementIcon from "../../../public/app-static-images/Post-requirement.png";
 import addIcon from "../../../public/app-static-images/add.png";
 import writeIcon from "../../../public/app-static-images/write.png";
-import Image from "next/image";
-import NotificationBell from "../../../utilsComponents/NotificationBell";
-import { useRouter } from "next/router";
+import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 
 export default function DekstopNavBar() {
   const router = useRouter();
-  const [openProfleBox, setopenProfleBox] = useState(false);
+  const { openProfleBox, handelMouseHover, handelMoveLeave } =
+    useContext(AppUtilsContext);
+  const { loginUser } = useContext(UserContext);
+
+  // change DropDown Style box style
+  const isLogin =
+    loginUser.email !== undefined
+      ? style.DekstopNavBar_DropDoen_Menu
+      : style.DekstopNavBar_DropDoen_Menu_GustUser;
+
   return (
     <>
       <div className={style.DekstopNavBar_mainContainer}>
@@ -43,86 +58,94 @@ export default function DekstopNavBar() {
             <h1>S-Panel</h1>
           </div>
           <div>
-            {/* <div className={style.bell_IconBox}>
-              <Image
-                src={bell}
-                alt="bell-icon"
-                width={25}
-                className={style.bellImage}
-              />
-              <span>10</span>
-            </div> */}
             <NotificationBell w={25} />
           </div>
           <div className={style.userProfileBox}>
-            <div>
-              <Image
-                src={userIcon}
-                alt="user-icon"
-                width={30}
-                className={style.userIconStyle}
-                onMouseOver={() => setopenProfleBox(true)}
-                onMouseLeave={() => setopenProfleBox(false)}
-              />
-            </div>
-            {openProfleBox && (
-              <>
-                <div
-                  className={style.userProfile_DropDown_Box}
-                  onMouseOver={() => setopenProfleBox(true)}
-                  onMouseLeave={() => setopenProfleBox(false)}
+            <Dropdown>
+              <div>
+                <Dropdown.Toggle
+                  variant="transprant"
+                  id="dropdown-basic"
+                  style={{ outline: "none", border: "none" }}
                 >
-                  <div className={style.Userdeatils}>
-                    <div className={style.userName}>
-                      <h1>Pawan</h1>
-                    </div>
-                    <div className={style.userNumberDeatils}>
-                      <div className={style.userNumber}>9813707848</div>
-                      <div>
-                        <Image src={verified} width={15} alt="verified-icon" />
+                  <Image
+                    src={userIcon}
+                    alt="user-icon"
+                    width={30}
+                    className={style.userIconStyle}
+                  />
+                </Dropdown.Toggle>
+              </div>
+
+              <Dropdown.Menu
+                show={openProfleBox}
+                style={{ zIndex: 10 }}
+                className={isLogin}
+              >
+                {loginUser?.email ? (
+                  <>
+                    <div>
+                      <Dropdown.Item href="#/action-1">Pawan</Dropdown.Item>
+                      <div className={style.DekstopNavBar_DropDown_ItemBox}>
+                        <div className={style.DekstopNavBar_MobileNumber}>
+                          <p>9813707848</p>
+                        </div>
+
+                        <div className={style.DekstopNavBar_verfiedBox}>
+                          <Image src={verified} width={15} />
+                        </div>
+                      </div>
+
+                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
+                        <div className={style.DekstopNavBar_IconBox}>
+                          <Image src={addIcon} width={15} />
+                        </div>
+
+                        <div className={style.DekstopNavBar_LinkName}>
+                          <p>Add Product</p>
+                        </div>
+                      </div>
+
+                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
+                        <div className={style.DekstopNavBar_IconBox}>
+                          <Image src={writeIcon} width={15} />
+                        </div>
+
+                        <div className={style.DekstopNavBar_LinkName}>
+                          <p>Update Profile</p>
+                        </div>
+                      </div>
+
+                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
+                        <div className={style.DekstopNavBar_IconBox}>
+                          <Image src={requirementIcon} width={15} />
+                        </div>
+
+                        <div className={style.DekstopNavBar_LinkName}>
+                          <p>Post Your Requirement</p>
+                        </div>
+                      </div>
+
+                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
+                        <div className={style.LogOut_Box}>
+                          <Button onClick={() => router.push("/sing-up")}>
+                            Log Out
+                          </Button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={style.optionList_box}>
-                    <div className={style.OptionBox}>
-                      <div>
-                        <Image src={homeIcon} alt="Home-icon" width={20} />
-                      </div>
-                      <div className={style.icon_Name}>Home</div>
+                  </>
+                ) : (
+                  <>
+                    <div className={style.Login_Box}>
+                      <Button onClick={() => router.push("/sing-up")}>
+                        Log in
+                      </Button>
                     </div>
-                    <div className={style.OptionBox}>
-                      <div>
-                        <Image
-                          src={requirementIcon}
-                          alt="Home-icon"
-                          width={20}
-                        />
-                      </div>
-                      <div className={style.icon_Name}>
-                        Post Your Requirement
-                      </div>
-                    </div>
-                    <div className={style.OptionBox}>
-                      <div>
-                        <Image src={addIcon} alt="Home-icon" width={20} />
-                      </div>
-                      <div className={style.icon_Name}>Add Product</div>
-                    </div>
-                    <div className={style.OptionBox}>
-                      <div>
-                        <Image src={writeIcon} alt="Home-icon" width={20} />
-                      </div>
-                      <div className={style.icon_Name}>Update Profile</div>
-                    </div>
-                  </div>
-                  <div className={style.LogOut_Box}>
-                    <button onClick={() => router.push("/sing-up")}>
-                      Log Out
-                    </button>
-                  </div>
-                </div>
-              </>
-            )}
+                  </>
+                )}
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </div>
       </div>

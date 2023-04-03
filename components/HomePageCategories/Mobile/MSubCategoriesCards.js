@@ -9,13 +9,13 @@ export default function MSubCategoriesCards() {
         <div className={style.MSubCategoriesCards_subLists}>
           <div className={style.MSub_NameBox}>Electronic and Electrical</div>
           <div className={style.MSub_IconBox}>
-            <Image src={nextIcon} width={100} alt="next-icon" />
+            <Image src={nextIcon} width={30} alt="next-icon" />
           </div>
         </div>
         <div className={style.MSubCategoriesCards_subLists}>
           <div className={style.MSub_NameBox}>Name</div>
           <div className={style.MSub_IconBox}>
-            <Image src={nextIcon} width={100} alt="next-icon" />
+            <Image src={nextIcon} width={30} alt="next-icon" />
           </div>
         </div>
       </div>

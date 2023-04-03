@@ -4,11 +4,14 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { UserContextProvider } from "../ContaxtApi/UserContaxApi";
+import { AppUilsContextProvider } from "../ContaxtApi/AppUtilsContaxApi";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserContextProvider>
-      <Component {...pageProps} />
+      <AppUilsContextProvider>
+        <Component {...pageProps} />
+      </AppUilsContextProvider>
     </UserContextProvider>
   );
 }

@@ -91,7 +91,9 @@ export default function OTPComponent() {
                   isValid ? styles.form_btn_full_width_Box : styles.disabledbtn
                 }
               >
-                <button disabled={!isValid}>Submit Now</button>
+                <button className={styles.btnStyle} disabled={!isValid}>
+                  Submit Now
+                </button>
               </div>
             </div>
           </form>

@@ -111,6 +111,52 @@
   cursor: pointer;
 }
 
+.DekstopNavBar_DropDoen_Menu {
+  width: 180px;
+  height: 200px;
+  font-size: 1.2rem;
+}
+
+.DekstopNavBar_DropDoen_Menu_GustUser {
+  width: 100px;
+  height: 100px;
+}
+
+.DekstopNavBar_DropDown_ItemBox {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--theme-color);
+}
+
+.DekstopNavBar_MobileNumber {
+  height: 20px;
+}
+
+.DekstopNavBar_verfiedBox {
+  display: flex;
+}
+
+.DekstopNavBar_DropDown_OptionBox {
+  display: flex;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+}
+
+.DekstopNavBar_IconBox {
+  margin-right: 10px;
+  display: flex;
+}
+
+.DekstopNavBar_LinkName {
+  display: flex;
+  font-size: 1.3rem;
+  height: 20px;
+}
+
 .userProfile_DropDown_Box {
   position: absolute;
   width: 200px;
@@ -195,6 +241,14 @@
   font-size: 1.4rem;
   border-radius: 5px;
   box-shadow: var(--container-box-shadow);
+}
+
+.Login_Box {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 950px) and (max-width: 1295px) {

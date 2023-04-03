@@ -50,7 +50,7 @@ export const authenticate = (data, cb) => {
   ).toString();
   console.log("Encrypted user data:", encryptedData);
   setLocalStorage("user", encryptedData);
-  setCookies("jwt", data.token);
+  setLoginCookies("jwt", data.token);
 
   cb();
 };
@@ -135,6 +135,26 @@ export const loginAccount = async (clData) => {
 
     return res;
   } catch (error) {
+    return error.response;
+  }
+};
+
+// super-Admin Login
+export const SuperAdminlogin = async (clData) => {
+  try {
+    const res = await axios.post(
+      "http://127.0.0.1:5000/api/V1/industy/super-admin/login-super-admin",
+      clData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return res;
+  } catch (error) {
+    console.log(error.response);
     return error.response;
   }
 };

@@ -229,7 +229,9 @@ export default function SingUpComponent() {
                       : styles.disabledbtn
                   }
                 >
-                  <button disabled={!isValid}>SEND OTP</button>
+                  <button className={styles.btnStyle} disabled={!isValid}>
+                    SEND OTP
+                  </button>
                 </div>
               </div>
             </form>

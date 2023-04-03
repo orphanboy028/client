@@ -75,7 +75,7 @@
   background-color: #e64545;
   height: auto;
   line-height: inherit;
-  padding: 10px;
+
   text-align: center;
   cursor: pointer;
 }
@@ -84,12 +84,20 @@
   margin-top: 10px;
   color: #fff;
   border: solid 1px #eee;
-  background-color: #eee;
+  background-color: #e64545;
   height: auto;
   line-height: inherit;
-  padding: 10px;
   text-align: center;
   cursor: not-allowed;
+}
+
+.btnStyle {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  color: #fff;
 }
 
 .input_ErrorBox {

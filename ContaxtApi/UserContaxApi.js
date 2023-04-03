@@ -7,6 +7,8 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const [loginUser, setloginUser] = useState({});
   const [loading, setLoading] = useState(true);
+
+  console.log(loginUser);
   useEffect(() => {
     const getUserData = async () => {
       const storedData = await isAuth();
