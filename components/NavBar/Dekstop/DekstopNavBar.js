@@ -27,7 +27,7 @@ export default function DekstopNavBar() {
 
   // change DropDown Style box style
   const isLogin =
-    loginUser.email !== undefined
+    loginUser?.email !== undefined
       ? style.DekstopNavBar_DropDoen_Menu
       : style.DekstopNavBar_DropDoen_Menu_GustUser;
 
