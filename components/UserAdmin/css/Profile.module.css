@@ -1,0 +1,67 @@
+.ProfileComponent_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px;
+  box-sizing: border-box;
+}
+
+.ProfileComponent_logo_container {
+  width: 90%;
+  height: 300px;
+  border: 1px solid #6b74f5;
+  background-color: #6b74f5;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.ProfileComponent_logoBox {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ProfileComponent_CompanyName {
+  letter-spacing: 0.2rem;
+}
+
+.ProfileComponent_OwnerName {
+  color: #fff;
+}
+
+.ProfileComponent_OwnerName h4 {
+  letter-spacing: 0.3rem;
+}
+
+.logoImage {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.ProfileComponent_CompanyName {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.ProfileComponent_information_container {
+  border: 1px solid #fff;
+  background-color: #fff;
+  width: 70%;
+  height: 300px;
+  z-index: 10;
+  margin-top: -50px;
+  box-shadow: 0 0 0.375rem 0.25rem rgba(161, 172, 184, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+}
