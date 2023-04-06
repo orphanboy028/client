@@ -20,7 +20,12 @@ export default function UserAdminLayout({ children }) {
     <>
       <div className={style.UserAdminLayout_NavBar}>
         <div className={style.UserAdminLayout_logo}>
-          <FontAwesomeIcon icon={faBars} onClick={handelSidebar} />
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={handelSidebar}
+            size="2x"
+            className={style.hangburgIcon}
+          />
           <h2>
             Med <span>Ex</span>
           </h2>
@@ -34,13 +39,13 @@ export default function UserAdminLayout({ children }) {
             </button>
           </div>
           <div className={style.UserAdminLayout_notification_profile}>
-            <div>
-              <FontAwesomeIcon icon={faBell} />
+            <div className={`${style.rightIcon} ${style.bell}`}>
+              <FontAwesomeIcon icon={faBell} size="2x" />
             </div>
-            <div>
-              <FontAwesomeIcon icon={faUser} />
+            <div className={`${style.rightIcon} ${style.user}`}>
+              <FontAwesomeIcon icon={faUser} size="2x" />
             </div>
-            <div>
+            <div className={`${style.rightIcon} ${style.chat}`}>
               <FontAwesomeIcon icon={faBell} size="2x" />
             </div>
           </div>
@@ -55,7 +60,9 @@ export default function UserAdminLayout({ children }) {
           <ul className={style.UserAdminLayout_sidebar_items}>
             <li className={style.UserAdminLayout_li}>
               <a href="#">
-                <span className={style.UserAdminLayout_icon}>
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon1}`}
+                >
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
@@ -65,7 +72,9 @@ export default function UserAdminLayout({ children }) {
             </li>
             <li>
               <a href="/user-admin">
-                <span className={style.UserAdminLayout_icon}>
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
+                >
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span
@@ -79,7 +88,9 @@ export default function UserAdminLayout({ children }) {
             </li>
             <li>
               <a href="#">
-                <span className={style.UserAdminLayout_icon}>
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                >
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>

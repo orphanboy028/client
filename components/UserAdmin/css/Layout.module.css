@@ -13,6 +13,11 @@
   padding-left: 40px;
 }
 
+.hangburgIcon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .UserAdminLayout_logo span {
   color: #5073fb;
 }
@@ -59,6 +64,30 @@
 .UserAdminLayout_notification_profile {
   display: flex;
   align-items: center;
+}
+
+.rightIcon {
+  margin-left: 20px;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: green;
+  cursor: pointer;
+}
+
+.bell {
+  color: #5073fb;
+  background-color: rgb(80, 115, 251, 0.2);
+}
+
+.user {
+  color: #f1d243;
+  background-color: rgb(241, 210, 67, 0.2);
+}
+
+.chat {
+  color: #70d7a5;
+  background-color: rgba(112, 215, 165, 0.2);
 }
 
 .UserAdminLayout_main {
@@ -133,6 +162,16 @@
   justify-content: center;
   margin-right: 20px;
   font-size: 1.3rem;
+}
+
+.sideBarIcon1 {
+  color: #c5bc58;
+}
+.sideBarIcon2 {
+  color: #a280e9;
+}
+.sideBarIcon3 {
+  color: #85ade3;
 }
 
 .UserAdminLayout_main_content {

@@ -15,7 +15,7 @@ export default function SuperAdminPrivate({ children }) {
       router.push("/login");
     } else if (isAuth().role !== "Super-admin") {
       setprtectLoading(true);
-      router.push("/login");
+      router.push("super-admin/login");
     } else {
       setprtectLoading(false);
     }
