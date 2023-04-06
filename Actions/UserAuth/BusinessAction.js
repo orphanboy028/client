@@ -40,3 +40,22 @@ export const updateBusinessProfile = async (formdata, token) => {
     return error.response;
   }
 };
+
+export const updateLogo = async (formData, token) => {
+  try {
+    const res = await axios.patch(
+      "http://127.0.0.1:5000/api/V1/industy/business/update-logo",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
