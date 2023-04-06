@@ -42,10 +42,7 @@ export default function BusinessDetails({ Userbusiness }) {
           </div>
           <div>
             {" "}
-            <p>
-              Plot no-271,sector-6, imt manesar, Near Labour chock, Gurugram,
-              Haryana, India, 122001
-            </p>
+            <p>{Userbusiness?.address}</p>
           </div>
         </div>
       </div>
