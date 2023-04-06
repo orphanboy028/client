@@ -5,12 +5,15 @@ import "primeicons/primeicons.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { UserContextProvider } from "../ContaxtApi/UserContaxApi";
 import { AppUilsContextProvider } from "../ContaxtApi/AppUtilsContaxApi";
+import { BusinessContextProvider } from "../ContaxtApi/BusinessContaxApi";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserContextProvider>
       <AppUilsContextProvider>
-        <Component {...pageProps} />
+        <BusinessContextProvider>
+          <Component {...pageProps} />
+        </BusinessContextProvider>
       </AppUilsContextProvider>
     </UserContextProvider>
   );

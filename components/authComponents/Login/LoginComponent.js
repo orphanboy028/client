@@ -1,11 +1,14 @@
 import React from "react";
+import { useRouter } from "next/router";
 import styles from "../SingUp/css/SingUp.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginAccount, authenticate } from "../../../Actions/UserAuth/userAuth";
+
 export default function LoginComponent() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -31,7 +34,7 @@ export default function LoginComponent() {
       console.log(data);
       authenticate(data, () => {
         if (data.user.role === "user") {
-          // Router.push("/");
+          router.push("/user-admin");
           toast.success("Login sucessfully");
         } else if (data.user.role === "admin") {
           // Router.push("/super-admin");

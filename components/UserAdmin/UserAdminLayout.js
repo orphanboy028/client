@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import style from "./css/Layout.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -63,7 +64,7 @@ export default function UserAdminLayout({ children }) {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/user-admin">
                 <span className={style.UserAdminLayout_icon}>
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
@@ -72,7 +73,7 @@ export default function UserAdminLayout({ children }) {
                     isSidebarVisible ? style.sideBarItem : ""
                   }`}
                 >
-                  Dashboard
+                  Profile
                 </span>
               </a>
             </li>

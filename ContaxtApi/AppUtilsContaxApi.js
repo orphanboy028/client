@@ -6,6 +6,7 @@ export const AppUilsContextProvider = ({ children }) => {
   const [openProfleBox, setopenProfleBox] = useState(false);
   const [formloading, setformloading] = useState(false);
   const [prtectLoading, setprtectLoading] = useState(false);
+  const [key, setKey] = useState("BusinessDeails");
 
   const handelMouseHover = () => {
     setopenProfleBox(true);
@@ -13,6 +14,10 @@ export const AppUilsContextProvider = ({ children }) => {
 
   const handelMoveLeave = () => {
     setopenProfleBox(false);
+  };
+
+  const handelTab = (tabName) => {
+    setKey(tabName);
   };
 
   return (
@@ -25,6 +30,9 @@ export const AppUilsContextProvider = ({ children }) => {
         setformloading,
         prtectLoading,
         setprtectLoading,
+        key,
+        setKey,
+        handelTab,
       }}
     >
       {children}

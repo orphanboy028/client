@@ -141,7 +141,7 @@
   right: 0;
   height: 100%;
   width: calc(100% - 200px);
-  background-color: rgb(211, 206, 206);
+  background-color: #eee;
   transition: 0.3s;
   padding: 10px;
 }
@@ -157,7 +157,7 @@
     transform: translateX(0);
     width: 180px;
     padding-left: 0px;
-    z-index: 10;
+    z-index: 100;
   }
 
   .active {
@@ -173,13 +173,15 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: calc(100% - 180px);
-    background-color: gray;
+    width: calc(100%);
+    background-color: #eee;
     transition: 0.3s;
+    padding: 0px;
   }
 
   .content_container {
     width: calc(100%);
     transition: 0.3s;
+    padding: 0px;
   }
 }

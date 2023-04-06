@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "../css/Profile.module.css";
 import Image from "next/image";
 import logo from "../../../public/Business-logos/logo.jpeg";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import BusinessDetails from "./BusinessDetails";
+import ContactDetails from "./ContactDetails";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import { UserContext } from "../../../ContaxtApi/UserContaxApi";
+import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
+import EditContactDetails from "./EditContactDetails";
+import EditBusinessDetails from "./EditBusinessDetails";
 
 export default function ProfileComponent() {
-  const [key, setKey] = useState("home");
+  const { key, setKey } = useContext(AppUtilsContext);
+  const { token, loginUser } = useContext(UserContext);
+  const { getBusinessDetails, Userbusiness } = useContext(BusinessContext);
+
+  useEffect(() => {
+    getBusinessDetails(token);
+  }, []);
+
   return (
     <div className={style.ProfileComponent_container}>
       <div className={style.ProfileComponent_logo_container}>
@@ -23,7 +37,7 @@ export default function ProfileComponent() {
         </div>
         <div className={style.ProfileComponent_OwnerName}>
           <h4>
-            {`(`} Pawan Chauhan {`)`}
+            {`(`} {loginUser.name} {`)`}
           </h4>
         </div>
       </div>
@@ -35,39 +49,17 @@ export default function ProfileComponent() {
           onSelect={(k) => setKey(k)}
           className="mb-3"
         >
-          <Tab eventKey="home" title="Home">
-            <p>
-              Home! 'tis true, I have gone here and there, And made my self a
-              motley to the view, Gor'd mine own thoughts, sold cheap what is
-              most dear, Made old offences of affections new; Most true it is,
-              that I have look'd on truth Askance and strangely; but, by all
-              above, These blenches gave my heart another youth, And worse
-              essays prov'd thee my best of love. Now all is done, save what
-              shall have no end: Mine appetite I never more will grind
-            </p>
+          <Tab eventKey="BusinessDeails" title="Business Deails">
+            <BusinessDetails Userbusiness={Userbusiness} />
           </Tab>
-          <Tab eventKey="profile" title="Profile">
-            <p>
-              Alas! 'tis true, I have gone here and there, And made my self a
-              motley to the view, Gor'd mine own thoughts, sold cheap what is
-              most dear, Made old offences of affections new; Most true it is,
-              that I have look'd on truth Askance and strangely; but, by all
-              above, These blenches gave my heart another youth, And worse
-              essays prov'd thee my best of love. Now all is done, save what
-              shall have no end: Mine appetite I never more will grind
-            </p>
+          <Tab eventKey="ContactDetails" title="Contact Details">
+            <ContactDetails Userbusiness={Userbusiness} />
           </Tab>
-          <Tab eventKey="contact" title="Contact" disabled>
-            <p>
-              Who will believe my verse in time to come, If it were fill'd with
-              your most high deserts? Though yet heaven knows it is but as a
-              tomb Which hides your life, and shows not half your parts. If I
-              could write the beauty of your eyes, And in fresh numbers number
-              all your graces, The age to come would say 'This poet lies; Such
-              heavenly touches ne'er touch'd earthly faces.' So should my
-              papers, yellow'd with their age, Be scorn'd, like old men of less
-              truth than tongue,
-            </p>
+          <Tab eventKey="EditBusinessDeails" title="Edit Business Deails">
+            <EditBusinessDetails Userbusiness={Userbusiness} />
+          </Tab>
+          <Tab eventKey="EditContactDetails" title="Edit Contact Details">
+            <EditContactDetails Userbusiness={Userbusiness} />
           </Tab>
         </Tabs>
       </div>
