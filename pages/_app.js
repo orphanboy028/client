@@ -6,13 +6,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import { UserContextProvider } from "../ContaxtApi/UserContaxApi";
 import { AppUilsContextProvider } from "../ContaxtApi/AppUtilsContaxApi";
 import { BusinessContextProvider } from "../ContaxtApi/BusinessContaxApi";
+import { ProductContextProvider } from "../ContaxtApi/ProductContextApi";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserContextProvider>
       <AppUilsContextProvider>
         <BusinessContextProvider>
-          <Component {...pageProps} />
+          <ProductContextProvider>
+            <Component {...pageProps} />
+          </ProductContextProvider>
         </BusinessContextProvider>
       </AppUilsContextProvider>
     </UserContextProvider>

@@ -112,7 +112,7 @@ export default function ProfileComponent() {
           </div>
           <div className={style.ProfileComponent_OwnerName}>
             <h4>
-              {`(`} {loginUser.name} {`)`}
+              {`(`} {loginUser?.name} {`)`}
             </h4>
           </div>
         </div>

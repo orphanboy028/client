@@ -87,14 +87,26 @@ export default function UserAdminLayout({ children }) {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/user-admin/manage-products">
                 <span
                   className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
                 >
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
-                  Dashboard
+                  Manage Product
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/user-admin/add-product">
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                >
+                  <FontAwesomeIcon icon={faGauge} size="2x" />
+                </span>
+                <span className={style.UserAdminLayout_sidebar_item}>
+                  Add Products
                 </span>
               </a>
             </li>

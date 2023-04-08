@@ -24,7 +24,7 @@ export default function ContactDetails({ Userbusiness }) {
         </div>
         <div>
           {" "}
-          <h5>{loginUser.mobileNumber}</h5>
+          <h5>{loginUser?.mobileNumber}</h5>
         </div>
       </div>
       <div className={styles.BusinessDetails_detailsBox}>
@@ -33,7 +33,7 @@ export default function ContactDetails({ Userbusiness }) {
         </div>
         <div>
           {" "}
-          <h5>{loginUser.email}</h5>
+          <h5>{loginUser?.email}</h5>
         </div>
       </div>
 

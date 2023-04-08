@@ -54,7 +54,7 @@ export default function EditContactDetails({ Userbusiness }) {
             <Form.Control
               type="text"
               placeholder="Enter Your Mobile Number"
-              value={loginUser.mobileNumber}
+              value={loginUser?.mobileNumber}
               disabled
             />
           </div>
@@ -67,7 +67,7 @@ export default function EditContactDetails({ Userbusiness }) {
             <Form.Control
               type="text"
               placeholder="Enter Your E-mail"
-              value={loginUser.email}
+              value={loginUser?.email}
               disabled
             />
           </div>
