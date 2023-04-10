@@ -1,0 +1,28 @@
+.ProductCard_main_container {
+  border-radius: 10px;
+  border: solid 1px#eee;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.ProductCard_inner_Container {
+  display: flex;
+  border: solid 1px#eee;
+  padding: 10px;
+}
+
+.ProductCard_infoBox {
+  margin-left: 20px;
+}
+.boxes:nth-child(2) {
+  flex-grow: 1;
+}
+
+.boxes:last-child {
+  order: 1;
+}
+
+.three_dotsBox {
+  width: 100px;
+}

@@ -1,0 +1,32 @@
+.filed_container {
+  display: flex;
+  font-size: 1.8rem;
+  margin: 10px 0px;
+}
+
+.main_lable {
+  min-width: 200px;
+}
+
+.radioBox {
+  min-width: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.radioBox label {
+  margin-right: 10px;
+}
+
+.radio_inputs_box {
+  margin: 0px 10px;
+}
+
+.text_inputBox {
+  width: 250px;
+}
+
+.text_inputBox input {
+  width: 100%;
+}

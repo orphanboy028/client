@@ -1,0 +1,18 @@
+.searchList_Container {
+  height: 200px;
+  border: 1px solid red;
+  overflow: scroll;
+}
+
+.forSelect {
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+}
+
+.checkBox_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+}
