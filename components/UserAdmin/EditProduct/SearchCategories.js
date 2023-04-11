@@ -2,18 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import style from "../css/SearchCategories.module.css";
 // import { allCategories } from "../../FormData/categories";
 import { categoriesContext } from "../../../ContaxtApi/CategoriesContaxApi";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
 
 export default function SearchCategories() {
   const { allCategories } = useContext(categoriesContext);
+  const { selectedItem, setSelectedItem } = useContext(AppUtilsContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [mainCat, setmainCat] = useState("");
   const [lefCat, setlefCat] = useState([]);
   const [subCat, setsubCat] = useState("");
   const [checkedItems, setCheckedItems] = useState({});
-  const [selectedItem, setSelectedItem] = useState("");
-
-  console.log(searchResult);
 
   const handelChnage = (e) => {
     const value = e.target.value;
@@ -76,19 +75,17 @@ export default function SearchCategories() {
         (lefCategories) => lefCategories.lefCategoryName === lefName
       )._id;
 
-      console.log("Selected lef category:", lefName);
-      console.log("Selected sub category:", subCategory.subCategoryName);
-      console.log("Selected category:", category.categoryName);
-      console.log("Selected subCategoryId:", subCategoryId);
-      console.log("Selected lefCategoryId:", lefCategoryId);
+      // console.log("Selected lef category:", lefName);
+      // console.log("Selected sub category:", subCategory.subCategoryName);
+      // console.log("Selected category:", category.categoryName);
+      // console.log("Selected subCategoryId:", subCategoryId);
+      // console.log("Selected lefCategoryId:", lefCategoryId);
     }
   };
 
   function handleRadioChange(event) {
     setSelectedItem(event.target.value);
   }
-
-  console.log(setlefCat);
 
   return (
     <>

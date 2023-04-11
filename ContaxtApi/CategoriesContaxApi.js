@@ -17,7 +17,6 @@ export const CategriesContextProvider = ({ children }) => {
   const getCategories = async () => {
     try {
       const result = await getAllCategories();
-      console.log(result.data.allCategories);
       setallCategories(result.data.allCategories);
     } catch (error) {
       console.log(error.response);

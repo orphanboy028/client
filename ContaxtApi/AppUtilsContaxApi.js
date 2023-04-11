@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { getForm } from "../Actions/adminAuth/FormAction";
 
 export const AppUtilsContext = createContext();
 
@@ -7,6 +8,9 @@ export const AppUilsContextProvider = ({ children }) => {
   const [formloading, setformloading] = useState(false);
   const [prtectLoading, setprtectLoading] = useState(false);
   const [key, setKey] = useState("BusinessDeails");
+  // This state for when user select any categories
+  const [selectedItem, setSelectedItem] = useState("");
+  const [formSeleted, setformSeleted] = useState([]);
 
   const handelMouseHover = () => {
     setopenProfleBox(true);
@@ -19,6 +23,29 @@ export const AppUilsContextProvider = ({ children }) => {
   const handelTab = (tabName) => {
     setKey(tabName);
   };
+
+  useEffect(() => {
+    async function getFormAction() {
+      try {
+        if (selectedItem) {
+          console.log(selectedItem);
+          const result = await getForm(selectedItem);
+
+          const formFieldsArray = result.data.selectedForm.formFields.map(
+            (item) => {
+              const { _id, ...rest } = item;
+              return rest;
+            }
+          );
+          // console.log(formFieldsArray);
+          setformSeleted(formFieldsArray);
+        }
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+    getFormAction();
+  }, [selectedItem]);
 
   return (
     <AppUtilsContext.Provider
@@ -33,6 +60,9 @@ export const AppUilsContextProvider = ({ children }) => {
         key,
         setKey,
         handelTab,
+        selectedItem,
+        setSelectedItem,
+        formSeleted,
       }}
     >
       {children}
