@@ -34,8 +34,8 @@ export default function LoginComponent() {
       console.log(data);
       authenticate(data, () => {
         if (data.user.role === "user") {
-          router.push("/user-admin");
           toast.success("Login sucessfully");
+          router.push("/user-admin");
         } else if (data.user.role === "admin") {
           // Router.push("/super-admin");
         }

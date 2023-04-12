@@ -38,7 +38,7 @@ export const ProductContextProvider = ({ children }) => {
       formData.append("price", inputdata.price);
       formData.append("description", inputdata.description);
       const result = await createProduct(formData, token);
-      console.log(result);
+      return result;
     } catch (error) {
       console.log(error);
     }

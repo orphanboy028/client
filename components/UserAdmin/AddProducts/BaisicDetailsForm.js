@@ -11,6 +11,8 @@ import { ProductFormContext } from "../../../ContaxtApi/ProductFormContextApi";
 import ProductFormConponent from "./ProductFormConponent";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BaisicDetailsForm() {
   const { token, loginUser } = useContext(UserContext);
@@ -28,9 +30,18 @@ export default function BaisicDetailsForm() {
 
   const onSubmit = async (formdata) => {
     try {
-      console.log(formdata);
       const result = await CreateBasicProduct(formdata, token);
-      console.log(result);
+
+      if ((result.data.status = "Success")) {
+        toast.success("product add succes fully", {
+          autoClose: 3000,
+          onClose: () => {
+            router.push(
+              `/user-admin/edit-product/${result.data.createProduct.slug}`
+            );
+          },
+        });
+      }
     } catch (error) {
       console.log(error.response);
     }
@@ -38,6 +49,7 @@ export default function BaisicDetailsForm() {
 
   return (
     <>
+      <ToastContainer />
       <div className={style.AddProductComponenet_basic_details_innderContainer}>
         <div className={style.AddProductComponenet_imageContainer}>
           <div className={style.AddProductComponenet_imageBox}>
@@ -140,7 +152,7 @@ export default function BaisicDetailsForm() {
               </div>
 
               <div className={style.product_basic_btnBox}>
-                <button>Save</button>
+                <button>Save product</button>
               </div>
             </form>
           </div>

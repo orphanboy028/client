@@ -23,6 +23,7 @@ html {
   --color-brand-blue: #2874f0;
   --color-white: #f0f0f0;
   --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --box-shadow2: 0 2px 4px 0 rgb(0 0 0 / 23%);
   --container-box-shadow: 0 2px 4px 0 rgba(127, 75, 210, 0.23);
   --border-color-gray: #ebebeb;
   --container-padding-top-botoom: 15px;
