@@ -181,7 +181,7 @@
   right: 0;
   height: 100%;
   width: calc(100% - 0px);
-  background-color: #eee;
+  background-color: #fff;
   transition: 0.3s;
   padding: 10px;
 }

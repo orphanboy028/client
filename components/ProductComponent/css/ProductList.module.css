@@ -114,16 +114,136 @@
   align-items: center;
 }
 
+/* ProductList_main_Container */
+
+.ProductList_main_Container {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.ProductList_left_sideBar {
+  display: block;
+  width: 250px;
+  height: 100%;
+}
+
+.product_centerBox {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ProductList_rightBox {
+  display: block;
+  width: 250px;
+}
+
+.card_container {
+  display: block;
+  box-shadow: var(--box-shadow2);
+  width: 250px;
+  height: 270px;
+  padding: 10px;
+  background-color: #fff;
+  margin: 20px;
+}
+
+.productImage_Box {
+  border: 1px solid #eee;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.product_Card_Body {
+  margin-top: 10px;
+}
+
+.Product_titleBox {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.product_priceBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price_TextBox {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.card_Btn_BOX {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.card_Btn_BOX button {
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 690px) {
   .ProductList_Banner_Container {
     display: none;
   }
 
-  .location_RightBox {
+  .ProductList_left_sideBar {
     display: none;
   }
 
   .MobilenearMeBox {
     display: flex;
+  }
+  .cityBox {
+    background-color: #eee;
+    margin: 0px 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+  }
+  .ProductList_Right_sideBar {
+    display: none;
+  }
+
+  .ProductList_rightBox {
+    display: none;
+  }
+
+  .product_centerBox {
+    width: 100%;
+    display: block;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .card_container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    margin: 10px 0px;
+    box-sizing: border-box;
+  }
+
+  .productImage_Box {
+    width: 200px;
+    height: 100%;
+  }
+  .product_Card_Body {
+    padding: 0px 10px;
   }
 }
