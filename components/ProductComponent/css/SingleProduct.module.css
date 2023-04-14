@@ -1,0 +1,351 @@
+.SingleProduct_top_container {
+  display: flex;
+  margin: 10px 10px;
+}
+
+.SingleProduct_Image_container {
+  width: 30%;
+}
+
+.SingleProduct_detail_container {
+  width: 40%;
+  padding: 10px 50px;
+}
+
+.SingleProduct_companyDetails_container {
+  width: 20%;
+  border: 1px solid #eee;
+}
+
+.SingleProduct_ImageBox {
+  border: 2px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  box-shadow: var(--box-shadow);
+}
+
+.SingleProduct_PriceBox {
+  margin-top: 20px;
+}
+
+.SingleProduct_Rs_iconBox {
+  margin-right: 10px;
+}
+
+.SingleProduct_descreptionBox {
+  font-size: 1.4rem;
+}
+
+.SingleProduct_btnBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0px;
+}
+
+.SingleProduct_enquiryBtn {
+  border: 1px solid #2874f0;
+  padding: 10px 35px;
+  color: #fff;
+  background-color: #2874f0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+.SingleProduct_ReadBtn {
+  border: 1px solid #fb641b;
+  padding: 10px 35px;
+  color: #fff;
+  background-color: #fb641b;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+.SingleProduct_companyDetails_container {
+  padding: 5px;
+}
+
+.SingleProduct_comppany_logo_with_Gst {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.SingleProduct_companyLogoBox {
+  background-color: #eee;
+  margin-right: 10px;
+}
+
+.SingleProduct_company_Title {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.SingleProduct_Owner_StaticBox {
+  display: flex;
+}
+.SingleProduct_ownerIconBox {
+  padding: 5px 10px 5px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SingleProduct_static_Owner {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.SingleProduct_static_AddressBox {
+  display: flex;
+  align-items: center;
+}
+
+.SingleProduct_static_addressIcon {
+  padding: 5px 15px 5px 0px;
+}
+
+.SingleProduct_static_Address {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.SingleProduct_static_Box {
+  margin-top: 10px;
+}
+
+.SingleProduct_realted_prductContainer {
+  border: 1px solid #eee;
+  margin-top: 50px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  height: 300px;
+  display: flex;
+  padding: 10px;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap; /* ensure that the flex items stay in a single line */
+
+  /* customize the scrollbar */
+  scrollbar-width: none; /* hide the scrollbar in Firefox */
+  -ms-overflow-style: none; /* hide the scrollbar in Edge */
+}
+.SingleProduct_realted_prductContainer::-webkit-scrollbar {
+  width: 0px; /* hide the scrollbar in WebKit-based browsers */
+}
+/* add a custom scrollbar style */
+.SingleProduct_realted_prductContainer::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.Related_Product_CardContainer {
+  flex: 0 0 200px;
+  border: 1px solid #eee;
+  margin: 0px 10px;
+  height: 250px;
+}
+
+.Realted_CardImageBox {
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.SingleProduct_Related_Card_title {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.SingleProduct_RelatedProduct_card_BtnBox {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+  margin-top: 10px;
+}
+.SingleProduct_RelatedProduct_CardBtn {
+  border: 1px solid #2874f0;
+  padding: 5px 5px;
+  color: #fff;
+  background-color: #2874f0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+.SingleProduct_Main_detailContainer {
+  display: flex;
+  margin: 100px 0px;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+
+.SingleProduct_main_Details_container {
+  width: 50%;
+  min-height: 200px;
+  box-shadow: var(--box-shadow);
+  padding: 10px;
+}
+
+.SingleProduct_ProductDetails_Box {
+  display: flex;
+}
+
+.SingleProduct_ProductDetails_Title {
+  margin-bottom: 20px;
+}
+
+.SingleProduct_ProductDetails_Box {
+  margin: 10px 0px;
+}
+
+.SingleProduct_ProductDetails_staticFiled {
+  border-bottom: 1px solid #eee;
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.SingleProduct_ProductDetails_DynimicValue {
+  border-bottom: 1px solid #eee;
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.SingleProduct_Enquery_Form_Container {
+  width: 45%;
+  box-shadow: var(--box-shadow);
+}
+
+.SingleProduct_EnqueryForm_Heading {
+  border: 1px solid #eee;
+  padding: 5px;
+  background-color: #2874f0;
+}
+
+.SingleProduct_EnqueryForm_UserMail_container {
+  display: flex;
+}
+
+.Enquery_To {
+  padding: 10px;
+  border: 1px solid #eee;
+  width: 5%;
+}
+
+.EnqueryForm_EmailBox {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border: 1px solid #eee;
+  width: 95%;
+}
+
+.SingleProduct_EnqueryForm_ProductDetails {
+  display: flex;
+  margin: 10px 0px;
+}
+
+.SingleProduct_EnqueryForm_imageBox {
+  border: 1px solid #eee;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.Enquery_Form_ProductTitle {
+  padding: 5px;
+}
+
+.SingleProduct_mesasageContainer {
+  border: 1px solid #eee;
+  height: 170px;
+  padding: 5px;
+}
+
+.SingleProduct_EnqueryForm_ProductDetails {
+  padding: 5px;
+}
+
+.SingleProduct_mesasageContainer textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.Email_Send_btnBox {
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+.Enquery_Email_Send_btn {
+  border: 1px solid #2874f0;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.endPart {
+  height: 100px;
+}
+
+@media screen and (max-width: 690px) {
+  .SingleProduct_top_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .SingleProduct_Image_container {
+    width: 100%;
+  }
+
+  .SingleProduct_detail_container {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  .SingleProduct_detail_container {
+    width: 100%;
+  }
+
+  .SingleProduct_companyDetails_container {
+    width: 100%;
+  }
+
+  .SingleProduct_Main_detailContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .SingleProduct_main_Details_container {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .SingleProduct_Enquery_Form_Container {
+    width: 100%;
+  }
+}

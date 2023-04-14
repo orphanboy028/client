@@ -11,6 +11,7 @@ import {
 import { locationList } from "../../FormData/location.js";
 
 import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1680969454724.png";
+import Link from "next/link";
 
 export default function ProductList() {
   return (
@@ -96,7 +97,14 @@ export default function ProductList() {
                     <div className={style.product_priceBox}>
                       <div className={style.price_TextBox}>5550</div>
                       <div className={style.card_Btn_BOX}>
-                        <button>Enquery</button>
+                        <button>
+                          <Link
+                            href={"/products/xyx"}
+                            style={{ color: "#ffff", textDecoration: "none" }}
+                          >
+                            Enquery
+                          </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
