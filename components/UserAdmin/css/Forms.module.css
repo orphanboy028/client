@@ -2,12 +2,22 @@
   display: flex;
   font-size: 1.8rem;
   margin: 10px 0px;
+  padding: 10px;
 }
 
-.main_lable {
+/* .main_lable {
   min-width: 200px;
+} */
+
+.labe_Box {
+  width: 30%;
 }
 
+.radio_valueBox {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
 .radioBox {
   min-width: 100px;
   display: flex;
@@ -29,4 +39,19 @@
 
 .text_inputBox input {
   width: 100%;
+}
+
+.main_lable {
+  width: 300px;
+}
+
+@media screen and (max-width: 590px) {
+  .filed_container {
+    flex-direction: column;
+  }
+
+  .labe_Box {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
 }

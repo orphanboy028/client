@@ -6,14 +6,24 @@
   .MCategoriesSlider_main_container {
     display: flex;
     box-shadow: var(--categories-box-shadow);
-    height: 100px;
+    height: 130px;
     background-color: var(--color-brand-blue);
     padding: 5px 10px;
     box-sizing: border-box;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* hide the scrollbar in Firefox */
+    -ms-overflow-style: none; /* hide the scrollbar in Edge */
+  }
+
+  .MCategoriesSlider_main_container::-webkit-scrollbar {
+    width: 0px; /* hide the scrollbar in WebKit-based browsers */
   }
 
   .MCategoriesSlider_card_boxes {
-    width: 130px;
+    /* width: 130px; */
+    flex: 0 0 130px;
     height: 90px;
     box-sizing: border-box;
     margin: 0px 5px;

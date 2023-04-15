@@ -156,20 +156,28 @@
 }
 
 .AddProductComponenet_tab_btn {
-  padding: 10px;
+  padding: 5px 0px;
   font-size: 16px;
   font-weight: 500;
-
   border-radius: 6px;
   box-shadow: 0 10px 13px 0 rgba(0, 0, 0, 0.2);
   width: 48%;
   display: flex;
   align-items: center;
   cursor: pointer;
+  background-color: gray;
+}
+
+.AddProductComponenet_tab_btn button {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
 }
 
 .tabActive {
-  background-color: #2e3192;
+  background-color: #2874f0;
   color: #fff;
 }
 

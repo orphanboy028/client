@@ -123,9 +123,13 @@ export default function ProfileComponent() {
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="mb-3"
+          className={style.TabStyle}
         >
-          <Tab eventKey="BusinessDeails" title="Business Deails">
+          <Tab
+            eventKey="BusinessDeails"
+            title="Business Deails"
+            className={style.TabStyle}
+          >
             <BusinessDetails Userbusiness={Userbusiness} />
           </Tab>
           <Tab eventKey="ContactDetails" title="Contact Details">

@@ -1,6 +1,7 @@
 .bell_IconBox {
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .bell_IconBox span {
@@ -27,7 +28,7 @@
   width: 100%;
   box-sizing: border-box;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
 }
 
@@ -37,12 +38,14 @@
   padding: 3px 10px;
   outline: none;
   font-size: 1.4rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
 }
 
 .SearchInput_IconBox {
   position: absolute;
-  top: 5px;
+  top: 7px;
   right: 10px;
   cursor: pointer;
 }

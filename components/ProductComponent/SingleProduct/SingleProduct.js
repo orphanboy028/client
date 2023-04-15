@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import style from "../css/SingleProduct.module.css";
 import Image from "next/image";
 import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1680969454724.png";
@@ -12,7 +13,18 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
+
 export default function SingleProduct() {
+  const { getSingleProduct, singleProduct } = useContext(ProductContext);
+  const router = useRouter();
+  const { slug } = router.query;
+  console.log(slug);
+
+  useEffect(() => {
+    getSingleProduct(slug);
+  }, [slug]);
+
   return (
     <>
       <div className={style.SingleProduct_top_container}>
@@ -23,22 +35,18 @@ export default function SingleProduct() {
         </div>
         <div className={style.SingleProduct_detail_container}>
           <div>
-            <h1>Mild Steel CNC Turning Fixtures</h1>
+            <h1>{singleProduct?.name}</h1>
           </div>
           <div className={style.SingleProduct_PriceBox}>
             <h2>
               <span className={style.SingleProduct_Rs_iconBox}>
                 <FontAwesomeIcon icon={faIndianRupeeSign} size="2x" />
               </span>
-              <span>13,600</span>
+              <span>{singleProduct?.price}</span>
             </h2>
           </div>
           <div className={style.SingleProduct_descreptionBox}>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printe
-            </p>
+            <p>{singleProduct?.description}</p>
           </div>
           <div className={style.SingleProduct_btnBox}>
             <div className={style.SingleProduct_enquiryBtn}>Enquery</div>
@@ -135,29 +143,37 @@ export default function SingleProduct() {
                 <div className={style.SingleProduct_ProductDetails_Title}>
                   <h2> Product Details</h2>
                 </div>
-
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => {
-                  return (
-                    <>
-                      <div className={style.SingleProduct_ProductDetails_Box}>
+                {singleProduct.properties ? (
+                  Object.keys(singleProduct?.properties).map((names, i) => {
+                    return (
+                      <>
                         <div
-                          className={
-                            style.SingleProduct_ProductDetails_staticFiled
-                          }
+                          className={style.SingleProduct_ProductDetails_Box}
+                          key={i}
                         >
-                          <h5>Model Name/Number</h5>
+                          <div
+                            className={
+                              style.SingleProduct_ProductDetails_staticFiled
+                            }
+                          >
+                            <h5>{names}</h5>
+                          </div>
+                          <div
+                            className={
+                              style.SingleProduct_ProductDetails_DynimicValue
+                            }
+                          >
+                            <h5>{singleProduct?.properties[names]}</h5>
+                          </div>
                         </div>
-                        <div
-                          className={
-                            style.SingleProduct_ProductDetails_DynimicValue
-                          }
-                        >
-                          <h5>IR 3300/2200/2800</h5>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })
+                ) : (
+                  <>
+                    <p>No properties available.</p>
+                  </>
+                )}
               </div>
             </Tab>
             <Tab eventKey="CompanyDetails" title="Company Details">

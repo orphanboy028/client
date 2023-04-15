@@ -34,9 +34,17 @@ html {
   --categories-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16);
   --trasprant-bg: rgba(40, 116, 240, 0.5);
   --cat-box-shadow : box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
-  --font-family: Roboto,Arial,sans-serif;
+  --font-family1: Roboto,Arial,sans-serif;
   --green-color: #388e3c;
   --theme-color : #697a8d;
   --admin-layout-width :calc(100% - (1.625rem * 2));
   --template-box-shadow: 0 0 0.375rem 0.25rem rgba(161, 172, 184, 0.15);
+  --font-family2 : "Poppins", sans-serif;
+  --font-weight400: 400;
+  --font-size14: 1.4rem;
+}
+
+.linkStyle{
+  color: #ffff;
+  text-decoration: none;
 }

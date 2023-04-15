@@ -4,6 +4,7 @@ import style from "../css/MobileHomeNavBar.module.css";
 import menu from "../../../public/app-static-images/menu.png";
 import NotificationBell from "../../../utilsComponents/NotificationBell";
 import SearchInput from "../../../utilsComponents/SearchInput";
+import Link from "next/link";
 export default function MobileHomeNavBar() {
   return (
     <>
@@ -16,7 +17,14 @@ export default function MobileHomeNavBar() {
             <div className={style.left_part_userNameBox}>Hi Pawan</div>
           </div>
           <div className={style.MobileHomeNavBar_TopRightBox}>
-            <div className={style.MobileHomeNavBar_sPanelBox}>S-Panel</div>
+            <div className={style.MobileHomeNavBar_sPanelBox}>
+              <Link
+                href="/user-admin"
+                style={{ textDecoration: "none", color: "#ffff" }}
+              >
+                S-Panel
+              </Link>
+            </div>
             <div className={style.NotificationBell_box}>
               <NotificationBell w={20} />
             </div>

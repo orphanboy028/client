@@ -8,6 +8,8 @@ import {
   faBell,
   faUser,
   faGauge,
+  faAddressCard,
+  faCartPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserAdminLayout({ children }) {
@@ -75,7 +77,7 @@ export default function UserAdminLayout({ children }) {
                 <span
                   className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
                 >
-                  <FontAwesomeIcon icon={faGauge} size="2x" />
+                  <FontAwesomeIcon icon={faAddressCard} size="2x" />
                 </span>
                 <span
                   className={`${style.UserAdminLayout_sidebar_item} ${
@@ -91,7 +93,7 @@ export default function UserAdminLayout({ children }) {
                 <span
                   className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
                 >
-                  <FontAwesomeIcon icon={faGauge} size="2x" />
+                  <FontAwesomeIcon icon={faCartPlus} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
                   Manage Product

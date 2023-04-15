@@ -3,7 +3,11 @@ import style from "../css/SearchCategories.module.css";
 // import { allCategories } from "../../FormData/categories";
 import { categoriesContext } from "../../../ContaxtApi/CategoriesContaxApi";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
-
+import Badge from "react-bootstrap/Badge";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function SearchCategories() {
   const { allCategories } = useContext(categoriesContext);
   const { selectedItem, setSelectedItem } = useContext(AppUtilsContext);
@@ -13,6 +17,12 @@ export default function SearchCategories() {
   const [lefCat, setlefCat] = useState([]);
   const [subCat, setsubCat] = useState("");
   const [checkedItems, setCheckedItems] = useState({});
+
+  // model
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handelChnage = (e) => {
     const value = e.target.value;
@@ -90,34 +100,71 @@ export default function SearchCategories() {
   return (
     <>
       <div>
-        <div>{selectedItem}</div>
-        <input type="text" value={searchTerm} onChange={handelChnage} />
-        <button onClick={handleSearch}>search</button>
-        <div className={style.searchList_Container}>
-          {searchResult.map((result) => (
-            <div className={style.forSelect} key={result.lefName}>
-              <div
-                className={style.checkBox_box}
-                onClick={() => handleSelectLefCategory(result.lefName)}
-              >
+        <div className={style.selected_CategoriesBox}>
+          <div>
+            <Badge pill bg="secondary" className="p-3">
+              {selectedItem}
+            </Badge>
+          </div>
+          <div className={style.edit_Selected_Categories}>
+            <FontAwesomeIcon icon={faPencil} onClick={handleShow} />
+          </div>
+        </div>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Select Categories</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className={style.SearchCategories_SearchContainer}>
+              <div className={style.SearchCategories_InputBox}>
                 <input
-                  type="radio"
-                  name={"lef"}
-                  // checked={checkedItems[result.lefName] || false}
-                  // checked={checkedItems}
-                  checked={selectedItem === result.lefName}
-                  onChange={handleRadioChange}
-                  value={result.lefName}
+                  type="text"
+                  value={searchTerm}
+                  onChange={handelChnage}
+                  placeholder="search categories"
                 />
-              </div>
-              <div>
-                <p>{result.lefName}</p>
-                <p>{result.subName}</p>
-                <p>{result.categoryName}</p>
+                <div onClick={handleSearch} className={style.searchIconBox}>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className={style.searchList_Container}>
+              {searchResult.map((result) => (
+                <div className={style.forSelect} key={result.lefName}>
+                  <div
+                    className={style.checkBox_box}
+                    onClick={() => handleSelectLefCategory(result.lefName)}
+                  >
+                    <input
+                      type="radio"
+                      name={"lef"}
+                      // checked={checkedItems[result.lefName] || false}
+                      // checked={checkedItems}
+                      checked={selectedItem === result.lefName}
+                      onChange={handleRadioChange}
+                      value={result.lefName}
+                    />
+                  </div>
+                  <div>
+                    <p>{result.lefName}</p>
+                    <p>{result.subName}</p>
+                    <p>{result.categoryName}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </>
   );

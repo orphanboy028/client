@@ -1,13 +1,83 @@
+.SearchCategories_SearchContainer {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.selected_CategoriesBox {
+  display: flex;
+  margin: 10px 0px;
+  letter-spacing: 0.2rem;
+  font-size: 1.4rem;
+}
+
+.edit_Selected_Categories {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.selected_Item {
+  width: 200px;
+  background-color: var(--theme-color);
+  padding: 10px 10px;
+}
+
+.SearchCategories_staticBox {
+  width: 30%;
+  background-color: var(--icon-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-family2);
+  color: #fff;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+.SearchCategories_InputBox {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  position: relative;
+  border-radius: 10px;
+}
+
+.SearchCategories_InputBox input {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.searchIconBox {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
 .searchList_Container {
-  height: 200px;
-  border: 1px solid red;
-  overflow: scroll;
+  border: 1px solid #eee;
+  overflow-y: scroll;
+  scrollbar-width: 5px;
+  min-height: 300px;
+  max-height: 300px;
+  padding: 15px;
 }
 
 .forSelect {
   background-color: #fff;
   cursor: pointer;
   display: flex;
+  border: 1px solid #eee;
+  font-size: 1.4rem;
+  margin: 5px 0px;
+  padding: 5px;
 }
 
 .checkBox_box {

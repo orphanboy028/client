@@ -5,6 +5,10 @@ import {
   getUserSingleProduct,
   updateProductSpacfification,
 } from "../Actions/UserAuth/ProductAction";
+import {
+  getAllProductsAction,
+  getSingleProductsAction,
+} from "../Actions/ProductActions/ProductActions";
 import { useRouter } from "next/router";
 
 export const ProductContext = createContext();
@@ -17,6 +21,9 @@ export const ProductContextProvider = ({ children }) => {
   const [userAllProducts, setuserAllProducts] = useState([]);
   const [productId, setproductId] = useState("");
   const [usersingleProduct, setusersingleProduct] = useState({});
+  const [allProducts, setallProducts] = useState([]);
+  const [singleProduct, setsingleProduct] = useState({});
+
   // Handel CHange for image
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -90,6 +97,33 @@ export const ProductContextProvider = ({ children }) => {
     router.push(`/user-admin/edit-product/${slug}`);
   };
 
+  // GET ALL PRODUCT
+
+  useEffect(() => {
+    const getAllProduts = async () => {
+      try {
+        const result = await getAllProductsAction();
+        setallProducts(result.data.allProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllProduts();
+  }, []);
+
+  const getSingleProduct = async (slug) => {
+    try {
+      if (slug !== undefined) {
+        const result = await getSingleProductsAction(slug);
+        console.log(result.data.singleProduct);
+        setsingleProduct(result.data.singleProduct);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -105,6 +139,9 @@ export const ProductContextProvider = ({ children }) => {
         singleUserProduct,
         usersingleProduct,
         updateSpacification,
+        allProducts,
+        getSingleProduct,
+        singleProduct,
       }}
     >
       {children}

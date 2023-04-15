@@ -51,6 +51,54 @@ export default function MCategoriesSlider() {
           </div>
         </div>
       </div>
+
+      <div className={style.MCategoriesSlider_card_boxes}>
+        <div className={style.MCategoriesSlider_cardBox}>
+          <div className={style.MCategoriesSlider_card_ImageBox}>
+            <Image
+              src={carengine}
+              alt="categories-image"
+              width={50}
+              className={style.imageStyle}
+            />
+          </div>
+          <div className={style.MCategoriesSlider_categoriesName}>
+            Electronics & Electrical
+          </div>
+        </div>
+      </div>
+
+      <div className={style.MCategoriesSlider_card_boxes}>
+        <div className={style.MCategoriesSlider_cardBox}>
+          <div className={style.MCategoriesSlider_card_ImageBox}>
+            <Image
+              src={carengine}
+              alt="categories-image"
+              width={50}
+              className={style.imageStyle}
+            />
+          </div>
+          <div className={style.MCategoriesSlider_categoriesName}>
+            Electronics & Electrical
+          </div>
+        </div>
+      </div>
+
+      <div className={style.MCategoriesSlider_card_boxes}>
+        <div className={style.MCategoriesSlider_cardBox}>
+          <div className={style.MCategoriesSlider_card_ImageBox}>
+            <Image
+              src={carengine}
+              alt="categories-image"
+              width={50}
+              className={style.imageStyle}
+            />
+          </div>
+          <div className={style.MCategoriesSlider_categoriesName}>
+            Electronics & Electrical
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

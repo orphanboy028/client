@@ -29,6 +29,7 @@
   align-items: center;
   padding: 8px 0px;
   position: relative;
+  border: none;
 }
 
 .search_InputBox input {
@@ -38,6 +39,10 @@
   padding: 0px 10px;
   outline: none;
   border-radius: var(--border-radius);
+  border: none;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
 }
 
 .search_iconBox {
@@ -52,6 +57,9 @@
   display: flex;
   align-items: center;
   padding: 10px 0px;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
 }
 
 .DekstopNavBar_center_part button {
@@ -63,6 +71,9 @@
   width: 100%;
   box-shadow: var(--container-box-shadow);
   border-radius: var(--border-radius);
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
 }
 
 .DekstopNavBar_Right_part {
@@ -78,6 +89,20 @@
   margin: 0px 10px;
   color: #fff;
   letter-spacing: 3px;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
+  cursor: pointer;
+}
+
+.linkStyle {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.linkStyle:hover {
+  color: #ffff;
+  text-decoration: none;
 }
 
 .bell_IconBox {
@@ -113,7 +138,7 @@
 
 .DekstopNavBar_DropDoen_Menu {
   width: 180px;
-  height: 200px;
+  height: 230px;
   font-size: 1.2rem;
 }
 
@@ -144,6 +169,21 @@
   height: 30px;
   padding: 0px 10px;
   align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.DekstopNavBar_DropDown_OptionBoxBtn {
+  display: flex;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.DekstopNavBar_DropDown_OptionBox:hover {
+  background-color: #f9f9f9;
 }
 
 .DekstopNavBar_IconBox {
@@ -158,6 +198,7 @@
 }
 
 .userProfile_DropDown_Box {
+  box-sizing: border-box;
   position: absolute;
   width: 200px;
   height: 300px;
@@ -204,12 +245,14 @@
 .OptionBox {
   display: flex;
   padding: 10px 5px;
+  box-sizing: border-box;
 }
 
 .OptionBox:hover {
   background-color: #eee;
   cursor: pointer;
   transition: 0.5s linear;
+  box-sizing: border-box;
 }
 
 .icon_Name {
@@ -223,9 +266,9 @@
 }
 
 .LogOut_Box {
-  border: 1px solid #eee;
+  box-sizing: border-box;
   position: absolute;
-  width: 100%;
+  width: 90%;
   bottom: 0;
   height: 30px;
   display: flex;
@@ -235,12 +278,16 @@
 }
 
 .LogOut_Box button {
+  box-sizing: border-box;
   background-color: var(--color-brand-blue);
   padding: 5px 15px;
   color: #fff;
   font-size: 1.4rem;
   border-radius: 5px;
   box-shadow: var(--container-box-shadow);
+  outline: none;
+  border: none;
+  width: 100%;
 }
 
 .Login_Box {

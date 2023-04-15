@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import style from "../css/ProductList.module.css";
 import webBanner from "../../../public/banners-images/web-design.png";
 import Image from "next/image";
@@ -13,7 +13,12 @@ import { locationList } from "../../FormData/location.js";
 import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1680969454724.png";
 import Link from "next/link";
 
+import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
+
 export default function ProductList() {
+  const { allProducts } = useContext(ProductContext);
+
+  console.log(allProducts);
   return (
     <>
       <div className={style.ProductList_Banner_Container}>
@@ -76,7 +81,7 @@ export default function ProductList() {
       <div className={style.ProductList_main_Container}>
         <div className={style.ProductList_left_sideBar}>Left Bar</div>
         <div className={style.product_centerBox}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product, i) => {
+          {allProducts.map((product, i) => {
             return (
               <>
                 <div className={style.card_container}>
@@ -85,21 +90,20 @@ export default function ProductList() {
                   </div>
                   <div className={style.product_Card_Body}>
                     <div className={style.Product_titleBox}>
-                      Turning Fixture
+                      {product?.name}
                     </div>
                     <div className={style.product_descreptionBox}>
-                      <p>
-                        In publishing and graphic design, Lorem ipsum is a
-                        placeholder text
-                      </p>
+                      <p>{product?.description}</p>
                     </div>
 
                     <div className={style.product_priceBox}>
-                      <div className={style.price_TextBox}>5550</div>
+                      <div className={style.price_TextBox}>
+                        {product?.price}
+                      </div>
                       <div className={style.card_Btn_BOX}>
                         <button>
                           <Link
-                            href={"/products/xyx"}
+                            href={`/products/${product.slug}`}
                             style={{ color: "#ffff", textDecoration: "none" }}
                           >
                             Enquery

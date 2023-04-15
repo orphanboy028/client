@@ -40,35 +40,39 @@ export default function SpacificationComponnent() {
     }
   };
 
-  console.log(formSeleted);
   const renderForm = () => {
     if (formSeleted.length > 0) {
       return formSeleted.map((fileds, i) => {
         if (fileds.type === "radio") {
           return (
             <div className={`${formStyle.filed_container}`}>
-              <label className={`${formStyle.main_lable}`}>
-                {fileds.label}
-              </label>
-              {fileds.options.map((option) => {
-                return (
-                  <>
-                    <div className={formStyle.radioBox}>
-                      <label>{option}</label>
-                      <div className={formStyle.radio_inputs_box}>
-                        <input
-                          type="radio"
-                          name={fileds.name}
-                          value={option}
-                          {...register(fileds.name, {
-                            required: "valaid Email is Required",
-                          })}
-                        />
+              <div className={formStyle.labe_Box}>
+                <label className={`${formStyle.main_lable}`}>
+                  {fileds.label}
+                </label>
+              </div>
+
+              <div className={formStyle.radio_valueBox}>
+                {fileds.options.map((option) => {
+                  return (
+                    <>
+                      <div className={formStyle.radioBox}>
+                        <label>{option}</label>
+                        <div className={formStyle.radio_inputs_box}>
+                          <input
+                            type="radio"
+                            name={fileds.name}
+                            value={option}
+                            {...register(fileds.name, {
+                              required: "valaid Email is Required",
+                            })}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </>
-                );
-              })}
+                    </>
+                  );
+                })}
+              </div>
             </div>
           );
         }
@@ -98,19 +102,23 @@ export default function SpacificationComponnent() {
 
   return (
     <>
-      <div>
-        <h1>spacification</h1>
+      <div className={style.Spacification_Container}>
+        <div className={style.spacification_Box}>
+          <h2>Product Specification</h2>
+        </div>
+
         <div className={style.search_container}>
           <SearchCategories />
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>{renderForm()}</div>
-          {/* {renderFormtest()} */}
+        <div className={style.render_FormContainer}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>{renderForm()}</div>
 
-          <div>
-            <button>save</button>
-          </div>
-        </form>
+            <div>
+              <button>save</button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

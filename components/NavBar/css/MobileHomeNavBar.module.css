@@ -6,14 +6,14 @@
   .MobileHomeNavBar_Main_Container {
     display: flex;
     background-color: var(--color-brand-blue);
-    height: 90px;
+    height: 100px;
     flex-direction: column;
     padding: 5px;
   }
   .MobileHomeNavBar_Top_part {
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    height: 50px;
     align-items: center;
     padding: 0px 15px;
   }
@@ -61,7 +61,7 @@
   }
 
   .MobileHomeNavBar_searchInputBox {
-    height: 30px;
+    height: 40px;
     margin: 5px 10px;
   }
 }

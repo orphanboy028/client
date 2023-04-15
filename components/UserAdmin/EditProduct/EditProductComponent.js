@@ -25,6 +25,10 @@ export default function EditProductComponent() {
     buttonEnabled,
     handelTabselect,
     tabs,
+    handleClickButton2,
+    handleClickButton1,
+    isActiveButton1,
+    isActiveButton2,
   } = useContext(ProductFormContext);
 
   useEffect(() => {
@@ -41,17 +45,23 @@ export default function EditProductComponent() {
         <div className={style.AddProductComponenet_outer_tabContainer}>
           <div class={style.AddProductComponenet_NavTab}>
             <div
-              className={`${style.AddProductComponenet_tab_btn} ${style.tabActive}`}
-              onClick={() => handelTabselect("baisc-details")}
+              className={`${style.AddProductComponenet_tab_btn} ${
+                isActiveButton1 ? `${style.tabActive}` : " "
+              } `}
+              onClick={() => handleClickButton1("baisc-details")}
             >
               <button>Basic Details</button>
             </div>
-            <div className={style.AddProductComponenet_tab_btn}>
+            <div
+              className={`${style.AddProductComponenet_tab_btn} ${
+                isActiveButton2 ? `${style.tabActive}` : " "
+              } `}
+            >
               <button
                 disabled={false}
-                onClick={() => handelTabselect("spacification")}
+                onClick={() => handleClickButton2("spacification")}
               >
-                Specification details{" "}
+                Specification details
               </button>
             </div>
           </div>

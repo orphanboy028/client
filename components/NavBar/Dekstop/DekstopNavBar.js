@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import style from "../css/DekstopNavBar.module.css";
 import logo from "../../../public/app-static-images/flipkart-plus.png";
-import searchIcon from "../../../public/app-static-images/search.png";
-import bell from "../../../public/app-static-images/bell.png";
-import userIcon from "../../../public/app-static-images/user.png";
 import Dropdown from "react-bootstrap/Dropdown";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
 import NotificationBell from "../../../utilsComponents/NotificationBell";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
-import DekstopNavBarDropDown from "../../../utilsComponents/DekstopNavBarDropDown";
-import verified from "../../../public/app-static-images/verified.png";
 import Button from "react-bootstrap/Button";
-import homeIcon from "../../../public/app-static-images/home.png";
-import requirementIcon from "../../../public/app-static-images/Post-requirement.png";
-import addIcon from "../../../public/app-static-images/add.png";
-import writeIcon from "../../../public/app-static-images/write.png";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
+import Link from "next/link";
+import DropDownMenu from "./DropDownMenu";
 
 export default function DekstopNavBar() {
   const router = useRouter();
@@ -41,10 +36,9 @@ export default function DekstopNavBar() {
           <div className={style.search_InputBox}>
             <input type={"text"} placeholder="search your query" />
             <div className={style.search_iconBox}>
-              <Image
-                src={searchIcon}
-                alt="Search-icon"
-                width={25}
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                style={{ color: "#2874f0" }}
                 className={style.search_icon}
               />
             </div>
@@ -55,7 +49,9 @@ export default function DekstopNavBar() {
         </div>
         <div className={style.DekstopNavBar_Right_part}>
           <div className={style.DekstopNavBar_sellerPanel}>
-            <h1>S-Panel</h1>
+            <Link href={"/user-admin"} legacyBehavior>
+              <a className={style.linkStyle}> S-Panel </a>
+            </Link>
           </div>
           <div>
             <NotificationBell w={25} />
@@ -68,11 +64,11 @@ export default function DekstopNavBar() {
                   id="dropdown-basic"
                   style={{ outline: "none", border: "none" }}
                 >
-                  <Image
-                    src={userIcon}
-                    alt="user-icon"
-                    width={30}
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    style={{ color: "#ffffff" }}
                     className={style.userIconStyle}
+                    size="2x"
                   />
                 </Dropdown.Toggle>
               </div>
@@ -84,56 +80,7 @@ export default function DekstopNavBar() {
               >
                 {loginUser?.email ? (
                   <>
-                    <div>
-                      <Dropdown.Item href="#/action-1">Pawan</Dropdown.Item>
-                      <div className={style.DekstopNavBar_DropDown_ItemBox}>
-                        <div className={style.DekstopNavBar_MobileNumber}>
-                          <p>9813707848</p>
-                        </div>
-
-                        <div className={style.DekstopNavBar_verfiedBox}>
-                          <Image src={verified} width={15} />
-                        </div>
-                      </div>
-
-                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
-                        <div className={style.DekstopNavBar_IconBox}>
-                          <Image src={addIcon} width={15} />
-                        </div>
-
-                        <div className={style.DekstopNavBar_LinkName}>
-                          <p>Add Product</p>
-                        </div>
-                      </div>
-
-                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
-                        <div className={style.DekstopNavBar_IconBox}>
-                          <Image src={writeIcon} width={15} />
-                        </div>
-
-                        <div className={style.DekstopNavBar_LinkName}>
-                          <p>Update Profile</p>
-                        </div>
-                      </div>
-
-                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
-                        <div className={style.DekstopNavBar_IconBox}>
-                          <Image src={requirementIcon} width={15} />
-                        </div>
-
-                        <div className={style.DekstopNavBar_LinkName}>
-                          <p>Post Your Requirement</p>
-                        </div>
-                      </div>
-
-                      <div className={style.DekstopNavBar_DropDown_OptionBox}>
-                        <div className={style.LogOut_Box}>
-                          <Button onClick={() => router.push("/sing-up")}>
-                            Log Out
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
+                    <DropDownMenu />
                   </>
                 ) : (
                   <>

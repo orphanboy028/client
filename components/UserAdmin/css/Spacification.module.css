@@ -1,3 +1,36 @@
+.Spacification_Container {
+  padding: 20px 50px;
+}
+
+.spacification_Box {
+  margin: 0px 0px 50px 0px;
+}
+
+.spacification_Box h2 {
+  font-size: 1.2rem;
+  font-family: var(--font-family);
+  border: 1px solid var(--color-brand-blue);
+  width: 170px;
+  padding: 7px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-brand-blue);
+  color: #fff;
+}
+
 .search_container {
-  height: 300px;
+  height: 50px;
+}
+
+.render_FormContainer {
+  border: 1px solid #eee;
+  padding: 10px;
+}
+
+@media screen and (max-width: 590px) {
+  .Spacification_Container {
+    padding: 20px 10px;
+  }
 }
