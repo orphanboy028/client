@@ -3,6 +3,11 @@
   border: 1px solid red;
 }
 
+.Back_btnBox {
+  padding: 15px;
+  font-size: 1.4rem;
+}
+
 .AddProductComponenet_basic_details_innderContainer {
   display: flex;
   flex-direction: row;

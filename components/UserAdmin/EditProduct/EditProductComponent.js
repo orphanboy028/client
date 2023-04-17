@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import style from "../css/AddProduct.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
-
+import Link from "next/link";
 import Image from "next/image";
 import { ProductFormContext } from "../../../ContaxtApi/ProductFormContextApi";
 // import BaisicDetailsForm from "./BaisicDetailsForm";
@@ -12,7 +12,7 @@ import BaisicDetailsForm from "../AddProducts/BaisicDetailsForm";
 import SpacificationComponnent from "./SpacificationComponnent";
 import BasicDeatilsComponent from "./BasicDeatilsComponent";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
-
+import Button from "react-bootstrap/Button";
 export default function EditProductComponent() {
   const router = useRouter();
   const { slug } = router.query;
@@ -39,7 +39,17 @@ export default function EditProductComponent() {
     <div>
       <div className={style.Add_product_container}>
         {/* Back button box start */}
-        <div>Back button box</div>
+        <div className={style.Back_btnBox}>
+          <Link href="/user-admin/add-product">
+            <Button variant="primary" style={{ letterSpacing: "0.1rem" }}>
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                style={{ color: "#ffffff", marginRight: "5px" }}
+              />
+              Back
+            </Button>{" "}
+          </Link>
+        </div>
         {/* Back button box End */}
         {/* Two Buttons Tab start */}
         <div className={style.AddProductComponenet_outer_tabContainer}>

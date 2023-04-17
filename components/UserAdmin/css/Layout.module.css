@@ -90,16 +90,17 @@
   background-color: rgba(112, 215, 165, 0.2);
 }
 
+/* main layout */
 .UserAdminLayout_main {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 60px);
+  min-height: calc(900px - 60px);
   background-color: transparent;
 }
 
 .UserAdminLayout_sidebar {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 60px;
   left: 0;
   height: 100%;
   width: 200px;
@@ -110,6 +111,7 @@
   /* border-right: 2px solid #f1f1f1; */
   /* padding-left: 50px; */
   box-shadow: var(--box-shadow);
+  border: 1px solid #eee;
 }
 
 .active {

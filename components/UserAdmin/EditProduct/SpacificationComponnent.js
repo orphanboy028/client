@@ -114,8 +114,8 @@ export default function SpacificationComponnent() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>{renderForm()}</div>
 
-            <div>
-              <button>save</button>
+            <div className={style.spacfication_BtnBox}>
+              <button className={style.spacfication_Btn}>Update</button>
             </div>
           </form>
         </div>

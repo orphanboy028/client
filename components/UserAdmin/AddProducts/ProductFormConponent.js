@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from "../css/AddProduct.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
-
+import Link from "next/link";
+import Button from "react-bootstrap/Button";
 import Image from "next/image";
 import { ProductFormContext } from "../../../ContaxtApi/ProductFormContextApi";
 import BaisicDetailsForm from "./BaisicDetailsForm";
@@ -35,7 +36,17 @@ export default function ProductFormConponent() {
     <div>
       <div className={style.Add_product_container}>
         {/* Back button box start */}
-        <div>Back button box</div>
+        <div className={style.Back_btnBox}>
+          <Link href="/user-admin/add-product">
+            <Button variant="primary" style={{ letterSpacing: "0.1rem" }}>
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                style={{ color: "#ffffff", marginRight: "5px" }}
+              />
+              Back
+            </Button>{" "}
+          </Link>
+        </div>
         {/* Back button box End */}
         {/* Two Buttons Tab start */}
         <div className={style.AddProductComponenet_outer_tabContainer}>

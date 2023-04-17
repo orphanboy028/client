@@ -11,6 +11,11 @@ export const AppUilsContextProvider = ({ children }) => {
   // This state for when user select any categories
   const [selectedItem, setSelectedItem] = useState("");
   const [formSeleted, setformSeleted] = useState([]);
+  const [showModel, setshowModel] = useState(false);
+
+  //  React Boot Strap Model
+  const handleModelClose = () => setshowModel(false);
+  const handleModelShow = () => setshowModel(true);
 
   const handelMouseHover = () => {
     setopenProfleBox(true);
@@ -63,6 +68,10 @@ export const AppUilsContextProvider = ({ children }) => {
         selectedItem,
         setSelectedItem,
         formSeleted,
+        showModel,
+        setshowModel,
+        handleModelClose,
+        handleModelShow,
       }}
     >
       {children}

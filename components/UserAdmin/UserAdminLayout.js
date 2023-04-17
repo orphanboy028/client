@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserAdminLayout({ children }) {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const handelSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
@@ -61,56 +61,64 @@ export default function UserAdminLayout({ children }) {
         >
           <ul className={style.UserAdminLayout_sidebar_items}>
             <li className={style.UserAdminLayout_li}>
-              <a href="#">
-                <span
-                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon1}`}
-                >
-                  <FontAwesomeIcon icon={faGauge} size="2x" />
-                </span>
-                <span className={style.UserAdminLayout_sidebar_item}>
-                  Dashboard
-                </span>
-              </a>
+              <Link href="#" legacyBehavior>
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon1}`}
+                  >
+                    <FontAwesomeIcon icon={faGauge} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Dashboard
+                  </span>
+                </a>
+              </Link>
             </li>
             <li>
-              <a href="/user-admin">
-                <span
-                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
-                >
-                  <FontAwesomeIcon icon={faAddressCard} size="2x" />
-                </span>
-                <span
-                  className={`${style.UserAdminLayout_sidebar_item} ${
-                    isSidebarVisible ? style.sideBarItem : ""
-                  }`}
-                >
-                  Profile
-                </span>
-              </a>
+              <Link href="/user-admin" legacyBehavior>
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
+                  >
+                    <FontAwesomeIcon icon={faAddressCard} size="2x" />
+                  </span>
+                  <span
+                    className={`${style.UserAdminLayout_sidebar_item} ${
+                      isSidebarVisible ? style.sideBarItem : ""
+                    }`}
+                  >
+                    Profile
+                  </span>
+                </a>
+              </Link>
             </li>
             <li>
-              <a href="/user-admin/manage-products">
-                <span
-                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
-                >
-                  <FontAwesomeIcon icon={faCartPlus} size="2x" />
-                </span>
-                <span className={style.UserAdminLayout_sidebar_item}>
-                  Manage Product
-                </span>
-              </a>
+              <Link href="/user-admin/manage-products" legacyBehavior>
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                  >
+                    <FontAwesomeIcon icon={faCartPlus} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Manage Product
+                  </span>
+                </a>
+              </Link>
             </li>
             <li>
-              <a href="/user-admin/add-product">
-                <span
-                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
-                >
-                  <FontAwesomeIcon icon={faGauge} size="2x" />
-                </span>
-                <span className={style.UserAdminLayout_sidebar_item}>
-                  Add Products
-                </span>
-              </a>
+              <Link href="/user-admin/add-product" legacyBehavior>
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                  >
+                    <FontAwesomeIcon icon={faGauge} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Add Products
+                  </span>
+                </a>
+              </Link>
             </li>
           </ul>
           <ul className={style.UserAdminLayout_sidebar_bottom_items}>

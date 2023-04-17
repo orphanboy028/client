@@ -1,0 +1,107 @@
+.EnqueryForm_container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+}
+
+.EnqueryForm_Main_container {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  border: 1px solid #2e3192;
+  width: 50%;
+  padding: 20px;
+}
+
+.EnqueryForm_TitleBox h4 {
+  color: #2e3192;
+  font-family: arial;
+  font-size: 2.1rem;
+  letter-spacing: 0.2rem;
+}
+
+.EnqueryForm_TitleBox h5 {
+  font-family: arial;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+}
+
+.EnqueryForm_part {
+  margin: 30px 0px;
+}
+
+.two_Coloumn_form_Field {
+  display: flex;
+  margin: 10px 0px;
+}
+
+.Input_LableBox {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.Input_filedBox {
+  width: 50%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.Input_filedBox input {
+  width: 100%;
+  outline: 0.5 solid #2e3192;
+  padding: 5px;
+  font-size: 1.4rem;
+}
+
+.textarea_filedBox {
+  width: 50%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  border: 1px solid #eee;
+}
+
+.textarea_filedBox textarea {
+  height: 100%;
+  padding: 5px;
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.selectedItem_InputBox {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 590px) {
+  .EnqueryForm_Main_container {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border: 1px solid #2e3192;
+    width: 100%;
+  }
+
+  .EnqueryForm_TitleBox h4 {
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .EnqueryForm_TitleBox h5 {
+    font-family: arial;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+  }
+  .two_Coloumn_form_Field {
+    display: block;
+  }
+
+  .Input_LableBox {
+    width: 100%;
+  }
+
+  .Input_filedBox {
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 5px;
+  }
+}

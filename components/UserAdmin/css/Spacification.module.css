@@ -29,6 +29,22 @@
   padding: 10px;
 }
 
+.spacfication_BtnBox {
+  padding-right: 100px;
+  display: flex;
+  justify-content: end;
+}
+.spacfication_Btn {
+  padding: 5px 15px;
+  background-color: var(--color-brand-blue);
+  outline: none;
+  border: none;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+}
+
 @media screen and (max-width: 590px) {
   .Spacification_Container {
     padding: 20px 10px;

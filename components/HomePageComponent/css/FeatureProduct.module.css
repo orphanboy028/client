@@ -1,0 +1,94 @@
+.TrendingCategories_mainContainer {
+  box-shadow: rgba(109, 103, 89, 0.06) 0px 2px 30px 9px;
+  border-radius: 8px;
+  padding: 2rem 0px 1rem 2rem;
+  height: 300px;
+  box-sizing: border-box;
+}
+
+.title_Box {
+  color: rgb(8, 47, 74);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.625px;
+  margin: 0px;
+  padding: 0px 10px;
+}
+
+.TrendingCategories_Card_container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  padding: 10px 10px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* enable smooth scrolling on mobile */
+  white-space: nowrap;
+}
+
+.TrendingCategories_Card_container::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* add a custom scrollbar style */
+.TrendingCategories_Card_container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.TrendingCategories_Card_container::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.TrendingCategories_card_Box {
+  flex: 0 0 212px;
+  border: 1px solid #eee;
+  height: 90%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px 10px;
+}
+
+.TrendingCategories_CardImage_Box {
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.TrendingCategories_cardName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+}
+
+.FeatureProduct_PriceBox {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  color: #388e3c;
+}
+
+.FeaturedProducts_PupeesIcon {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 590px) {
+  .TrendingCategories_mainContainer {
+    padding: 1rem;
+  }
+  .TrendingCategories_Card_container::-webkit-scrollbar {
+    display: none;
+  }
+}
