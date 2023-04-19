@@ -1,0 +1,81 @@
+.CompanyProfile_main_container {
+  display: flex;
+}
+
+.CompanyProfile_left_Part {
+  width: 10%;
+}
+
+.CompanyProfile_RightPart {
+  width: 10%;
+}
+
+.CompanyProfile_conent_part {
+  width: 80%;
+}
+
+.CompanyProfile_TopContainer {
+  display: flex;
+  font-family: Arial;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.CompanyProfile_companyLogoBox {
+  width: 70px;
+}
+
+.CompanyProfile_companyNameBox h1 {
+  font-size: 1.8rem;
+}
+
+.top_Container_address {
+  display: flex;
+}
+
+.CompanyProfile_top_container_send_EmailBox {
+  margin-left: auto;
+}
+
+.top_Container_BtnBox {
+  border: 1px solid var(--color-brand-blue);
+  padding: 5px 30px;
+  font-size: 1.6rem;
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 590px) {
+  /*  */
+  .CompanyProfile_left_Part {
+    display: none;
+  }
+  .CompanyProfile_RightPart {
+    display: none;
+  }
+
+  .CompanyProfile_conent_part {
+    width: 100%;
+  }
+
+  .top_Container_address {
+    flex-direction: column;
+  }
+
+  .CompanyProfile_top_container_send_EmailBox {
+    display: flex;
+    align-items: center;
+  }
+
+  .top_Container_BtnBox {
+    border: 1px solid var(--color-brand-blue);
+    padding: 5px;
+    font-size: 1.2rem;
+    background-color: var(--color-brand-blue);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}

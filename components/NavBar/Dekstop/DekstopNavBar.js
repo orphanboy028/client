@@ -53,6 +53,11 @@ export default function DekstopNavBar() {
               <a className={style.linkStyle}> S-Panel </a>
             </Link>
           </div>
+          <div className={style.DekstopNavBar_sellerPanel}>
+            <Link href={"/products"} legacyBehavior>
+              <a className={style.linkStyle}>Products</a>
+            </Link>
+          </div>
           <div>
             <NotificationBell w={25} />
           </div>

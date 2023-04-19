@@ -219,7 +219,7 @@
     right: 0;
     height: 100%;
     width: calc(100%);
-    background-color: #eee;
+    background-color: transparent;
     transition: 0.3s;
     padding: 0px;
   }

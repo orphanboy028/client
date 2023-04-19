@@ -1,0 +1,11 @@
+.ProfileProductSection_main_container {
+  width: 100%;
+  min-height: 400px;
+  margin: 20px 0px;
+}
+
+.ProfileProductSection_headingBox {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+}

@@ -9,6 +9,7 @@ import { BusinessContextProvider } from "../ContaxtApi/BusinessContaxApi";
 import { ProductContextProvider } from "../ContaxtApi/ProductContextApi";
 import { ProductFormContextProvider } from "../ContaxtApi/ProductFormContextApi";
 import { CategriesContextProvider } from "../ContaxtApi/CategoriesContaxApi";
+import { EnquiryContextProvider } from "../ContaxtApi/EnquiryContaxApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }) {
           <ProductContextProvider>
             <ProductFormContextProvider>
               <CategriesContextProvider>
-                <Component {...pageProps} />
+                <EnquiryContextProvider>
+                  <Component {...pageProps} />
+                </EnquiryContextProvider>
               </CategriesContextProvider>
             </ProductFormContextProvider>
           </ProductContextProvider>

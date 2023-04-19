@@ -13,8 +13,19 @@ export const AppUilsContextProvider = ({ children }) => {
   const [formSeleted, setformSeleted] = useState([]);
   const [showModel, setshowModel] = useState(false);
 
+  // Profile tab
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
+
   //  React Boot Strap Model
-  const handleModelClose = () => setshowModel(false);
+  const handleModelClose = () => {
+    setshowModel(false);
+    setSelectedItem(selectedItem);
+    console.log(selectedItem);
+  };
   const handleModelShow = () => setshowModel(true);
 
   const handelMouseHover = () => {
@@ -72,6 +83,8 @@ export const AppUilsContextProvider = ({ children }) => {
         setshowModel,
         handleModelClose,
         handleModelShow,
+        toggleTab,
+        toggleState,
       }}
     >
       {children}

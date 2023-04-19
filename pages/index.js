@@ -5,6 +5,7 @@ import HomePageSlider from "../components/HomeBannerSlider/HomePageSlider";
 import { UserContext } from "../ContaxtApi/UserContaxApi";
 import { useContext } from "react";
 import HomePageComponent from "../components/HomePageComponent/HomePageComponent";
+import EnqueryForm from "../utilsComponents/EnqueryForm";
 
 export default function Home() {
   const { loginUser } = useContext(UserContext);
@@ -16,7 +17,7 @@ export default function Home() {
         <HomePageSlider />
         {loginUser?.email ? (
           <>
-            <h1>User LogedIn</h1>
+            <EnqueryForm />
           </>
         ) : (
           <>

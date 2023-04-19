@@ -144,7 +144,11 @@ export default function CategoriesModel() {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleModelClose}>
+            <Button
+              variant="secondary"
+              onClick={handleModelClose}
+              id="closeBtn"
+            >
               Close
             </Button>
           </Modal.Footer>

@@ -10,6 +10,7 @@ import {
   faGauge,
   faAddressCard,
   faCartPlus,
+  faDiagramProject,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserAdminLayout({ children }) {
@@ -93,15 +94,15 @@ export default function UserAdminLayout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="/user-admin/manage-products" legacyBehavior>
+              <Link href="/user-admin/enquiries" legacyBehavior>
                 <a>
                   <span
                     className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
                   >
-                    <FontAwesomeIcon icon={faCartPlus} size="2x" />
+                    <FontAwesomeIcon icon={faDiagramProject} size="2x" />
                   </span>
                   <span className={style.UserAdminLayout_sidebar_item}>
-                    Manage Product
+                    Enquiries
                   </span>
                 </a>
               </Link>

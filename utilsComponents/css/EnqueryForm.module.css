@@ -37,13 +37,15 @@
 .Input_LableBox {
   width: 40%;
   display: flex;
-  align-items: center;
   font-size: 1.4rem;
 }
 
-.Input_filedBox {
+.Input_filedBox_outer {
   width: 50%;
-  margin-left: 10px;
+}
+
+.Input_filedBox {
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -54,9 +56,14 @@
   font-size: 1.4rem;
 }
 
+.input_ErrorBox {
+  margin-top: 5px;
+  color: rgb(221, 50, 50);
+  font-size: 1.4rem;
+}
+
 .textarea_filedBox {
-  width: 50%;
-  margin-left: 10px;
+  width: 100%;
   display: flex;
   align-items: center;
   height: 70px;
@@ -72,6 +79,26 @@
 
 .selectedItem_InputBox {
   margin-right: 10px;
+  width: 100%;
+}
+
+.EnqueryForm_sendBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 50px;
+  margin: 20px 0px;
+}
+
+.EnqueryForm_sendEnquirybtn {
+  border: 1px solid var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 590px) {
