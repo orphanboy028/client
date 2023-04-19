@@ -46,3 +46,10 @@
   letter-spacing: 1.5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 590px) {
+  .ProfileCards_card_box {
+    width: 45%;
+    margin: 5px;
+  }
+}

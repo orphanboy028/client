@@ -23,6 +23,9 @@
 
 .CompanyProfile_companyLogoBox {
   width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CompanyProfile_companyNameBox h1 {
@@ -31,6 +34,21 @@
 
 .top_Container_address {
   display: flex;
+}
+
+.topHeader_addres_box {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin: 5px 0px;
+}
+
+.topHeader_iconBox {
+}
+
+.topHeader_content_Box {
+  font-size: 1.4rem;
+  padding: 0px 5px;
 }
 
 .CompanyProfile_top_container_send_EmailBox {

@@ -1,0 +1,10 @@
+.ProfileHome_contact_us {
+  border: 1px solid #eee;
+  padding: 20px 5px;
+}
+
+.ProfileHome_contactUs_heding {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

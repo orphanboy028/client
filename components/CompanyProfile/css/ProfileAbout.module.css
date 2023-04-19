@@ -1,7 +1,7 @@
 .ProfileAboutSection_main_Container {
   width: 100%;
   min-height: 300px;
-  border: 1px solid #eee;
+
   margin-top: 30px;
 }
 
@@ -51,4 +51,27 @@
 .about_info_static_content {
   margin-bottom: 5px;
   font-weight: 500;
+}
+
+@media screen and (max-width: 590px) {
+  .about_Info_Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  .about_InfoBox {
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+  .about_info_content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
