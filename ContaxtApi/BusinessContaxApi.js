@@ -3,6 +3,7 @@ import {
   getUserBusinessDetails,
   updateBusinessProfile,
   updateLogo,
+  getBusinessDetailsBySlugAction,
 } from "../Actions/UserAuth/BusinessAction";
 
 export const BusinessContext = createContext();
@@ -12,6 +13,8 @@ export const BusinessContextProvider = ({ children }) => {
   const [file, setfile] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setloading] = useState(false);
+  const [businessProfile, setbusinessProfile] = useState({});
+  const [profileProduct, setprofileProduct] = useState([]);
 
   const handelChnage = (e) => {
     console.log("on Chnage");
@@ -69,6 +72,34 @@ export const BusinessContextProvider = ({ children }) => {
     }
   };
 
+  const getBusinessDetailsBySlug = async (slug) => {
+    try {
+      const result = await getBusinessDetailsBySlugAction(slug);
+      const { business } = result.data;
+      console.log(business);
+
+      // Separate the rest of the data
+      const restOfData = {
+        CompanyName: business.CompanyName,
+        GstNumber: business.GstNumber,
+        LegalStatusofFirm: business.LegalStatusofFirm,
+        NatureofBusiness: business.NatureofBusiness,
+        PanNumber: business.PanNumber,
+        TotalNumberofEmployees: business.TotalNumberofEmployees,
+        createdAt: business.createdAt,
+        slug: business.slug,
+        updatedAt: business.updatedAt,
+        website: business.website,
+        id: business._id,
+      };
+
+      setbusinessProfile(restOfData);
+      setprofileProduct(business.products);
+    } catch (error) {
+      return error;
+    }
+  };
+
   return (
     <BusinessContext.Provider
       value={{
@@ -83,6 +114,9 @@ export const BusinessContextProvider = ({ children }) => {
         setImagePreview,
         handleImageChange,
         handelupdateImage,
+        getBusinessDetailsBySlug,
+        businessProfile,
+        profileProduct,
       }}
     >
       {children}

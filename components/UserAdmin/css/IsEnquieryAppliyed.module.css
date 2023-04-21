@@ -1,0 +1,50 @@
+.EnquieyAppliyed_inner_form_container {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+}
+
+.EnquieyAppliyed_succesfull_IconBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.EnquieyAppliyed_BtnBox {
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.EnquieyAppliyed_BtnBox p {
+  font-size: 1.4rem;
+}
+
+.EnquieyAppliyed_BtnBox button {
+  padding: 5px 20px;
+  background-color: #6b74f5;
+  color: #fff;
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+  box-shadow: var(--box-shadow);
+  letter-spacing: 0.2rem;
+}
+
+.EnquieyAppliyed_detailsBox {
+  display: flex;
+}
+
+.EnquieyAppliyed_staticFiled {
+  width: 40%;
+  font: 1.4rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 590px) {
+}

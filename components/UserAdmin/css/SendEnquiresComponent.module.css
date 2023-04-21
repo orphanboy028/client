@@ -1,0 +1,133 @@
+.SendEnquiresComponent_main_conatiner {
+  border: 1px solid #eee;
+  padding: 50px;
+}
+
+.SendEnquiresComponent_banner_section {
+  display: flex;
+  justify-content: center;
+}
+
+.SendEnquiresComponent_bannerStyle {
+  width: 100%;
+  height: 100%;
+}
+
+.SendEnquiresComponent_enquery_Form_Conatiner {
+  margin: 50px 0px;
+  border: 1px solid rgb(123, 103, 199);
+  background-color: rgba(122, 103, 199, 0.756);
+  padding: 50px;
+}
+
+.SendEnquiresComponent_inner_form_container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+}
+
+.SendEnquiery_email_IconBox {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.SendEnquiresComponent_form_Container {
+  width: 60%;
+  font-family: Arial;
+}
+
+.enquiey_time_location_box {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.enquirey_time_Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enquery_iconBox {
+  margin-right: 5px;
+}
+
+.enquery_time_box {
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+.SendEnquery_message_Box {
+  width: 100%;
+  min-height: 150px;
+}
+
+.SendEnquery_message_Box textarea {
+  width: 100%;
+  outline: none;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: Arial;
+  padding: 5px;
+  background-color: #eee;
+}
+
+.sendEnquery_BtnBox {
+  display: flex;
+  justify-content: end;
+  margin: 10px 0px;
+}
+
+.sendEnquery_BtnBox button {
+  padding: 5px 20px;
+  width: 100px;
+  border: none;
+  background-color: #6b74f5;
+  color: #fff;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+}
+
+.sendEnquery_Categorie_Box {
+  font-size: 1.4rem;
+  font-family: Arial;
+  margin: 10px 0px;
+}
+
+.senEnquery_descreption_Box {
+  margin: 10px 0px;
+  font-family: Arial;
+  font-size: 1.4rem;
+}
+
+.EnquiryMessage_errorBox {
+  font-size: 1.2rem;
+  color: red;
+}
+
+@media screen and (max-width: 590px) {
+  .SendEnquiresComponent_main_conatiner {
+    padding: 0px;
+  }
+
+  .SendEnquiresComponent_banner_section {
+    padding: 5px;
+    margin: 10px 0px;
+  }
+  .SendEnquiresComponent_inner_form_container {
+    flex-direction: column;
+  }
+  .SendEnquiery_email_IconBox {
+    width: 100%;
+    font-size: 30px;
+  }
+  .SendEnquiresComponent_form_Container {
+    width: 100%;
+  }
+  .SendEnquiresComponent_enquery_Form_Conatiner {
+    padding: 20px;
+  }
+}

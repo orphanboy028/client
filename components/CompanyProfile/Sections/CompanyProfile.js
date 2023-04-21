@@ -1,18 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import style from "../css/Company.module.css";
 import Image from "next/image";
 import companyLogo from "../../../public/Company-logo/user-64286c5d2ec85503a0ae4219-1680780743272.png";
 import Tabs from "./Tabs";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
+
 import BannerSetion from "./BannerSetion";
 import ProfileHome from "./ProfileHome";
 import ProfileAboutSection from "./ProfileAboutSection";
 import ProfileProductSection from "./ProfileProductSection";
 import TopHeader from "./TopHeader";
 import ContactUsSection from "./ContactUsSection";
+
 export default function CompanyProfile() {
+  const router = useRouter();
+  const { slug } = router.query;
   const { toggleState, setToggleState, toggleTab } =
     useContext(AppUtilsContext);
+  const { getBusinessDetailsBySlug } = useContext(BusinessContext);
+
+  useEffect(() => {
+    getBusinessDetailsBySlug(slug);
+  }, [slug]);
 
   const renderContainer = () => {
     if (toggleState === 1) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import style from "../css/ProfileAbout.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,8 +7,10 @@ import {
   faScaleBalanced,
   faFileInvoice,
 } from "@fortawesome/free-solid-svg-icons";
+import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function ProfileAboutSection() {
+  const { businessProfile, profileProduct } = useContext(BusinessContext);
   return (
     <>
       <div className={style.ProfileAboutSection_main_Container}>
@@ -28,7 +30,9 @@ export default function ProfileAboutSection() {
               <div className={style.about_info_static_content}>
                 Nature of Business
               </div>
-              <div className={style.about_info_dynimic_content}>Wholesaler</div>
+              <div className={style.about_info_dynimic_content}>
+                {businessProfile?.NatureofBusiness}
+              </div>
             </div>
           </div>
 
@@ -45,7 +49,7 @@ export default function ProfileAboutSection() {
                 Total Number of Employees
               </div>
               <div className={style.about_info_dynimic_content}>
-                Upto 10 People
+                Upto {businessProfile?.TotalNumberofEmployees} People
               </div>
             </div>
           </div>
@@ -63,7 +67,7 @@ export default function ProfileAboutSection() {
                 Legal Status of Firm
               </div>
               <div className={style.about_info_dynimic_content}>
-                Individual - Proprietor
+                Individual - {businessProfile?.LegalStatusofFirm}
               </div>
             </div>
           </div>
@@ -79,7 +83,7 @@ export default function ProfileAboutSection() {
             <div className={style.about_info_content}>
               <div className={style.about_info_static_content}>GST Number</div>
               <div className={style.about_info_dynimic_content}>
-                06BYSPR8154B1Z1
+                {businessProfile?.GstNumber}
               </div>
             </div>
           </div>

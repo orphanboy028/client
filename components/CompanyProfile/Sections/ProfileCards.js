@@ -17,7 +17,7 @@ export default function ProfileCards({ items }) {
                   <Image src={productImage} alt="Product-image" width={100} />
                 </div>
                 <div>
-                  <h3>Testing Equipment</h3>
+                  <h3>{product?.name}</h3>
                 </div>
                 <div className={style.ProfileCards_categoriesBox}>
                   <p>Leak testing</p>

@@ -5,13 +5,14 @@ import { faClock, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
 import { format, formatRelative } from "date-fns";
+import Link from "next/link";
 
 export default function LeadCards({ allEnquiryes }) {
   console.log(allEnquiryes);
   return (
     <>
       <div>{}</div>
-      {allEnquiryes.map((enquie, i) => {
+      {allEnquiryes?.map((enquie, i) => {
         const formattedDate = format(
           new Date(enquie.createdAt),
           "d-MMMM-yyyy, h:mm a"
@@ -58,7 +59,11 @@ export default function LeadCards({ allEnquiryes }) {
               </div>
 
               <div className={style.LeadCards_btnBox}>
-                <div className={style.LeadCards_Buy_Btn}>Enquiry Info</div>
+                <Link
+                  href={`/user-admin/enquiries/send-enquires/${enquie?.slug}`}
+                >
+                  <div className={style.LeadCards_Buy_Btn}>Enquiry Info</div>
+                </Link>
               </div>
             </div>
           </>

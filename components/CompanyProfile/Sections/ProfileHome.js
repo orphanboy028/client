@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import style from "../css/ProfileHome.module.css";
 import ProfileAboutSection from "./ProfileAboutSection";
 import ProfileProductSection from "./ProfileProductSection";
 import ContactUsSection from "./ContactUsSection";
+import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function ProfileHome() {
+  const { businessProfile, profileProduct } = useContext(BusinessContext);
   return (
     <>
       <div>
