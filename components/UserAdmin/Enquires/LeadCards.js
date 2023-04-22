@@ -8,7 +8,6 @@ import { format, formatRelative } from "date-fns";
 import Link from "next/link";
 
 export default function LeadCards({ allEnquiryes }) {
-  console.log(allEnquiryes);
   return (
     <>
       <div>{}</div>
@@ -48,7 +47,9 @@ export default function LeadCards({ allEnquiryes }) {
                       size="2x"
                     />
                   </div>
-                  <div className={style.LeadCards_location}>Harrayan</div>
+                  <div className={style.LeadCards_location}>
+                    {enquie?.city}/ {enquie?.state}
+                  </div>
                 </div>
               </div>
               <div className={style.LeadCards_categories_Box}>

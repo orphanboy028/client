@@ -17,6 +17,14 @@ export const EnquiryContextProvider = ({ children }) => {
   const [applyedUsers, setapplyedUsers] = useState([]);
   const [enquireyPostedUser, setenquireyPostedUser] = useState({});
   const [isUserApplied, setIsUserApplied] = useState(false);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCategories, setselectedCategories] = useState(null);
+
+  // offcancvas
+  const [locationFillterShow, setlocationFillterShow] = useState(false);
+
+  const handleCloseLocation = () => setlocationFillterShow(false);
+  const handleShowLocation = () => setlocationFillterShow(true);
 
   const sendEnqueries = async (formdata, token) => {
     try {
@@ -80,6 +88,13 @@ export const EnquiryContextProvider = ({ children }) => {
         setIsUserApplied,
         enquireyPostedUser,
         applyOnEnquirey,
+        selectedCity,
+        setSelectedCity,
+        selectedCategories,
+        setselectedCategories,
+        locationFillterShow,
+        handleCloseLocation,
+        handleShowLocation,
       }}
     >
       {children}
