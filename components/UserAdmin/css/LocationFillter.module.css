@@ -45,9 +45,11 @@
   font-size: 1.4rem;
   font-family: Arial;
   outline: none;
+  margin-bottom: 10px;
 }
 
 .searchListUl {
+  margin-top: 10px;
   width: 70%;
   padding: 0px;
   overflow-y: auto;

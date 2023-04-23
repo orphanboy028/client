@@ -8,11 +8,23 @@ import { format, formatRelative } from "date-fns";
 import Link from "next/link";
 
 export default function LeadCards({ allEnquiryes }) {
-  console.log(allEnquiryes);
+  const { togglesortFiilter, settogglesortFiilter, handelToogleSort } =
+    useContext(EnquiryContext);
+
+  // sort the enquires based on the current sortOrder
+  const sortedEnquiryes = allEnquiryes.slice().sort((enquiry1, enquiry2) => {
+    const date1 = new Date(enquiry1.createdAt);
+    const date2 = new Date(enquiry2.createdAt);
+    if (togglesortFiilter === "recent") {
+      return date2 - date1;
+    } else {
+      return date1 - date2;
+    }
+  });
   return (
     <>
       <div>{}</div>
-      {allEnquiryes?.map((enquie, i) => {
+      {sortedEnquiryes?.map((enquie, i) => {
         const formattedDate = format(
           new Date(enquie.createdAt),
           "d-MMMM-yyyy, h:mm a"

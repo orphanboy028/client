@@ -11,6 +11,7 @@ import CategoriesFillter from "./CategoriesFillter";
 import CategoriesModel from "../../../utilsComponents/CategoriesModel";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
 import CloseButton from "react-bootstrap/CloseButton";
+import SortFillter from "./SortFillter";
 
 export default function EnquiresComponent() {
   const { loginUser, token } = useContext(UserContext);
@@ -127,20 +128,20 @@ export default function EnquiresComponent() {
             <div className={style.fillter_iconBox}>
               <FontAwesomeIcon icon={faFilter} />
             </div>
-            <div> Location {selectedCity}</div>
+            <div> Location </div>
           </div>
           <div
             className={style.Categories_fillter_bar}
             onClick={handleModelShow}
           >
-            Categories
+            <div className={style.fillter_iconBox}>
+              <FontAwesomeIcon icon={faFilter} />
+            </div>
+            <div> Categories</div>
           </div>
-          <div className={style.Time_Fillter_Bar}>Time</div>
         </div>
         <div className={style.EnquiresComponent_tab_fillter_bar_Box}>
-          <div>Default</div>
-          <div>Recent</div>
-          <div>Sort</div>
+          <SortFillter />
         </div>
       </div>
 

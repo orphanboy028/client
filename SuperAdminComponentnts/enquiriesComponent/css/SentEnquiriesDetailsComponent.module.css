@@ -1,0 +1,58 @@
+.SentEnquiresDetailsComponent_stats_container {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #eee;
+}
+
+.SentEnquiresDetailsComponent_table_Conatiner {
+  width: 100%;
+  min-height: 200px;
+}
+
+.SentEnquiresDetailsComponent_Enquiriee_deatils_Container {
+  display: flex;
+  height: 200px;
+
+  align-items: center;
+}
+
+.Enquiriee_deatils_Box {
+  width: 300px;
+  border: 1px solid #eee;
+  min-height: 150px;
+  width: 600px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: Arial;
+  box-sizing: border-box;
+}
+
+.Enquiriee_deatils_Box h5 {
+  font-size: 1.6rem;
+}
+
+.Enquiriee_deatils_Box p {
+  font-size: 1.4rem;
+}
+
+.enquirie_time {
+  display: flex;
+  margin: 10px 0px;
+  font-size: 1.2rem;
+}
+
+.enquirie_time_IconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.enquirie_time_Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}

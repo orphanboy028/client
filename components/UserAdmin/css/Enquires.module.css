@@ -105,7 +105,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #eee;
   cursor: pointer;
 }
 
@@ -114,7 +113,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #eee;
   cursor: pointer;
 }
 
@@ -127,7 +125,7 @@
   cursor: pointer;
 }
 .EnquiresComponent_tab_fillter_bar_Box {
-  display: flex;
+  width: 100%;
 }
 
 .EnquiresComponent_selected_ItemBox {
@@ -154,4 +152,11 @@
 .Badge_closeBtn_style {
   margin: 0px 5px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 590px) {
+  .Search_filter_bar_Location,
+  .Categories_fillter_bar {
+    width: 50%;
+  }
 }

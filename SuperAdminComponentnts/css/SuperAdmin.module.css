@@ -1,89 +1,229 @@
-.layout_Container {
+.UserAdminLayout_NavBar {
+  height: 60px;
   width: 100%;
   display: flex;
+  align-items: center;
+  border-bottom: 2px solid #f1f1f1;
 }
 
-.SuperAdminDrawer_container {
-  width: 200px;
-  border: 1px solid #eee;
-  height: 100vh;
-  background-color: #eee;
+.UserAdminLayout_logo {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  padding-left: 40px;
 }
 
-.Contant_container {
-  width: 100%;
+.hangburgIcon {
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-/* Navbar */
-.NavBar_Container {
-  padding: 0 1.5rem;
-  width: var(--admin-layout-width);
+.UserAdminLayout_logo span {
+  color: #5073fb;
 }
 
-.layout_navbar {
+.UserAdminLayout_Search {
+  background-color: #f1f4f8;
+  border-radius: 50px;
+  width: 400px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  margin: 0.75rem auto;
-  border-radius: 0.375rem;
-  padding: 0 1.5rem;
-  box-shadow: 0 0 0.375rem 0.25rem rgba(161, 172, 184, 0.15);
-  color: var(--theme-color);
-  position: relative;
-  padding-top: 0.25rem;
-  padding-bottom: 0.2rem;
-  height: 5.875rem;
-  flex-wrap: nowrap;
-  z-index: 2;
 }
 
-.content_Wrapper {
-  width: calc(100% - (1.635rem * 2));
-  padding: 0 3rem 0 0.5rem;
-  /* padding-right: 3rem; */
-  margin: 0.75rem auto;
-}
-
-.NavSearch_Box {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  width: 50%;
-}
-
-.Navbar_SearchIcon_box {
-  width: 30px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 10px;
-  box-sizing: border-box;
-}
-.navBar_Search_inputBox {
-  width: 90%;
-}
-
-.navBar_Search_inputBox input {
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1.4rem;
-  font-weight: 400;
+.UserAdminLayout_Search input {
+  background-color: transparent;
   outline: none;
   border: none;
+  text-indent: 15px;
+  width: 85%;
 }
 
-.Navbar_userBox {
+.UserAdminLayout_Search button {
+  outline: none;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserAdminLayout_search_notification_profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 300px);
+  padding: 0px 40px;
+}
+
+.UserAdminLayout_notification_profile {
+  display: flex;
+  align-items: center;
+}
+
+.rightIcon {
+  margin-left: 20px;
+  font-size: 1.1rem;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: green;
+  cursor: pointer;
+}
+
+.bell {
+  color: #5073fb;
+  background-color: rgb(80, 115, 251, 0.2);
+}
+
+.user {
+  color: #f1d243;
+  background-color: rgb(241, 210, 67, 0.2);
+}
+
+.chat {
+  color: #70d7a5;
+  background-color: rgba(112, 215, 165, 0.2);
+}
+
+/* main layout */
+.UserAdminLayout_main {
+  position: relative;
+  width: 100%;
+  min-height: calc(900px - 60px);
+  background-color: transparent;
+}
+
+.UserAdminLayout_sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
   height: 100%;
-  width: 50px;
+  width: 200px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border-right: 2px solid #f1f1f1; */
+  /* padding-left: 50px; */
+  box-shadow: var(--box-shadow);
+  border: 1px solid #eee;
+}
+
+.active {
+  width: 55px;
+  overflow: hidden;
+  padding-left: 60px;
+  align-items: center;
+}
+
+.sideBarItem {
+  display: none;
+}
+
+.UserAdminLayout_sidebar li {
+  list-style: none;
+}
+.UserAdminLayout_sidebar a {
+  text-decoration: none;
+}
+
+.UserAdminLayout_li {
+  width: 100%;
+}
+
+.UserAdminLayout_sidebar_items {
+  padding: 0;
+  margin: 0;
+}
+
+.UserAdminLayout_sidebar_bottom_items a,
+.UserAdminLayout_sidebar_items a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.UserAdminLayout_sidebar_bottom_items a:hover,
+.UserAdminLayout_sidebar_items a:hover {
+  background-color: #5073fb;
+  color: #fff;
+}
+
+.UserAdminLayout_icon {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 20px;
+  font-size: 1.3rem;
 }
 
-@media (max-width: 1200px) {
-  .SuperAdminDrawer_container {
-    display: none;
+.sideBarIcon1 {
+  color: #c5bc58;
+}
+.sideBarIcon2 {
+  color: #a280e9;
+}
+.sideBarIcon3 {
+  color: #85ade3;
+}
+
+.UserAdminLayout_main_content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: calc(100% - 200px);
+  background-color: #fff;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.content_container {
+  width: calc(100% - 55px);
+  transition: 0.3s;
+  padding: 10px;
+}
+
+@media screen and (max-width: 590px) {
+  .UserAdminLayout_sidebar {
+    transform: translateX(0);
+    width: 180px;
+    padding-left: 0px;
+    z-index: 100;
+  }
+
+  .active {
+    transform: translateX(-100%);
+    background-color: red;
+  }
+  .sideBarItem {
+    display: block;
+  }
+
+  .UserAdminLayout_main_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: calc(100%);
+    background-color: #fff;
+    transition: 0.3s;
+    padding: 0px;
+  }
+
+  .content_container {
+    width: calc(100%);
+    transition: 0.3s;
+    padding: 0px;
   }
 }

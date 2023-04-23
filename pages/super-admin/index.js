@@ -18,9 +18,9 @@ export default function SuperAdmin() {
       ) : (
         <>
           <SuperAdminPrivate>
-            <UserAdminLayout>
+            <SuperAdminLayout>
               <NewUsers />
-            </UserAdminLayout>
+            </SuperAdminLayout>
           </SuperAdminPrivate>
         </>
       )}

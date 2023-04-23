@@ -68,3 +68,39 @@ export const sendEnquiryAction = async (data, slug, token) => {
     return error.response;
   }
 };
+
+export const ListAllEnquiryRequestAction = async (token) => {
+  try {
+    return await axios.get(
+      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/List-All-Enquiry-Request`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};
+
+// getrequestDetails
+
+export const SuperAdmingetrequestDetailsAction = async (slug, token) => {
+  try {
+    return await axios.get(
+      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/super-admin-get-request-details/${slug}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};

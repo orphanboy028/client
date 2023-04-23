@@ -4,6 +4,8 @@ import {
   getAllEnquies,
   getrequestDetails,
   sendEnquiryAction,
+  ListAllEnquiryRequestAction,
+  SuperAdmingetrequestDetailsAction,
 } from "../Actions/EnquiryActions/EnquiryActions";
 
 import { useRouter } from "next/router";
@@ -19,6 +21,15 @@ export const EnquiryContextProvider = ({ children }) => {
   const [isUserApplied, setIsUserApplied] = useState(false);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCategories, setselectedCategories] = useState(null);
+  const [togglesortFiilter, settogglesortFiilter] = useState("default");
+  const [ListOfSentEnquiries, setListOfSentEnquiries] = useState([]);
+  const [enquieDetails, setenquieDetails] = useState({});
+  const [ApplyedUserDetails, setApplyedUserDetails] = useState([]);
+  const [enquiedCreatedBy, setenquiedCreatedBy] = useState({});
+
+  const handelToogleSort = (index) => {
+    settogglesortFiilter(index);
+  };
 
   // Clear Location
   const handelClearLocation = () => {
@@ -67,7 +78,7 @@ export const EnquiryContextProvider = ({ children }) => {
       const { requestDetails } = result.data;
       const { getEnquiy } = requestDetails;
       const { user } = requestDetails;
-      console.log(requestDetails);
+      // console.log(requestDetails);
       const enquiryDetails = {
         enquiry: requestDetails.enquiry,
         description: requestDetails.description,
@@ -88,6 +99,40 @@ export const EnquiryContextProvider = ({ children }) => {
       return result;
     } catch (error) {
       return error.response;
+    }
+  };
+
+  // ListAllEnquiryRequestAction
+
+  const getListAllEnquiryRequestAction = async (token) => {
+    try {
+      const result = await ListAllEnquiryRequestAction(token);
+
+      setListOfSentEnquiries(result.data.enqueiryRequest);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const SuperAdminrequestEnquiryDetails = async (slug, token) => {
+    try {
+      const result = await SuperAdmingetrequestDetailsAction(slug, token);
+
+      const { requestDetails } = result.data;
+      const { getEnquiy } = requestDetails;
+      const { user } = requestDetails;
+      // console.log(requestDetails);
+      const enquiryDetails = {
+        enquiry: requestDetails.enquiry,
+        description: requestDetails.description,
+        createdAt: requestDetails.createdAt,
+        Seletedlefcategory: requestDetails.Seletedlefcategory,
+      };
+      setenquieDetails(enquiryDetails);
+      setApplyedUserDetails(getEnquiy);
+      setenquiedCreatedBy(user);
+    } catch (error) {
+      return error;
     }
   };
 
@@ -117,6 +162,15 @@ export const EnquiryContextProvider = ({ children }) => {
         handleShowCategories,
         handelClearLocation,
         handelClearCategories,
+        togglesortFiilter,
+        settogglesortFiilter,
+        handelToogleSort,
+        getListAllEnquiryRequestAction,
+        ListOfSentEnquiries,
+        SuperAdminrequestEnquiryDetails,
+        enquieDetails,
+        ApplyedUserDetails,
+        enquiedCreatedBy,
       }}
     >
       {children}
