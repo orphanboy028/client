@@ -8,6 +8,7 @@ import { format, formatRelative } from "date-fns";
 import Link from "next/link";
 
 export default function LeadCards({ allEnquiryes }) {
+  console.log(allEnquiryes);
   return (
     <>
       <div>{}</div>

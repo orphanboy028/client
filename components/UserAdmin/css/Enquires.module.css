@@ -129,3 +129,29 @@
 .EnquiresComponent_tab_fillter_bar_Box {
   display: flex;
 }
+
+.EnquiresComponent_selected_ItemBox {
+  display: flex;
+  padding: 10px;
+}
+
+.EnquiresComponent_selecte_badgeBox {
+  padding: 5px;
+}
+
+.EnquiresComponent_selected_badgeStyle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 1.2rem;
+  padding: 10px 15px !important;
+  font-weight: 400;
+  font-family: Arial;
+  cursor: pointer;
+}
+
+.Badge_closeBtn_style {
+  margin: 0px 5px;
+  cursor: pointer;
+}

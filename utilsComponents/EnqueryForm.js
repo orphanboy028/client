@@ -154,7 +154,7 @@ export default function EnqueryForm() {
                 </button>
               </div>
               <div>
-                <CategoriesModel />
+                <CategoriesModel setSelectedItem={setSelectedItem} />
               </div>
             </form>
           </div>

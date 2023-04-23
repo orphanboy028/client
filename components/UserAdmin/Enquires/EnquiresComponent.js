@@ -6,6 +6,11 @@ import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
 import LocationFillter from "./LocationFillter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import Badge from "react-bootstrap/Badge";
+import CategoriesFillter from "./CategoriesFillter";
+import CategoriesModel from "../../../utilsComponents/CategoriesModel";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import CloseButton from "react-bootstrap/CloseButton";
 
 export default function EnquiresComponent() {
   const { loginUser, token } = useContext(UserContext);
@@ -17,7 +22,21 @@ export default function EnquiresComponent() {
     selectedCategories,
     setselectedCategories,
     handleShowLocation,
+    handleShowCategories,
+    slectedEnquieryCategories,
+    setslectedEnquieryCategories,
+    handelClearLocation,
+    handelClearCategories,
   } = useContext(EnquiryContext);
+
+  const {
+    showModel,
+    setshowModel,
+    handleModelClose,
+    handleModelShow,
+    selectedItem,
+    setSelectedItem,
+  } = useContext(AppUtilsContext);
 
   const filterEnquiresByLocation = (allEnquiryes, city, categories) => {
     if (city && categories === null) {
@@ -54,6 +73,50 @@ export default function EnquiresComponent() {
       {/* Fillter section start */}
       <div>
         <LocationFillter />
+        <CategoriesModel
+          setSelectedItem={setselectedCategories}
+          as="setSelectedItem"
+        />
+      </div>
+      <div className={style.EnquiresComponent_selected_ItemBox}>
+        <div className={style.EnquiresComponent_selecte_badgeBox}>
+          {selectedCity ? (
+            <>
+              <Badge
+                bg="secondary"
+                className={style.EnquiresComponent_selected_badgeStyle}
+              >
+                Location - {selectedCity}
+                <CloseButton
+                  variant="white"
+                  className={style.Badge_closeBtn_style}
+                  onClick={handelClearLocation}
+                />
+              </Badge>{" "}
+            </>
+          ) : (
+            " "
+          )}
+        </div>
+        <div className={style.EnquiresComponent_selecte_badgeBox}>
+          {selectedCategories ? (
+            <>
+              <Badge
+                bg="secondary"
+                className={style.EnquiresComponent_selected_badgeStyle}
+              >
+                selected Categoroies - {selectedCategories}
+                <CloseButton
+                  variant="white"
+                  className={style.Badge_closeBtn_style}
+                  onClick={handelClearCategories}
+                />
+              </Badge>{" "}
+            </>
+          ) : (
+            " "
+          )}
+        </div>
       </div>
       <div className={style.EnquiresComponent_fillter_Section}>
         <div className={style.EnquiresComponent_search_fillter_Bar_Box}>
@@ -66,7 +129,12 @@ export default function EnquiresComponent() {
             </div>
             <div> Location {selectedCity}</div>
           </div>
-          <div className={style.Categories_fillter_bar}>Categories</div>
+          <div
+            className={style.Categories_fillter_bar}
+            onClick={handleModelShow}
+          >
+            Categories
+          </div>
           <div className={style.Time_Fillter_Bar}>Time</div>
         </div>
         <div className={style.EnquiresComponent_tab_fillter_bar_Box}>

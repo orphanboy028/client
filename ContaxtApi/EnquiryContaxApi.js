@@ -20,11 +20,27 @@ export const EnquiryContextProvider = ({ children }) => {
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCategories, setselectedCategories] = useState(null);
 
+  // Clear Location
+  const handelClearLocation = () => {
+    setSelectedCity(null);
+  };
+
+  // Clear Categories
+  const handelClearCategories = () => {
+    setselectedCategories(null);
+  };
+
   // offcancvas
   const [locationFillterShow, setlocationFillterShow] = useState(false);
 
   const handleCloseLocation = () => setlocationFillterShow(false);
   const handleShowLocation = () => setlocationFillterShow(true);
+
+  // OffCanvash for Categoties
+  const [categoriesFillterShow, setcategoriesFillterShow] = useState(false);
+
+  const handleCloseCategories = () => setcategoriesFillterShow(false);
+  const handleShowCategories = () => setcategoriesFillterShow(true);
 
   const sendEnqueries = async (formdata, token) => {
     try {
@@ -95,6 +111,12 @@ export const EnquiryContextProvider = ({ children }) => {
         locationFillterShow,
         handleCloseLocation,
         handleShowLocation,
+        categoriesFillterShow,
+        setcategoriesFillterShow,
+        handleCloseCategories,
+        handleShowCategories,
+        handelClearLocation,
+        handelClearCategories,
       }}
     >
       {children}

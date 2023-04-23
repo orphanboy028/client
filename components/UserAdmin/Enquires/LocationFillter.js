@@ -4,6 +4,7 @@ import searchLocation from "../../FormData/searchLocation.json";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
+import Badge from "react-bootstrap/Badge";
 
 export default function LocationFillter() {
   // API LOCATION
@@ -69,9 +70,18 @@ export default function LocationFillter() {
         <Offcanvas.Body>
           <div className={style.location_fillter_container}>
             <div className={style.Search_Location_offcanvasBox}>
-              <div>
-                Result:- {citySlected}-{stateSlected}
+              <div className={style.result_Badge_Box}>
+                <div className={style.Badge_Box}>
+                  <Badge
+                    bg="secondary"
+                    className={style.OffCanvasResult_Badge_Style}
+                  >
+                    {" "}
+                    {citySlected} {stateSlected}
+                  </Badge>{" "}
+                </div>
               </div>
+
               <div className={style.search_Input_list}>
                 <div className={style.Location_searchInput_Box}>
                   <input

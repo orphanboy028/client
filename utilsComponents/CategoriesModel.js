@@ -8,14 +8,13 @@ import { categoriesContext } from "../ContaxtApi/CategoriesContaxApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function CategoriesModel() {
+export default function CategoriesModel({ setSelectedItem }) {
   const {
     showModel,
     setshowModel,
     handleModelClose,
     handleModelShow,
     selectedItem,
-    setSelectedItem,
   } = useContext(AppUtilsContext);
   const { allCategories } = useContext(categoriesContext);
   const [searchResult, setSearchResult] = useState([]);
@@ -23,8 +22,8 @@ export default function CategoriesModel() {
   const [checkedItems, setCheckedItems] = useState({});
 
   const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
     const results = [];
-
     // search in categories, subcategories, lefcategories subCategory subCategories lefCategory lefCategories
     allCategories.forEach((category) => {
       category.subCategory.forEach((subCategories) => {
@@ -105,7 +104,12 @@ export default function CategoriesModel() {
           <Modal.Body>
             <div className={style.CategoriesModel_SearchInputBox}>
               <div className={style.CategoriesModel_input_Box}>
-                <input type="text" placeholder="search Categories" />
+                <input
+                  type="text"
+                  placeholder="search Categories"
+                  value={searchTerm}
+                  onChange={(e) => handleSearch(e)}
+                />
                 <div className={style.CategoriesModel_search_Icon}>
                   <FontAwesomeIcon
                     icon={faMagnifyingGlass}
