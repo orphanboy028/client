@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 1000px) {
   .EnqueryForm_Main_container {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     border: 1px solid #2e3192;
@@ -130,5 +130,9 @@
     margin-left: 0px;
     width: 100%;
     margin-top: 5px;
+  }
+
+  .Input_filedBox_outer {
+    width: 100%;
   }
 }

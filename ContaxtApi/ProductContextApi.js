@@ -8,6 +8,7 @@ import {
 import {
   getAllProductsAction,
   getSingleProductsAction,
+  getSeachProductsAction,
 } from "../Actions/ProductActions/ProductActions";
 import { useRouter } from "next/router";
 
@@ -99,18 +100,23 @@ export const ProductContextProvider = ({ children }) => {
 
   // GET ALL PRODUCT
 
-  useEffect(() => {
-    const getAllProduts = async () => {
-      try {
-        const result = await getAllProductsAction();
-        setallProducts(result.data.allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const getAllProduts = async () => {
+    try {
+      const result = await getAllProductsAction();
+      setallProducts(result.data.allProducts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    getAllProduts();
-  }, []);
+  const getSearchProduct = async (q) => {
+    try {
+      const result = await getSeachProductsAction(q);
+      setallProducts(result.data.Searchproducts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getSingleProduct = async (slug) => {
     try {
@@ -142,6 +148,8 @@ export const ProductContextProvider = ({ children }) => {
         allProducts,
         getSingleProduct,
         singleProduct,
+        getAllProduts,
+        getSearchProduct,
       }}
     >
       {children}

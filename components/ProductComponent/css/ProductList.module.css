@@ -1,3 +1,11 @@
+.ProductSpiner_Container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ProductList_Banner_Container {
   margin-top: 50px;
   display: flex;

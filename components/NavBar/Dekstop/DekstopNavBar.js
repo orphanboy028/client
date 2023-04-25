@@ -15,6 +15,8 @@ import Link from "next/link";
 import DropDownMenu from "./DropDownMenu";
 
 export default function DekstopNavBar() {
+  const [query, setQuery] = useState("");
+
   const router = useRouter();
   const { openProfleBox, handelMouseHover, handelMoveLeave } =
     useContext(AppUtilsContext);
@@ -26,6 +28,14 @@ export default function DekstopNavBar() {
       ? style.DekstopNavBar_DropDoen_Menu
       : style.DekstopNavBar_DropDoen_Menu_GustUser;
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (query.trim() !== "") {
+      router.push(`/products?q=${encodeURIComponent(query)}`);
+    }
+  };
+
   return (
     <>
       <div className={style.DekstopNavBar_mainContainer}>
@@ -34,12 +44,17 @@ export default function DekstopNavBar() {
             <Image src={logo} alt="Company-logo" width={100} />
           </div>
           <div className={style.search_InputBox}>
-            <input type={"text"} placeholder="search your query" />
+            <input
+              type={"text"}
+              placeholder="search your query"
+              onChange={(e) => setQuery(e.target.value)}
+            />
             <div className={style.search_iconBox}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 style={{ color: "#2874f0" }}
                 className={style.search_icon}
+                onClick={handleSearch}
               />
             </div>
           </div>
@@ -58,6 +73,7 @@ export default function DekstopNavBar() {
               <a className={style.linkStyle}>Products</a>
             </Link>
           </div>
+
           <div>
             <NotificationBell w={25} />
           </div>

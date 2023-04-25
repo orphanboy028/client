@@ -28,7 +28,9 @@
   overflow-x: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch; /* enable smooth scrolling on mobile */
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .TrendingCategories_Card_container::-webkit-scrollbar {
@@ -77,6 +79,19 @@
     padding: 1rem;
   }
   .TrendingCategories_Card_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .TrendingCategories_Card_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* add a custom scrollbar style */
+  .TrendingCategories_Card_container::-webkit-scrollbar-track {
+    display: none;
+  }
+
+  .TrendingCategories_Card_container::-webkit-scrollbar-thumb {
     display: none;
   }
 }
