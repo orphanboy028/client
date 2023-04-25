@@ -103,6 +103,9 @@
 .location_cityBox::-webkit-scrollbar {
   display: none;
 }
+.location_cityBox {
+  height: 50px;
+}
 
 .cityBox {
   padding: 0px 10px;
@@ -208,6 +211,10 @@
   .MobilenearMeBox {
     display: flex;
   }
+
+  .location_SearchBox {
+    width: 100%;
+  }
   .cityBox {
     background-color: #eee;
     margin: 0px 5px;
@@ -221,6 +228,14 @@
 
   .ProductList_rightBox {
     display: none;
+  }
+
+  .ProductList_search_locationBar_Container {
+    flex-direction: column;
+  }
+
+  .location_RightBox {
+    margin-bottom: 10px;
   }
 
   .product_centerBox {

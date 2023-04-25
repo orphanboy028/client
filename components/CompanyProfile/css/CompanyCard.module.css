@@ -1,0 +1,76 @@
+.CompanyCard_Container {
+  border: 1px solid #eee;
+  width: 250px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+  margin: 10px;
+}
+
+.CompanyCard_Logo_Title {
+  display: flex;
+}
+
+.CompanyCard_TitleBox {
+  padding: 1px 3px;
+}
+
+.CompanyCard_LogoBox {
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.CompanyCard_VeifiedBox {
+  display: flex;
+}
+
+.CompanyCard_Vefied_IconBox {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 3px;
+}
+
+.CompanyCard_verfided_Content {
+  display: flex;
+  padding: 1px 3px;
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.CompanyCard_LocationBox {
+  font-size: 1.4rem;
+  margin: 10px 0px;
+}
+
+.CompanyCard_LocationBox span {
+  margin-right: 10px;
+}
+
+.CompanyCard_addressBox {
+  font-size: 1.4rem;
+}
+
+.CompanyCard_btnBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #eee;
+  background-color: var(--color-brand-blue);
+}
+
+@media screen and (max-width: 1175px) {
+  .CompanyCard_Container {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .CompanyCard_Container {
+    width: 100%;
+  }
+}

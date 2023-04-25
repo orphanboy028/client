@@ -18,7 +18,6 @@ import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
 export default function ProductList() {
   const { allProducts } = useContext(ProductContext);
 
-  console.log(allProducts);
   return (
     <>
       <div className={style.ProductList_Banner_Container}>
@@ -53,20 +52,8 @@ export default function ProductList() {
             </div>
           </div>
           {/* search Input End */}
-          <div className={style.nearMeBox}>
-            <div className={style.nearMe_Icon}>
-              <FontAwesomeIcon icon={faLocationCrosshairs} size="2x" />
-            </div>
-            <div className={style.nearMe_texBoxt}>Near Me</div>
-          </div>
         </div>
         <div className={style.location_cityBox}>
-          <div className={style.MobilenearMeBox}>
-            <div className={style.nearMe_Icon}>
-              <FontAwesomeIcon icon={faLocationCrosshairs} size="2x" />
-            </div>
-            <div className={style.nearMe_texBoxt}>Near Me</div>
-          </div>
           {locationList.map((city, i) => {
             return (
               <>

@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { formatDistanceStrict, format } from "date-fns";
+import Image from "next/image";
+import companyLogo from "../../../public/Company-logo/user-64318e457993fb3620054341-1681574687021.png";
 
 export default function SentEnquiresDetailsComponent() {
   const router = useRouter();
@@ -44,7 +46,7 @@ export default function SentEnquiresDetailsComponent() {
   };
 
   const timeDifference = getTimeDifference();
-
+  console.log(enquiedCreatedBy);
   return (
     <>
       <div>
@@ -86,34 +88,14 @@ export default function SentEnquiresDetailsComponent() {
               </p>
             </div>
           </div>
-          <div className={style.Enquiriee_deatils_Box}>
-            <div>
-              <h5>{enquiedCreatedBy?.businessDetails?.CompanyName}</h5>
-            </div>
-            <div>
-              <div className={style.enquirie_time}>
-                <div className={style.enquirie_time_IconBox}>
-                  {" "}
-                  <FontAwesomeIcon
-                    icon={faClock}
-                    style={{ color: "#e54373" }}
-                    size="2x"
-                  />
-                </div>
-                <div className={style.enquirie_time_Box}>{timeDifference}</div>
+          <div className={style.Cerated_Enquirie_company_container}>
+            <div className={style.Company_Logo_Name_container}>
+              <div className={style.Created_Enquirey_Company_LogoBox}>
+                <Image src={companyLogo} width={60} alt="company-logo" />
               </div>
-              <div>
-                <p>
-                  {" "}
-                  <span>Categories :- </span>{" "}
-                  {enquieDetails?.Seletedlefcategory}
-                </p>
+              <div className={style.Created_Enquirey_Company_NameBox}>
+                <h2>DiGital Unifier </h2>
               </div>
-            </div>
-            <div>
-              <p>
-                <span>Message :- </span> {enquieDetails?.description}
-              </p>
             </div>
           </div>
         </div>
