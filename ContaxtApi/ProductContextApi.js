@@ -98,37 +98,17 @@ export const ProductContextProvider = ({ children }) => {
     router.push(`/user-admin/edit-product/${slug}`);
   };
 
-  // GET ALL PRODUCT
-
-  const getAllProduts = async () => {
-    try {
-      const result = await getAllProductsAction();
-      setallProducts(result.data.allProducts);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getSearchProduct = async (q) => {
-    try {
-      const result = await getSeachProductsAction(q);
-      setallProducts(result.data.Searchproducts);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getSingleProduct = async (slug) => {
-    try {
-      if (slug !== undefined) {
-        const result = await getSingleProductsAction(slug);
-        console.log(result.data.singleProduct);
-        setsingleProduct(result.data.singleProduct);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getSingleProduct = async (slug) => {
+  //   try {
+  //     if (slug !== undefined) {
+  //       const result = await getSingleProductsAction(slug);
+  //       console.log(result.data.singleProduct);
+  //       setsingleProduct(result.data.singleProduct);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <ProductContext.Provider
@@ -146,10 +126,9 @@ export const ProductContextProvider = ({ children }) => {
         usersingleProduct,
         updateSpacification,
         allProducts,
-        getSingleProduct,
         singleProduct,
-        getAllProduts,
-        getSearchProduct,
+        setallProducts,
+        setsingleProduct,
       }}
     >
       {children}

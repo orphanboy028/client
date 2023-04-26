@@ -21,6 +21,7 @@ export const getAllProductsAction = async () => {
 };
 
 export const getSeachProductsAction = async (q) => {
+  console.log("get seacrh action ", q);
   try {
     const res = await axios.get(
       `http://127.0.0.1:5000/api/V1/industy/product/search?q=${q}`,
@@ -42,6 +43,7 @@ export const getSeachProductsAction = async (q) => {
 
 export const getSingleProductsAction = async (slug) => {
   try {
+    console.log(slug);
     const res = await axios.get(
       `http://127.0.0.1:5000/api/V1/industy/product/single-product/${slug}`,
 

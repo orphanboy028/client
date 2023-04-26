@@ -8,10 +8,11 @@ import {
   faLocationDot,
   faMagnifyingGlass,
   faLocationCrosshairs,
+  faIndianRupeeSign,
 } from "@fortawesome/free-solid-svg-icons";
 import { locationList } from "../../FormData/location.js";
 
-import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1680969454724.png";
+import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1681334334557.jpeg";
 import Link from "next/link";
 
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
@@ -21,16 +22,9 @@ export default function ProductList() {
   const router = useRouter();
   const { q } = router.query;
 
-  const { allProducts, getAllProduts, getSearchProduct } =
-    useContext(ProductContext);
+  const { allProducts, getSearchProduct } = useContext(ProductContext);
 
-  useEffect(() => {
-    if (q) {
-      getSearchProduct(q);
-    } else {
-      getAllProduts();
-    }
-  }, [allProducts]);
+  console.log(allProducts);
 
   return (
     <>
@@ -90,9 +84,9 @@ export default function ProductList() {
                     <div className={style.card_container}>
                       <div className={style.productImage_Box}>
                         <Image
-                          src={productImage}
-                          width={100}
-                          alt="Product-Image"
+                          src={`/product-feature-imges/${product.images[0].url}`}
+                          fill
+                          alt={`${product.images[0].altText}`}
                         />
                       </div>
                       <div className={style.product_Card_Body}>
@@ -100,11 +94,24 @@ export default function ProductList() {
                           {product?.name}
                         </div>
                         <div className={style.product_descreptionBox}>
-                          <p>{product?.description}</p>
+                          <p>{product?.description.substring(0, 80)}</p>
+                        </div>
+
+                        <div className={style.product_card_ComapnyDetails_Box}>
+                          <div className={style.Product_CompanyName_Box}>
+                            {product?.user?.businessDetails.CompanyName}
+                          </div>
+                          <div className={style.Product_company_LocationBox}>
+                            <span> Gurgaon</span> <span>/</span>
+                            <span> Harryana</span>
+                          </div>
                         </div>
 
                         <div className={style.product_priceBox}>
                           <div className={style.price_TextBox}>
+                            <span>
+                              <FontAwesomeIcon icon={faIndianRupeeSign} />
+                            </span>
                             {product?.price}
                           </div>
                           <div className={style.card_Btn_BOX}>

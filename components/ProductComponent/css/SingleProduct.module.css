@@ -9,7 +9,7 @@
 
 .SingleProduct_detail_container {
   width: 40%;
-  padding: 10px 50px;
+  padding: 10px 20px;
 }
 
 .SingleProduct_companyDetails_container {
@@ -22,8 +22,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  height: 320px;
   box-shadow: var(--box-shadow);
+  position: relative;
 }
 
 .SingleProduct_PriceBox {
@@ -40,7 +41,7 @@
 
 .SingleProduct_btnBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   margin: 40px 0px;
 }
 
@@ -52,6 +53,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
+  cursor: pointer;
 }
 
 .SingleProduct_ReadBtn {
@@ -66,6 +68,7 @@
 
 .SingleProduct_companyDetails_container {
   padding: 5px;
+  overflow: hidden;
 }
 
 .SingleProduct_comppany_logo_with_Gst {
@@ -76,6 +79,15 @@
 .SingleProduct_companyLogoBox {
   background-color: #eee;
   margin-right: 10px;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  padding: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
 }
 
 .SingleProduct_company_Title {
@@ -102,6 +114,10 @@
   font-weight: 500;
 }
 
+.SingleProduct_Owner_NameBox {
+  font-size: 1.4rem;
+}
+
 .SingleProduct_static_AddressBox {
   display: flex;
   align-items: center;
@@ -116,6 +132,10 @@
   align-items: center;
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+.singleProduct_Business_AddressBox {
+  font-size: 1.4rem;
 }
 
 .SingleProduct_static_Box {
@@ -261,12 +281,13 @@
 
 .SingleProduct_EnqueryForm_imageBox {
   border: 1px solid #eee;
-  width: 20%;
+  width: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   margin-right: 10px;
+  position: relative;
 }
 
 .Enquery_Form_ProductTitle {
@@ -308,6 +329,24 @@
   font-size: 1.4rem;
 }
 
+.singleProduct_company_InfoBox {
+  display: flex;
+  margin: 10px 0px;
+}
+.singleProduct_company_Info_staticBox {
+  min-width: 30%;
+
+  display: flex;
+  align-items: center;
+}
+
+.singleProduct_company_Info_DynimicBox {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  min-width: 60%;
+}
+
 .endPart {
   height: 100px;
 }
@@ -347,5 +386,32 @@
 
   .SingleProduct_Enquery_Form_Container {
     width: 100%;
+  }
+
+  .singleProduct_GST_OWNER_Box {
+    display: flex;
+  }
+
+  .SingleProduct_GstBox {
+    display: flex;
+    align-items: center;
+  }
+  .SingleProduct_GstBox h4 {
+    margin-right: 5px;
+  }
+  .SingleProduct_ownerDetails {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px;
+  }
+
+  .SingleProduct_static_Owner {
+    margin-right: 10px;
+  }
+  .SingleProduct_ownerIconBox {
+    font-size: 0.8rem;
+  }
+  .SingleProduct_Owner_NameBox {
+    font-size: 1.6rem;
   }
 }

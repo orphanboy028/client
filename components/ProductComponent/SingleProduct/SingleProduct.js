@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import style from "../css/SingleProduct.module.css";
 import Image from "next/image";
-import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1680969454724.png";
+import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1682526069244.jpeg";
 import companyLog from "../../../public/Company-logo/user-64286c5d2ec85503a0ae4219-1680783895667.png";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -16,21 +16,33 @@ import {
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
 
 export default function SingleProduct() {
-  const { getSingleProduct, singleProduct } = useContext(ProductContext);
-  const router = useRouter();
-  const { slug } = router.query;
-  console.log(slug);
+  const { singleProduct } = useContext(ProductContext);
 
-  useEffect(() => {
-    getSingleProduct(slug);
-  }, [slug]);
+  console.log(singleProduct);
+
+  const myRef = useRef(null);
+
+  const scrollToSection = () => {
+    window.scrollTo({
+      top: myRef.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
       <div className={style.SingleProduct_top_container}>
         <div className={style.SingleProduct_Image_container}>
           <div className={style.SingleProduct_ImageBox}>
-            <Image src={productImage} alt="product-image" width={200} />
+            {singleProduct &&
+              singleProduct.images &&
+              singleProduct.images[0] && (
+                <Image
+                  src={`/product-feature-imges/${singleProduct?.images[0]?.url}`}
+                  fill
+                  alt={`${singleProduct?.images[0]?.altText}`}
+                />
+              )}
           </div>
         </div>
         <div className={style.SingleProduct_detail_container}>
@@ -40,17 +52,21 @@ export default function SingleProduct() {
           <div className={style.SingleProduct_PriceBox}>
             <h2>
               <span className={style.SingleProduct_Rs_iconBox}>
-                <FontAwesomeIcon icon={faIndianRupeeSign} size="2x" />
+                <FontAwesomeIcon icon={faIndianRupeeSign} />
               </span>
               <span>{singleProduct?.price}</span>
             </h2>
           </div>
           <div className={style.SingleProduct_descreptionBox}>
-            <p>{singleProduct?.description}</p>
+            <p>{singleProduct?.description?.substring(0, 250)}</p>
           </div>
           <div className={style.SingleProduct_btnBox}>
-            <div className={style.SingleProduct_enquiryBtn}>Enquery</div>
-            <div className={style.SingleProduct_ReadBtn}>Read more</div>
+            <div
+              className={style.SingleProduct_enquiryBtn}
+              onClick={scrollToSection}
+            >
+              Enquery
+            </div>
           </div>
         </div>
         <div className={style.SingleProduct_companyDetails_container}>
@@ -59,27 +75,33 @@ export default function SingleProduct() {
           </div>
           <div className={style.SingleProduct_comppany_logo_with_Gst}>
             <div className={style.SingleProduct_companyLogoBox}>
-              <Image src={companyLog} width={70} />
+              <Image src={companyLog} fill alt="Company-logo" />
             </div>
             <div className={style.SingleProduct_company_Title}>
-              S V Technologies
+              {singleProduct?.user?.businessDetails.CompanyName}
             </div>
           </div>
-          <div className={style.SingleProduct_GstBox}>
-            <h4>GST</h4>
-            <h4>24AADFW7998Q1ZZ</h4>
-          </div>
-          <div className={style.SingleProduct_ownerDetails}>
-            <div className={style.SingleProduct_Owner_StaticBox}>
-              <div className={style.SingleProduct_ownerIconBox}>
-                <span>
-                  <FontAwesomeIcon icon={faUser} size="2x" />
-                </span>
+          <div className={style.singleProduct_GST_OWNER_Box}>
+            <div className={style.SingleProduct_GstBox}>
+              <h4>GST</h4>
+
+              <h4> {singleProduct?.user?.businessDetails?.GstNumber}</h4>
+            </div>
+            <div className={style.SingleProduct_ownerDetails}>
+              <div className={style.SingleProduct_Owner_StaticBox}>
+                <div className={style.SingleProduct_ownerIconBox}>
+                  <span>
+                    <FontAwesomeIcon icon={faUser} size="2x" />
+                  </span>
+                </div>
+                <div className={style.SingleProduct_static_Owner}>Owner</div>
               </div>
-              <div className={style.SingleProduct_static_Owner}>Owner</div>
+              <div className={style.SingleProduct_Owner_NameBox}>
+                {singleProduct?.user?.name}
+              </div>
             </div>
-            <div>Mr Chirag Vasani</div>
           </div>
+
           <div className={style.SingleProduct_static_Box}>
             <div className={style.SingleProduct_static_AddressBox}>
               <div className={style.SingleProduct_static_addressIcon}>
@@ -87,11 +109,8 @@ export default function SingleProduct() {
               </div>
               <div className={style.SingleProduct_static_Address}>Adreess</div>
             </div>
-            <div>
-              <p>
-                Plot No. 28, Srushti Ind Estate, B/H Hotel Horizon, Kadodara to
-                Bardoli Road, Kadodara, Surat, Gujarat, 394327, India
-              </p>
+            <div className={style.singleProduct_Business_AddressBox}>
+              <p>{singleProduct?.user?.businessDetails?.address}</p>
             </div>
           </div>
         </div>
@@ -130,7 +149,7 @@ export default function SingleProduct() {
       {/* Related Product End */}
 
       {/* Product main Details Container Start */}
-      <div className={style.SingleProduct_Main_detailContainer}>
+      <div className={style.SingleProduct_Main_detailContainer} ref={myRef}>
         <div className={style.SingleProduct_main_Details_container}>
           <Tabs
             defaultActiveKey="ProductDetails"
@@ -138,12 +157,19 @@ export default function SingleProduct() {
             id="noanim-tab-example"
             className="mb-3"
           >
-            <Tab eventKey="ProductDetails" title="Product Details">
+            <Tab
+              eventKey="ProductDetails"
+              title={
+                <span style={{ color: "#2874f0", fontSize: "12px" }}>
+                  Product Details
+                </span>
+              }
+            >
               <div className={style.SingleProduct_ProductDetails_Container}>
                 <div className={style.SingleProduct_ProductDetails_Title}>
-                  <h2> Product Details</h2>
+                  <h3> Product Details</h3>
                 </div>
-                {singleProduct.properties ? (
+                {singleProduct?.properties ? (
                   Object.keys(singleProduct?.properties).map((names, i) => {
                     return (
                       <>
@@ -176,8 +202,54 @@ export default function SingleProduct() {
                 )}
               </div>
             </Tab>
-            <Tab eventKey="CompanyDetails" title="Company Details">
-              <h1>Company Details"</h1>
+            <Tab
+              eventKey="CompanyDetails"
+              title={
+                <span style={{ color: "#2874f0", fontSize: "12px" }}>
+                  Company Details
+                </span>
+              }
+            >
+              <h3>Company Details</h3>
+              <div
+                className={style.singleProduct_company_Details_Tab_Container}
+              >
+                <div className={style.singleProduct_company_InfoBox}>
+                  <div className={style.singleProduct_company_Info_staticBox}>
+                    <h5>Company Name</h5>
+                  </div>
+                  <div className={style.singleProduct_company_Info_DynimicBox}>
+                    <p>{singleProduct?.user?.businessDetails.CompanyName}</p>
+                  </div>
+                </div>
+
+                <div className={style.singleProduct_company_InfoBox}>
+                  <div className={style.singleProduct_company_Info_staticBox}>
+                    <h5>Busiess Owner</h5>
+                  </div>
+                  <div className={style.singleProduct_company_Info_DynimicBox}>
+                    <p>{singleProduct?.user?.name}</p>
+                  </div>
+                </div>
+
+                <div className={style.singleProduct_company_InfoBox}>
+                  <div className={style.singleProduct_company_Info_staticBox}>
+                    <h5>GST Number</h5>
+                  </div>
+                  <div className={style.singleProduct_company_Info_DynimicBox}>
+                    <p>{singleProduct?.user?.businessDetails?.GstNumber}</p>
+                  </div>
+                </div>
+
+                <div className={style.singleProduct_company_InfoBox}>
+                  <div className={style.singleProduct_company_Info_staticBox}>
+                    <h5>Profile Page</h5>
+                  </div>
+                  <div className={style.singleProduct_company_Info_DynimicBox}>
+                    <p>Daksh Tooling System</p>
+                  </div>
+                </div>
+              </div>
             </Tab>
           </Tabs>
         </div>
@@ -189,15 +261,23 @@ export default function SingleProduct() {
             <div className={style.SingleProduct_EnqueryForm_UserMail_container}>
               <div className={style.Enquery_To}>To</div>
               <div className={style.EnqueryForm_EmailBox}>
-                Bhakti EnterPrises
+                {singleProduct?.user?.businessDetails.CompanyName}
               </div>
             </div>
             <div className={style.SingleProduct_EnqueryForm_ProductDetails}>
               <div className={style.SingleProduct_EnqueryForm_imageBox}>
-                <Image src={productImage} width={50} />
+                {singleProduct &&
+                  singleProduct.images &&
+                  singleProduct.images[0] && (
+                    <Image
+                      src={`/product-feature-imges/${singleProduct?.images[0]?.url}`}
+                      fill
+                      alt={`${singleProduct?.images[0]?.altText}`}
+                    />
+                  )}
               </div>
               <div className={style.Enquery_Form_ProductTitle}>
-                <h5>Mild Steel CNC Turning Fixtures </h5>
+                <h5>{singleProduct?.name} </h5>
               </div>
             </div>
             <div className={style.SingleProduct_mesasageContainer}>

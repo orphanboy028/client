@@ -153,11 +153,11 @@
 .card_container {
   display: block;
   box-shadow: var(--box-shadow2);
-  width: 250px;
-  height: 270px;
+  width: 300px;
+  height: 400px;
   padding: 10px;
   background-color: #fff;
-  margin: 20px;
+  margin: 20px 10px;
 }
 
 .productImage_Box {
@@ -166,8 +166,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 200px;
   border-radius: 10px;
+  position: relative;
 }
 
 .product_Card_Body {
@@ -179,15 +180,50 @@
   font-size: 1.4rem;
 }
 
+.product_descreptionBox {
+  font-size: 1.4rem;
+  margin: 5px 0px;
+  height: 45px;
+  overflow: hidden;
+}
+
+.product_card_ComapnyDetails_Box {
+  padding: 5px;
+}
+
+.Product_CompanyName_Box {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.Product_company_LocationBox {
+  display: flex;
+  justify-content: center;
+}
+
+.Product_company_LocationBox span {
+  margin: 0px 2px;
+  font-size: 1.2rem;
+}
+
 .product_priceBox {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 0px;
+  margin-top: 5px;
 }
 
 .price_TextBox {
   font-size: 1.4rem;
   font-weight: 500;
+  min-width: 40%;
+}
+
+.price_TextBox span {
+  margin-right: 5px;
 }
 
 .card_Btn_BOX {
@@ -195,6 +231,10 @@
   background-color: var(--color-brand-blue);
   color: #fff;
   border-radius: 5px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card_Btn_BOX button {
@@ -202,9 +242,31 @@
   color: #fff;
   outline: none;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1160px) {
+  .card_container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin: 0px 0px 15px 0px;
+    box-sizing: border-box;
+  }
+
+  .productImage_Box {
+    width: 200px;
+    height: 100%;
+  }
+  .product_Card_Body {
+    padding: 0px 10px;
+  }
 }
 
 @media screen and (max-width: 690px) {
@@ -251,22 +313,5 @@
     display: block;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  .card_container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    border-radius: 20px;
-    margin: 10px 0px;
-    box-sizing: border-box;
-  }
-
-  .productImage_Box {
-    width: 200px;
-    height: 100%;
-  }
-  .product_Card_Body {
-    padding: 0px 10px;
   }
 }
