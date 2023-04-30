@@ -8,12 +8,18 @@
 
 .ProductCard_inner_Container {
   display: flex;
-  border: solid 1px#eee;
   padding: 10px;
+}
+
+.ProductCard_Image_container {
+  width: 150px;
+  height: 150px;
+  position: relative;
 }
 
 .ProductCard_infoBox {
   margin-left: 20px;
+  width: 80%;
 }
 .boxes:nth-child(2) {
   flex-grow: 1;
@@ -25,4 +31,42 @@
 
 .three_dotsBox {
   width: 100px;
+}
+
+.product_StatusBox {
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  margin: 10px 0px;
+}
+
+.Deactivate_btn {
+  background-color: orangered;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.Activate_btn {
+  background-color: green;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.product_edit_btnBox {
+  display: flex;
+  justify-content: end;
+}
+
+.product_editBtn {
+  background-color: blue;
+  color: #fff;
+  padding: 5px 15px;
+  letter-spacing: 1.5px;
+  margin: 0px 10px;
 }

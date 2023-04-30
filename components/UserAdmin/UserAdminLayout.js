@@ -121,6 +121,23 @@ export default function UserAdminLayout({ children }) {
                 </a>
               </Link>
             </li>
+            <li>
+              <Link
+                href="/user-admin/enquiries/product-enquires"
+                legacyBehavior
+              >
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                  >
+                    <FontAwesomeIcon icon={faGauge} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Products Enquires
+                  </span>
+                </a>
+              </Link>
+            </li>
           </ul>
           <ul className={style.UserAdminLayout_sidebar_bottom_items}>
             <li>
@@ -129,7 +146,7 @@ export default function UserAdminLayout({ children }) {
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
-                  Dashboard
+                  seetings
                 </span>
               </a>
             </li>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import style from "../css/AddProduct.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function BaisicDetailsForm() {
+  const fileInputRef = useRef(null);
   const { token, loginUser } = useContext(UserContext);
   const { handleImageChange, prductIMagePreview, CreateBasicProduct } =
     useContext(ProductContext);
@@ -28,16 +29,21 @@ export default function BaisicDetailsForm() {
     mode: "all",
   });
 
+  const handleChangeImage = () => {
+    fileInputRef.current.click();
+  };
+
   const onSubmit = async (formdata) => {
     try {
+      console.log(formdata);
       const result = await CreateBasicProduct(formdata, token);
-
+      console.log(result);
       if ((result.data.status = "Success")) {
         toast.success("product add succes fully", {
-          autoClose: 3000,
+          autoClose: 1000,
           onClose: () => {
             router.push(
-              `/user-admin/edit-product/${result.data.createProduct.slug}`
+              `/user-admin/edit-product/${result.data.saveProduct.slug}`
             );
           },
         });
@@ -53,7 +59,13 @@ export default function BaisicDetailsForm() {
       <div className={style.AddProductComponenet_basic_details_innderContainer}>
         <div className={style.AddProductComponenet_imageContainer}>
           <div className={style.AddProductComponenet_imageBox}>
-            <input type="file" id="FileInput" onChange={handleImageChange} />
+            <input
+              type="file"
+              name="images"
+              id="FileInput"
+              onChange={handleImageChange}
+              ref={fileInputRef}
+            />
             {!prductIMagePreview && (
               <>
                 <FontAwesomeIcon
@@ -71,11 +83,9 @@ export default function BaisicDetailsForm() {
                 <div className={style.product_Feature_ImageBox}>
                   <Image
                     src={prductIMagePreview}
-                    layout="responsive"
-                    width={300}
-                    height={300}
                     alt="Product-feature-image"
-                    className={style.product_featureImageStyle}
+                    // className={style.product_featureImageStyle}
+                    fill
                   />
                 </div>
               </>
@@ -84,7 +94,7 @@ export default function BaisicDetailsForm() {
           {prductIMagePreview && (
             <>
               <div className={` ${style.chnage_btnBox}`}>
-                <button> Chnage image</button>
+                <button onClick={handleChangeImage}> Chnage image</button>
               </div>
             </>
           )}
@@ -152,7 +162,7 @@ export default function BaisicDetailsForm() {
               </div>
 
               <div className={style.product_basic_btnBox}>
-                <button>Save product</button>
+                <button>Save </button>
               </div>
             </form>
           </div>

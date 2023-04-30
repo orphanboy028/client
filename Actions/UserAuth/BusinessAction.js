@@ -43,6 +43,7 @@ export const updateBusinessProfile = async (formdata, token) => {
 
 export const updateLogo = async (formData, token) => {
   try {
+    console.log(formData);
     const res = await axios.patch(
       "http://127.0.0.1:5000/api/V1/industy/business/update-logo",
       formData,

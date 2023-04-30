@@ -42,6 +42,7 @@ export const ProductFormContextProvider = ({ children }) => {
         handleClickButton1,
         isActiveButton1,
         isActiveButton2,
+        setaddButton,
       }}
     >
       {children}

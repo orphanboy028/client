@@ -28,6 +28,7 @@ export const BusinessContextProvider = ({ children }) => {
   // Handel CHange for image
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
+    console.log(selectedFile);
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -42,7 +43,7 @@ export const BusinessContextProvider = ({ children }) => {
     try {
       const formData = new FormData();
       formData.append("photo", file);
-
+      console.log(formData);
       const result = await updateLogo(formData, token);
       return result;
     } catch (error) {

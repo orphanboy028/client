@@ -1,0 +1,85 @@
+.ProductEnquiresComponent_main_Conatainer {
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.ProductEnquiresComponent_stats_conatiner {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #eee;
+}
+
+.ProductEnquiresComponent_cardList_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card_ListsBox {
+  width: 70%;
+}
+
+.cardList_sideBannner_Box {
+  width: 25%;
+  border: 1px solid #eee;
+}
+/* ProductEnquireyCards_box */
+
+.ProductEnquireyCards_box {
+  border: 1px solid #eee;
+  display: flex;
+  box-shadow: var(--box-shadow);
+  padding: 5px;
+  margin: 10px 0px;
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.ProductEnquireyCards_image_Container {
+  width: 20%;
+  height: 190px;
+  position: relative;
+}
+
+.ProductEnquireyCards_descreptionBox {
+  width: 60%;
+  padding: 10px 10px;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
+
+.ProductEnquireyCards_descreptionBox h5 {
+  font-size: 1.6rem;
+}
+
+.ProductEnquireyCards_EnquireNotification {
+  width: 15%;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProductEnquireyCards_notificationBox {
+  position: relative;
+  padding: 10px;
+  font-size: 1.6rem;
+}
+
+.ProductEnquireyCards_BadgeBox {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 1.4rem;
+}
+
+.ProductEnquireyCards_ArrowBox {
+  background-color: var(--color-brand-blue);
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}

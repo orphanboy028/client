@@ -1,0 +1,79 @@
+.ProductEnquireDetails_mainContainer {
+  padding: 10px;
+}
+
+.ProductEnquireDetails_statsContainer {
+  width: 100%;
+  height: 200px;
+}
+
+.ProductEnquireDetails_ProductContainer {
+  width: 100%;
+  border: 1px solid #eee;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productCardBox {
+  width: 50%;
+  border: 1px solid #eee;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  padding: 5px;
+  display: flex;
+}
+
+.product_ImageBox {
+  width: 150px;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.productEnquireDetail_AccordionContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Accordion_Box {
+  width: 70%;
+}
+
+.Accordion_bodyContainer {
+  display: flex;
+}
+
+.Accordion_leftBox {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.Accordion_imageBox {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.Accordion_companyDetails {
+  min-width: 70%;
+}
+.Accordion_rightBox {
+  width: 50%;
+}
+
+.Accordion_contactDetails_filed {
+  display: flex;
+}
+
+.Accordion_contact_Static_filed {
+  margin-right: 10px;
+  width: 100px;
+  font-weight: 500;
+}

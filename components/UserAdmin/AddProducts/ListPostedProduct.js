@@ -7,14 +7,16 @@ export default function ListPostedProduct() {
   const { token, loginUser } = useContext(UserContext);
   const { userProduct, userAllProducts } = useContext(ProductContext);
 
+  // Reverse the product list
+  const reverseduserAllProducts = userAllProducts.slice().reverse();
+
   useEffect(() => {
-    console.log(token);
     userProduct(token, loginUser?._id);
   }, [loginUser]);
 
   return (
     <div>
-      {userAllProducts.map((product, i) => {
+      {reverseduserAllProducts.map((product, i) => {
         return (
           <>
             <ProductCard product={product} key={i} />;

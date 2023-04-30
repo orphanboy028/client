@@ -6,10 +6,80 @@ import Dropdown from "react-bootstrap/Dropdown";
 import dots from "../../../public/admin-images/dots.png";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import Badge from "react-bootstrap/Badge";
 
 export default function ProductCard({ product }) {
   const { token, loginUser } = useContext(UserContext);
-  const { handelEdit } = useContext(ProductContext);
+  const {
+    handelEdit,
+    DeleteProductAction,
+    ActivateProductAction,
+    deActivateProductAction,
+  } = useContext(ProductContext);
+
+  const status = "deactivate";
+
+  const handelDactiveProduct = async (prductId) => {
+    try {
+      const data = {
+        id: prductId,
+      };
+      const result = await deActivateProductAction(data, token);
+      console.log(result);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const handelActiveProduct = async (prductId) => {
+    try {
+      const data = {
+        id: prductId,
+      };
+      const result = await ActivateProductAction(data, token);
+      console.log(result);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const renderButton = (product) => {
+    if (product.status === "activate") {
+      return (
+        <button
+          onClick={() => handelDactiveProduct(product._id)}
+          className={style.Deactivate_btn}
+        >
+          Deactivate
+        </button>
+      );
+    } else if (status === "deactivate") {
+      return (
+        <button
+          onClick={() => handelActiveProduct(product._id)}
+          className={style.Activate_btn}
+        >
+          Activate
+        </button>
+      );
+    } else {
+      return null; // Don't render any button if status is "pending"
+    }
+  };
+
+  const handelDeleteProduct = async (prductId) => {
+    try {
+      const data = {
+        id: prductId,
+      };
+      const result = await DeleteProductAction(data, token);
+      console.log(result);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
 
   return (
     <>
@@ -20,8 +90,7 @@ export default function ProductCard({ product }) {
           >
             <Image
               src={`/product-feature-imges/${product.images[0].url}`}
-              width={150}
-              height={150}
+              fill
             />
           </div>
           <div className={`${style.ProductCard_infoBox} ${style.boxes}`}>
@@ -30,23 +99,51 @@ export default function ProductCard({ product }) {
             </div>
             <div>
               <h4>
-                <span>RS</span> <span>{product?.price}</span> <span>/</span>{" "}
-                <span>pices</span>
+                <span>RS</span> <span>{product?.price}</span>{" "}
               </h4>
             </div>
             <div>
-              <p>
-                Being a leading firm in this industry, we are offering a high
-                quality range of CNC Turning Fixtures.{" "}
-              </p>
+              <p>{product?.description?.substring(0, 150)}</p>
+            </div>
+            <div className={style.product_StatusBox}>
+              <Badge
+                bg={
+                  product?.status === "activate"
+                    ? "success"
+                    : product?.status === "deactivate"
+                    ? "danger"
+                    : "warning"
+                }
+                style={{ fontWeight: "400" }}
+              >
+                {product?.status === "activate"
+                  ? "Active"
+                  : product?.status === "deactivate"
+                  ? "deactivate"
+                  : "Pending"}
+              </Badge>
+            </div>
+            <div className={style.product_action_btnBox}>
+              {renderButton(product)}
+            </div>
+            <div className={style.product_edit_btnBox}>
+              <div className={style.product_editBtn}>Edit </div>
+              <div
+                className={style.product_editBtn}
+                id={product._id}
+                onClick={() => handelDeleteProduct(product._id)}
+              >
+                Delete{" "}
+              </div>
             </div>
           </div>
           <div className={`${style.boxes} ${style.three_dotsBox}`}>
-            <Dropdown>
+            <Dropdown drop="start">
               <Dropdown.Toggle variant="transprant" id="dropdown-basic-button">
-                <Image src={dots} alt="three-dots" width={20} />
+                {/* <Image src={dots} alt="three-dots" width={20} /> */}
+                <FontAwesomeIcon icon={faEllipsisVertical} size="2x" />
               </Dropdown.Toggle>
-              <Dropdown.Menu key={"start"}>
+              <Dropdown.Menu key={"start"} style={{ fontSize: "1.4rem" }}>
                 <Dropdown.Item
                   onClick={() => handelEdit(product._id, product.slug)}
                 >

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import style from "../css/SingleProduct.module.css";
 import Image from "next/image";
@@ -12,13 +12,23 @@ import {
   faUser,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { useForm } from "react-hook-form";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
+import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 
 export default function SingleProduct() {
-  const { singleProduct } = useContext(ProductContext);
+  const router = useRouter();
+  const { slug } = router.query;
+  const { token, loginUser } = useContext(UserContext);
+  const {
+    singleProduct,
+    SendSingleproductEnqiiresAction,
+    sendingEmail,
+    setsendingEmail,
+  } = useContext(ProductContext);
 
   console.log(singleProduct);
+  console.log(loginUser._id);
 
   const myRef = useRef(null);
 
@@ -28,6 +38,64 @@ export default function SingleProduct() {
       behavior: "smooth",
     });
   };
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "all",
+  });
+
+  const onSendEmail = async (formData) => {
+    setsendingEmail(true);
+    try {
+      const result = await SendSingleproductEnqiiresAction(
+        formData,
+        token,
+        slug
+      );
+
+      if (result.data.status === "Success") {
+        setsendingEmail(false);
+      }
+      console.log(result);
+    } catch (error) {}
+  };
+
+  // const checkEnquireStatus = () => {
+  //   if (!singleProduct?.productEnquiries.length === 0) {
+  //     return (
+  //       <>
+  //         <button className={style.Enquery_Email_Send_btn}>Send Email </button>
+  //       </>
+  //     );
+  //   }
+  //   return singleProduct.productEnquiries.map((id) => {
+  //     if (id === loginUser._id) {
+  //       return (
+  //         <>
+  //           <div>
+  //             <p>Enquireny Sent please Chaeck the satus</p>
+  //           </div>
+  //         </>
+  //       );
+  //     } else {
+  //       return (
+  //         <>
+  //           <button className={style.Enquery_Email_Send_btn}>
+  //             Send Email{" "}
+  //           </button>
+  //         </>
+  //       );
+  //     }
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   checkEnquireStatus();
+  // }, [singleProduct]);
 
   return (
     <>
@@ -280,12 +348,33 @@ export default function SingleProduct() {
                 <h5>{singleProduct?.name} </h5>
               </div>
             </div>
-            <div className={style.SingleProduct_mesasageContainer}>
-              <textarea rows={10} placeholder="wirte message here" />
-            </div>
-            <div className={style.Email_Send_btnBox}>
-              <div className={style.Enquery_Email_Send_btn}>Send Email</div>
-            </div>
+            <form onSubmit={handleSubmit(onSendEmail)}>
+              <div className={style.SingleProduct_mesasageContainer}>
+                <textarea
+                  rows={10}
+                  name="message"
+                  placeholder="wirte message here"
+                  {...register("message", {
+                    required: "Message is required",
+                  })}
+                />
+              </div>
+              <div className={style.Email_Send_btnBox}>
+                {sendingEmail ? (
+                  <>
+                    <button disabled className={style.Enquery_Email_Send_btn}>
+                      Send Email{" "}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className={style.Enquery_Email_Send_btn}>
+                      Send Email{" "}
+                    </button>
+                  </>
+                )}
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -29,7 +29,10 @@ export default function AddProductComponenet() {
         ) : (
           <>
             <div className={style.product_List_container}>
-              <button onClick={handelAddProductBox}>add Product</button>
+              <div className={style.addButton_container}>
+                <button onClick={handelAddProductBox}>Add Product</button>
+              </div>
+
               <ListPostedProduct />
             </div>
           </>

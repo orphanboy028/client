@@ -17,6 +17,7 @@ export default function ProductFormConponent() {
     buttonEnabled,
     handelTabselect,
     tabs,
+    setaddButton,
   } = useContext(ProductFormContext);
 
   const [isActiveButton1, setIsActiveButton1] = useState(true);
@@ -36,16 +37,14 @@ export default function ProductFormConponent() {
     <div>
       <div className={style.Add_product_container}>
         {/* Back button box start */}
-        <div className={style.Back_btnBox}>
-          <Link href="/user-admin/add-product">
-            <Button variant="primary" style={{ letterSpacing: "0.1rem" }}>
-              <FontAwesomeIcon
-                icon={faArrowLeft}
-                style={{ color: "#ffffff", marginRight: "5px" }}
-              />
-              Back
-            </Button>{" "}
-          </Link>
+        <div className={style.Back_btnBox} onClick={() => setaddButton(false)}>
+          <Button variant="primary" style={{ letterSpacing: "0.1rem" }}>
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              style={{ color: "#ffffff", marginRight: "5px" }}
+            />
+            Back
+          </Button>{" "}
         </div>
         {/* Back button box End */}
         {/* Two Buttons Tab start */}

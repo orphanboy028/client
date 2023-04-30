@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import SearchCategories from "./SearchCategories";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SpacificationComponnent() {
   const router = useRouter();
@@ -35,6 +37,9 @@ export default function SpacificationComponnent() {
     try {
       const result = await updateSpacification(formData, token, slug);
       console.log(result);
+      if (result.data.status) {
+        toast.success("Update sucesfully");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -103,6 +108,7 @@ export default function SpacificationComponnent() {
   return (
     <>
       <div className={style.Spacification_Container}>
+        <ToastContainer />
         <div className={style.spacification_Box}>
           <h2>Product Specification</h2>
         </div>

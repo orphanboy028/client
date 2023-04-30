@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import style from "../css/AddProduct.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,16 +9,25 @@ import Image from "next/image";
 import { ProductFormContext } from "../../../ContaxtApi/ProductFormContextApi";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BasicDeatilsComponent() {
+  const fileInputRef = useRef(null);
+  const router = useRouter();
+  const { slug } = router.query;
+  console.log(slug);
   const { token, loginUser } = useContext(UserContext);
+
   const {
     handleImageChange,
     prductIMagePreview,
     CreateBasicProduct,
     usersingleProduct,
+    updateOnlyProductImageAction,
+    updateBiasieDetailsActon,
   } = useContext(ProductContext);
-  const router = useRouter();
+  console.log(prductIMagePreview);
   const {
     register,
     handleSubmit,
@@ -28,47 +37,100 @@ export default function BasicDeatilsComponent() {
     mode: "all",
   });
 
-  const onSubmit = async () => {};
+  const getImageSource = () => {
+    if (prductIMagePreview) {
+      return prductIMagePreview;
+    } else {
+      return `/product-feature-imges/${usersingleProduct?.images[0]?.url}`;
+    }
+  };
+
+  const handleChangeImage = () => {
+    fileInputRef.current.click();
+  };
+  const onSubmit = async (formDta) => {
+    try {
+      const result = await updateBiasieDetailsActon(formDta, token, slug);
+      console.log(result);
+      if (result.data.status === "Success") {
+        toast.success("Update sucesfully");
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const UpdateImageHandel = async () => {
+    try {
+      const result = await updateOnlyProductImageAction(token, slug);
+      console.log(result);
+      if (result.data.status === "Success") {
+        toast.success("Image Update sucesfully");
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const updateImagebtn = () => {
+    if (prductIMagePreview === null) {
+      return (
+        <>
+          <button
+            style={{
+              backgroundColor: "#eee",
+              color: "black",
+              border: "none",
+              boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
+            }}
+            disabled
+          >
+            Update
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <button onClick={UpdateImageHandel}>Update</button>
+        </>
+      );
+    }
+  };
 
   return (
     <div className={style.AddProductComponenet_basic_details_innderContainer}>
+      <ToastContainer />
       <div className={style.AddProductComponenet_imageContainer}>
         <div className={style.AddProductComponenet_imageBox}>
-          <input type="file" id="FileInput" onChange={handleImageChange} />
-          {!prductIMagePreview && (
-            <>
-              <FontAwesomeIcon
-                icon={faCamera}
-                size="4x"
-                style={{ color: "#fff" }}
-              />
-              <label htmlFor="FileInput" class="file-input-label">
-                Uplod Product Image{" "}
-              </label>
-            </>
-          )}
-          {prductIMagePreview && (
-            <>
-              <div className={style.product_Feature_ImageBox}>
-                <Image
-                  src={prductIMagePreview}
-                  layout="responsive"
-                  width={300}
-                  height={300}
-                  alt="Product-feature-image"
-                  className={style.product_featureImageStyle}
-                />
-              </div>
-            </>
-          )}
+          <input
+            type="file"
+            id="FileInput"
+            onChange={handleImageChange}
+            ref={fileInputRef}
+          />
+
+          <div className={style.product_Feature_ImageBox}>
+            {usersingleProduct &&
+              usersingleProduct.images &&
+              usersingleProduct.images[0] && (
+                <>
+                  <Image
+                    src={prductIMagePreview ?? getImageSource()}
+                    alt="Product-feature-image"
+                    // className={style.product_featureImageStyle}
+                    fill
+                  />
+                </>
+              )}
+          </div>
         </div>
-        {prductIMagePreview && (
-          <>
-            <div className={` ${style.chnage_btnBox}`}>
-              <button> Chnage image</button>
-            </div>
-          </>
-        )}
+
+        <div className={` ${style.chnage_btnBox}`}>
+          <button onClick={handleChangeImage}> Change</button>
+
+          {updateImagebtn()}
+        </div>
       </div>
 
       <div className={style.AddProductComponenet_formContainer}>
@@ -98,7 +160,7 @@ export default function BasicDeatilsComponent() {
                   type="text"
                   name="price"
                   placeholder="Enter Your Product Price"
-                  defaultValue={usersingleProduct?.prics}
+                  defaultValue={usersingleProduct?.price}
                   className={style.input_bootstrap_form_control_style}
                   {...register("price", {
                     required: "Price is Required",
@@ -136,7 +198,7 @@ export default function BasicDeatilsComponent() {
             </div>
 
             <div className={style.product_basic_btnBox}>
-              <button>Save</button>
+              <button>Update</button>
             </div>
           </form>
         </div>
