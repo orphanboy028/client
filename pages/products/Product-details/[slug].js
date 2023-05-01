@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import Head from "next/head";
 import PageLayOut from "../../../components/layouts/PageLayOut";
 import SingleProduct from "../../../components/ProductComponent/SingleProduct/SingleProduct";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
@@ -16,8 +17,51 @@ export default function ProductDetails({ initialProducts }) {
     }
   }, [initialProducts]);
 
+  console.log(singleProduct);
+
   return (
     <>
+      <Head>
+        {singleProduct.productMetas &&
+          Object.entries(singleProduct.productMetas).map(([key, value]) => {
+            if (value.content && value.name) {
+              return (
+                <meta name={value.name} content={value.content} key={key} />
+              );
+            } else if (value.content && value.property) {
+              return (
+                <meta
+                  property={value.property}
+                  content={value.content}
+                  key={key}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        <title>India Mart-{singleProduct.name} </title>
+        <link
+          rel="canonical"
+          href={`https://indiamart/${singleProduct.slug}/`}
+        />
+        <meta
+          property="og:title"
+          content={singleProduct?.ProductMetaog?.MetaOgTitle?.content}
+        />
+        <meta
+          property="og:description"
+          content={singleProduct?.ProductMetaog?.MetaOgDescription?.content}
+        />
+        <meta
+          property="og:image"
+          content={`http://www.indiamart.com/${singleProduct?.ProductMetaog?.MetaOgImage?.content}`}
+        />
+        <meta
+          property="og:url"
+          content={`http://www.example.com/${singleProduct.slug}`}
+        />
+      </Head>
       <PageLayOut>
         {sendingEmail ? (
           <>

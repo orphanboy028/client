@@ -93,7 +93,10 @@ export default function SuperAdminLayout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="/super-admin" legacyBehavior>
+              <Link
+                href="/super-admin/enquiries/Product-enquires"
+                legacyBehavior
+              >
                 <a>
                   <span
                     className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
@@ -101,13 +104,13 @@ export default function SuperAdminLayout({ children }) {
                     <FontAwesomeIcon icon={faDiagramProject} size="2x" />
                   </span>
                   <span className={style.UserAdminLayout_sidebar_item}>
-                    Enquiries-2
+                    Product Enquires
                   </span>
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/super-admin" legacyBehavior>
+              <Link href="/super-admin/seo" legacyBehavior>
                 <a>
                   <span
                     className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
@@ -115,7 +118,7 @@ export default function SuperAdminLayout({ children }) {
                     <FontAwesomeIcon icon={faGauge} size="2x" />
                   </span>
                   <span className={style.UserAdminLayout_sidebar_item}>
-                    Enquires-3
+                    SEO
                   </span>
                 </a>
               </Link>

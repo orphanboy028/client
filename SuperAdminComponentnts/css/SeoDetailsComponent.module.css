@@ -1,0 +1,62 @@
+.SEODetailsComponent_main_Container {
+  padding: 0px;
+}
+
+.SEODetailsComponent_Stats_container {
+  height: 200px;
+  border: 1px solid #eee;
+}
+
+.SEODetailsComponent_MetaTag_Container {
+  padding: 10px 50px;
+  margin: 20px 0px;
+}
+
+/* Meta Descreption */
+
+.MetaDescription_Main_Container {
+  border: 1px solid #eee;
+  height: 400px;
+  padding: 50px;
+}
+
+.MetaDescription_innerContainer {
+  border: 1px solid #eee;
+}
+
+.MetaDescription_inputContainer {
+  margin: 20px 0px;
+  border: 1px solid #eee;
+}
+.MetaDescription_inputContainer textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0px;
+  vertical-align: top;
+  resize: none;
+  font-size: 1.4rem;
+  padding: 5px;
+  font-family: Arial;
+  outline: none;
+}
+
+.MetaDescription_errorBox {
+  color: red;
+}
+
+.MetaDescription_formBtn_Box {
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.MetaDescription_formBtn_Box button {
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  padding: 5px 20px;
+  font-size: 1.4rem;
+  font-family: Arial;
+  border: none;
+  box-shadow: var(--box-shadow2);
+  letter-spacing: 1.5px;
+}

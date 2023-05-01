@@ -17,6 +17,7 @@ import {
   getAllProductsAction,
   getSingleProductsAction,
   getSeachProductsAction,
+  SuperAdminproductEnquires,
 } from "../Actions/ProductActions/ProductActions";
 import { useRouter } from "next/router";
 
@@ -35,6 +36,9 @@ export const ProductContextProvider = ({ children }) => {
   const [singleProduct, setsingleProduct] = useState({});
   const [productEnquiresList, setproductEnquiresList] = useState([]);
   const [productEnquireDetail, setproductEnquireDetail] = useState({});
+  const [superAdminProductEnquireList, setsuperAdminProductEnquireList] =
+    useState([]);
+  const [allProductForSEO, setallProductForSEO] = useState([]);
 
   // Handel CHange for image
   const handleImageChange = (event) => {
@@ -198,6 +202,25 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
+  // Super Admin Product Enquire List
+  const SuperAdminproductEnquiresAction = async (token) => {
+    try {
+      const result = await SuperAdminproductEnquires(token);
+
+      setsuperAdminProductEnquireList(result.data.product);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const SuperAdmingetAllProductsAction = async () => {
+    try {
+      const result = await getAllProductsAction();
+      // console.log(result);
+      setallProductForSEO(result.data.allProducts);
+    } catch (error) {}
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -230,6 +253,10 @@ export const ProductContextProvider = ({ children }) => {
         SingleproductEnquiresAction,
         productEnquireDetail,
         setproductEnquireDetail,
+        SuperAdminproductEnquiresAction,
+        superAdminProductEnquireList,
+        SuperAdmingetAllProductsAction,
+        allProductForSEO,
       }}
     >
       {children}

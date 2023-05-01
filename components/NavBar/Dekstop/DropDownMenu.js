@@ -15,8 +15,10 @@ import {
   faPenToSquare,
   faFileImport,
 } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/router";
 
 export default function DropDownMenu() {
+  const router = useRouter();
   return (
     <>
       <div>

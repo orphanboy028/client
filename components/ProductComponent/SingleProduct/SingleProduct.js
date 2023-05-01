@@ -27,9 +27,6 @@ export default function SingleProduct() {
     setsendingEmail,
   } = useContext(ProductContext);
 
-  console.log(singleProduct);
-  console.log(loginUser._id);
-
   const myRef = useRef(null);
 
   const scrollToSection = () => {

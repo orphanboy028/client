@@ -7,7 +7,6 @@ import pending from "../../public/app-static-images/remove.png";
 import Image from "next/image";
 
 export default function TableComponent({ allusers }) {
-  console.log(allusers);
   return (
     <>
       <div className={`card ${style.TableCard_Resposive}`}>

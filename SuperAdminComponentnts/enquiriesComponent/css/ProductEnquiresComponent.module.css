@@ -1,0 +1,44 @@
+.ProductEnquiresComponent_main_conatiner {
+  width: 100%;
+}
+
+.ProductEnquiresComponent_stats_container {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #eee;
+}
+
+.ProductEnquiresComponent_table_Container {
+  width: 100%;
+}
+
+.ProductEnquireTable_imageBox {
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+
+.ProductEnquireTable_notificationBox {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 5px 5px;
+}
+
+.ProductEnquireTable_BadgeBox {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+.ProductEnquireTable_Th {
+  text-align: center;
+}
+
+.ProductEnquireTable_Td {
+  text-align: center;
+
+  vertical-align: middle;
+}

@@ -1,0 +1,54 @@
+.SocialMediaOGTag_main_container {
+  border: 1px solid #eee;
+  height: 400px;
+  padding: 50px;
+}
+
+.SocialMediaOGTag_innerContainer {
+  border: 1px solid #eee;
+}
+
+.SocialMediaOGTag_HeadingBox {
+  margin-bottom: 20px;
+}
+
+.og_formBox {
+  padding: 0px;
+  margin: 20px 0px;
+}
+
+.OGTitle_box {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+.OGInputBox {
+  width: 80%;
+  border: 1px solid #eee;
+  height: 40px;
+}
+
+.OGInputBox input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: Arial;
+  outline: none;
+  padding: 5px;
+}
+
+.og_BtnBox {
+  display: flex;
+  align-items: center;
+}
+
+.og_BtnBox button {
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  padding: 5px 20px;
+  font-size: 1.4rem;
+  font-family: Arial;
+  border: none;
+  box-shadow: var(--box-shadow2);
+  letter-spacing: 1.5px;
+}

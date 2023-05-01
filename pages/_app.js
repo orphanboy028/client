@@ -10,23 +10,26 @@ import { ProductContextProvider } from "../ContaxtApi/ProductContextApi";
 import { ProductFormContextProvider } from "../ContaxtApi/ProductFormContextApi";
 import { CategriesContextProvider } from "../ContaxtApi/CategoriesContaxApi";
 import { EnquiryContextProvider } from "../ContaxtApi/EnquiryContaxApi";
+import { SEOContextProvider } from "../ContaxtApi/SEOContaxApi";
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserContextProvider>
-      <AppUilsContextProvider>
-        <BusinessContextProvider>
-          <ProductContextProvider>
-            <ProductFormContextProvider>
-              <CategriesContextProvider>
-                <EnquiryContextProvider>
-                  <Component {...pageProps} />
-                </EnquiryContextProvider>
-              </CategriesContextProvider>
-            </ProductFormContextProvider>
-          </ProductContextProvider>
-        </BusinessContextProvider>
-      </AppUilsContextProvider>
+      <SEOContextProvider>
+        <AppUilsContextProvider>
+          <BusinessContextProvider>
+            <ProductContextProvider>
+              <ProductFormContextProvider>
+                <CategriesContextProvider>
+                  <EnquiryContextProvider>
+                    <Component {...pageProps} />
+                  </EnquiryContextProvider>
+                </CategriesContextProvider>
+              </ProductFormContextProvider>
+            </ProductContextProvider>
+          </BusinessContextProvider>
+        </AppUilsContextProvider>
+      </SEOContextProvider>
     </UserContextProvider>
   );
 }
