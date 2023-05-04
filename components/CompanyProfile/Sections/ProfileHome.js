@@ -6,7 +6,8 @@ import ContactUsSection from "./ContactUsSection";
 import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function ProfileHome() {
-  const { businessProfile, profileProduct } = useContext(BusinessContext);
+  const { businessProfile, profileProduct, businessCompleteDetails } =
+    useContext(BusinessContext);
   return (
     <>
       <div>

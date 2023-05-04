@@ -1,0 +1,161 @@
+.MainCategoriesComponent_MainContainer {
+  padding: 10px;
+}
+
+.MainCategoriesComponent_Banner_Container {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.MainCategoriesComponent_Banner_Box {
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+
+/* MainCategoriesCard_cardContainer */
+.MainCategoriesCard_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.MainCategoriesCard_Box {
+  border: 1px solid #eee;
+  box-shadow: var(--box-shadow2);
+  display: flex;
+  margin: 20px 0px;
+  min-height: 250px;
+}
+
+.card_mainIcon_Box {
+  width: 200px;
+  min-height: 200px;
+  padding: 5px;
+}
+
+.card_mainIcon_Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.maincategores_TitleBox {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.MainCategeories_IconBox {
+  font-size: 5rem;
+  padding: 5px;
+}
+
+.SuCategories_Container {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+
+.SubCategories_cardBox {
+  border: 1px solid #eee;
+  width: 200px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 0px 10px;
+  flex-shrink: 0;
+}
+
+.SubCategories_Static_Card {
+  width: 150px;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: var(--color-brand-blue);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.subCategories_Arrow_IconBox {
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 10px 0px;
+}
+
+.subCatgories_ImageBox {
+  width: 90%;
+  height: 100px;
+  position: relative;
+}
+
+.subCatgories_TitleBox {
+  margin: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 90%;
+}
+
+.lefCategories_ListBox {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 899px) {
+  .MainCategoriesCard_container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .SuCategories_Container {
+    display: none;
+  }
+
+  .MainCategoriesCard_Box {
+    width: 150px;
+    min-height: 150px;
+    margin: 0px 0px;
+  }
+
+  .card_mainIcon_Box {
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .maincategores_TitleBox {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .MainCategeories_IconBox {
+    font-size: 3rem;
+    padding: 5px;
+  }
+
+  .card_mainIcon_Box {
+    flex-direction: column-reverse;
+  }
+}

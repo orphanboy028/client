@@ -66,7 +66,26 @@ export const updateLogo = async (formData, token) => {
 export const getBusinessDetailsBySlugAction = async (slug) => {
   try {
     const res = await axios.get(
-      "http://127.0.0.1:5000/api/V1/industy/business/business-details/machinical-Tool-Room-1681934343513",
+      `http://127.0.0.1:5000/api/V1/industy/business/business-details/${slug}`,
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Accept: "application/json",
+        },
+      }
+    );
+
+    return res;
+  } catch (error) {
+    console.log(error.response);
+    return error.response;
+  }
+};
+
+export const getAllBusinessList = async () => {
+  try {
+    const res = await axios.get(
+      "http://127.0.0.1:5000/api/V1/industy/business/business-lists",
       {
         headers: {
           "Content-Type": "application/json; charset=utf-8",

@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "../css/CompanyCard.module.css";
 import Image from "next/image";
 import companyLogo from "../../../public/Company-logo/user-64318e457993fb3620054341-1681574687021.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-
+import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 export default function CompanyCard() {
+  const { listedBusiness } = useContext(BusinessContext);
+  console.log(listedBusiness);
   return (
     <>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((el, i) => {
+      {listedBusiness.map((el, i) => {
         return (
           <>
             <div className={style.CompanyCard_Container}>
@@ -19,7 +21,7 @@ export default function CompanyCard() {
                 </div>
                 <div className={style.CompanyCard_Baise_Details_sideBox}>
                   <div className={style.CompanyCard_TitleBox}>
-                    <h3>Digital Unifier</h3>
+                    <h3>{el?.CompanyName}</h3>
                   </div>
                   <div className={style.CompanyCard_VeifiedBox}>
                     <div className={style.CompanyCard_Vefied_IconBox}>
@@ -40,9 +42,7 @@ export default function CompanyCard() {
                 </div>
               </div>
               <div className={style.CompanyCard_addressBox}>
-                <p>
-                  Plot no - 271 sector-6 imt Manesar Gurgaon Pin code -122051
-                </p>
+                <p>{el?.address}</p>
               </div>
               <div className={style.CompanyCard_btnBox}>
                 <Link
@@ -54,7 +54,7 @@ export default function CompanyCard() {
                     padding: "5px",
                     color: "#fff",
                   }}
-                  href={""}
+                  href={`/profile/${el?.slug}`}
                 >
                   Visit Company Profil
                 </Link>

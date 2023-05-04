@@ -1,0 +1,49 @@
+.MainCategoriesComponent_MainContainer {
+  padding: 10px;
+}
+
+.MainCategoriesComponent_Banner_Container {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.MainCategoriesComponent_Banner_Box {
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+
+/* lefCategories_Cards_Container */
+
+.lefCategories_Cards_Container {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.LefeCategories_CardBox {
+  width: 150px;
+  min-height: 150px;
+  border: 1px solid #eee;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lefcategoriesCard_Image {
+  height: 80px;
+  width: 90%;
+  position: relative;
+}
+
+.lefTitle_Box {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 5px 0px;
+}

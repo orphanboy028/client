@@ -15,6 +15,8 @@ export const BusinessContextProvider = ({ children }) => {
   const [loading, setloading] = useState(false);
   const [businessProfile, setbusinessProfile] = useState({});
   const [profileProduct, setprofileProduct] = useState([]);
+  const [businessCompleteDetails, setbusinessCompleteDetails] = useState({});
+  const [listedBusiness, setlistedBusiness] = useState([]);
 
   const handelChnage = (e) => {
     console.log("on Chnage");
@@ -73,33 +75,33 @@ export const BusinessContextProvider = ({ children }) => {
     }
   };
 
-  const getBusinessDetailsBySlug = async (slug) => {
-    try {
-      const result = await getBusinessDetailsBySlugAction(slug);
-      const { business } = result.data;
-      console.log(business);
+  // const getBusinessDetailsBySlug = async (slug) => {
+  //   try {
+  //     const result = await getBusinessDetailsBySlugAction(slug);
+  //     const { business } = result.data;
+  //     console.log(business);
 
-      // Separate the rest of the data
-      const restOfData = {
-        CompanyName: business.CompanyName,
-        GstNumber: business.GstNumber,
-        LegalStatusofFirm: business.LegalStatusofFirm,
-        NatureofBusiness: business.NatureofBusiness,
-        PanNumber: business.PanNumber,
-        TotalNumberofEmployees: business.TotalNumberofEmployees,
-        createdAt: business.createdAt,
-        slug: business.slug,
-        updatedAt: business.updatedAt,
-        website: business.website,
-        id: business._id,
-      };
+  //     // Separate the rest of the data
+  //     const restOfData = {
+  //       CompanyName: business.CompanyName,
+  //       GstNumber: business.GstNumber,
+  //       LegalStatusofFirm: business.LegalStatusofFirm,
+  //       NatureofBusiness: business.NatureofBusiness,
+  //       PanNumber: business.PanNumber,
+  //       TotalNumberofEmployees: business.TotalNumberofEmployees,
+  //       createdAt: business.createdAt,
+  //       slug: business.slug,
+  //       updatedAt: business.updatedAt,
+  //       website: business.website,
+  //       id: business._id,
+  //     };
 
-      setbusinessProfile(restOfData);
-      setprofileProduct(business.products);
-    } catch (error) {
-      return error;
-    }
-  };
+  //     setbusinessProfile(restOfData);
+  //     setprofileProduct(business.products);
+  //   } catch (error) {
+  //     return error;
+  //   }
+  // };
 
   return (
     <BusinessContext.Provider
@@ -115,9 +117,12 @@ export const BusinessContextProvider = ({ children }) => {
         setImagePreview,
         handleImageChange,
         handelupdateImage,
-        getBusinessDetailsBySlug,
         businessProfile,
         profileProduct,
+        listedBusiness,
+        setlistedBusiness,
+        businessCompleteDetails,
+        setbusinessCompleteDetails,
       }}
     >
       {children}

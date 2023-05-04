@@ -11,7 +11,8 @@ import {
 import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function TopHeader() {
-  const { businessProfile, profileProduct } = useContext(BusinessContext);
+  const { businessCompleteDetails } = useContext(BusinessContext);
+
   return (
     <div className={style.CompanyProfile_TopContainer}>
       <div className={style.CompanyProfile_companyLogoBox}>
@@ -19,7 +20,7 @@ export default function TopHeader() {
       </div>
       <div>
         <div className={style.CompanyProfile_companyNameBox}>
-          <h1>{businessProfile?.CompanyName}</h1>
+          <h1>{businessCompleteDetails?.CompanyName}</h1>
         </div>
         <div className={style.top_Container_address}>
           <div className={style.topHeader_addres_box}>
@@ -46,7 +47,7 @@ export default function TopHeader() {
             </div>
             <div className={style.topHeader_content_Box}>
               {" "}
-              GST {businessProfile?.GstNumber}
+              GST {businessCompleteDetails?.GstNumber}
             </div>
           </div>
 

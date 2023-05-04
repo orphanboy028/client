@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../css/ProfileCards.module.css";
-import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1681332947449.jpeg";
+import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1681334334557.jpeg";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,7 @@ export default function ProfileCards({ items }) {
   return (
     <>
       <div className={style.ProfileCards_container}>
-        {items.map((product, i) => {
+        {items?.map((product, i) => {
           return (
             <>
               <div className={style.ProfileCards_card_box}>

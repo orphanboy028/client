@@ -123,6 +123,23 @@ export default function SuperAdminLayout({ children }) {
                 </a>
               </Link>
             </li>
+            <li>
+              <Link
+                href="/super-admin/categories/main-categories"
+                legacyBehavior
+              >
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                  >
+                    <FontAwesomeIcon icon={faGauge} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Categories Panel
+                  </span>
+                </a>
+              </Link>
+            </li>
           </ul>
           <ul className={style.UserAdminLayout_sidebar_bottom_items}>
             <li>
@@ -131,7 +148,7 @@ export default function SuperAdminLayout({ children }) {
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
-                  Dashboard
+                  stteing
                 </span>
               </a>
             </li>
@@ -141,7 +158,7 @@ export default function SuperAdminLayout({ children }) {
                   <FontAwesomeIcon icon={faGauge} size="2x" />
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
-                  Dashboard
+                  more details
                 </span>
               </a>
             </li>

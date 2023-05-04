@@ -11,6 +11,7 @@ import { ProductFormContextProvider } from "../ContaxtApi/ProductFormContextApi"
 import { CategriesContextProvider } from "../ContaxtApi/CategoriesContaxApi";
 import { EnquiryContextProvider } from "../ContaxtApi/EnquiryContaxApi";
 import { SEOContextProvider } from "../ContaxtApi/SEOContaxApi";
+import { SuperAdminCategoriesContextProvider } from "../ContaxtApi/superAdminContext/CategoriesContaxApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }) {
               <ProductFormContextProvider>
                 <CategriesContextProvider>
                   <EnquiryContextProvider>
-                    <Component {...pageProps} />
+                    <SuperAdminCategoriesContextProvider>
+                      <Component {...pageProps} />
+                    </SuperAdminCategoriesContextProvider>
                   </EnquiryContextProvider>
                 </CategriesContextProvider>
               </ProductFormContextProvider>

@@ -19,11 +19,13 @@ export default function CompanyProfile() {
   const { slug } = router.query;
   const { toggleState, setToggleState, toggleTab } =
     useContext(AppUtilsContext);
-  const { getBusinessDetailsBySlug } = useContext(BusinessContext);
+  const { businessCompleteDetails } = useContext(BusinessContext);
 
-  useEffect(() => {
-    getBusinessDetailsBySlug(slug);
-  }, [slug]);
+  // useEffect(() => {
+  //   getBusinessDetailsBySlug(slug);
+  // }, [slug]);
+
+  console.log(businessCompleteDetails);
 
   const renderContainer = () => {
     if (toggleState === 1) {

@@ -10,7 +10,8 @@ import {
 import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function ProfileAboutSection() {
-  const { businessProfile, profileProduct } = useContext(BusinessContext);
+  const { businessProfile, profileProduct, businessCompleteDetails } =
+    useContext(BusinessContext);
   return (
     <>
       <div className={style.ProfileAboutSection_main_Container}>
@@ -31,7 +32,7 @@ export default function ProfileAboutSection() {
                 Nature of Business
               </div>
               <div className={style.about_info_dynimic_content}>
-                {businessProfile?.NatureofBusiness}
+                {businessCompleteDetails?.NatureofBusiness}
               </div>
             </div>
           </div>
@@ -49,7 +50,7 @@ export default function ProfileAboutSection() {
                 Total Number of Employees
               </div>
               <div className={style.about_info_dynimic_content}>
-                Upto {businessProfile?.TotalNumberofEmployees} People
+                Upto {businessCompleteDetails?.TotalNumberofEmployees} People
               </div>
             </div>
           </div>
@@ -67,7 +68,7 @@ export default function ProfileAboutSection() {
                 Legal Status of Firm
               </div>
               <div className={style.about_info_dynimic_content}>
-                Individual - {businessProfile?.LegalStatusofFirm}
+                Individual - {businessCompleteDetails?.LegalStatusofFirm}
               </div>
             </div>
           </div>
@@ -83,7 +84,7 @@ export default function ProfileAboutSection() {
             <div className={style.about_info_content}>
               <div className={style.about_info_static_content}>GST Number</div>
               <div className={style.about_info_dynimic_content}>
-                {businessProfile?.GstNumber}
+                {businessCompleteDetails?.GstNumber}
               </div>
             </div>
           </div>

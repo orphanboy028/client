@@ -1,0 +1,143 @@
+.MainCategoriesComponent_MainContainer {
+  padding: 10px;
+}
+
+.MainCategoriesComponent_Banner_Container {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.MainCategoriesComponent_Banner_Box {
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+
+/* SubCategoriesCard_Container */
+
+.MainCategoriesComponent_mainContent {
+  /* border: 1px solid orange;
+  display: flex; */
+}
+
+.SubCategoriesCard_mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.SubCategoriesCard_Container {
+  margin: 20px 0px;
+  min-height: 200px;
+  display: flex;
+}
+
+.SubCategoriesCard_main_subBox {
+  width: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.Main_sub_InnerBox {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subCategoriesImage_Box {
+  height: 100px;
+  width: 80%;
+  position: relative;
+  margin: 10px 0px;
+}
+
+.SubCategoriesCard_subCategories_TitleBox {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.SubCategoriesCard_LefCategories_container {
+  width: 90%;
+}
+
+.Accordion_body_Container {
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.Accordion_body_toggle_Container {
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  padding: 5px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Accordion_cardBox {
+  width: 150px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
+}
+
+.Accordion_cardBox:hover {
+  box-shadow: var(--box-shadow2);
+  cursor: pointer;
+}
+
+.Accordion_imageBox {
+  width: 70%;
+  height: 70px;
+  position: relative;
+}
+
+.Accordion_left_Title {
+  margin: 5px 0px;
+}
+
+.Accordion_left_Title h5 {
+  font-size: 1.4rem;
+  font-family: Arial;
+}
+
+.Accordion_Product_countBox {
+  margin-bottom: 5px;
+}
+
+.Accordion_toogle_ViewMoreBox {
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: Arial;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 899px) {
+  .SubCategoriesCard_LefCategories_container {
+    display: none;
+  }
+
+  .SubCategoriesCard_mainContainer {
+    flex-direction: row;
+  }
+  .SubCategoriesCard_main_subBox {
+    border: 1px solid #eee;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+  }
+}

@@ -5,7 +5,8 @@ import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 
 export default function ProfileProductSection() {
   const [items, setitems] = useState([1, 2, 3, 4, 5, 6, 7]);
-  const { businessProfile, profileProduct } = useContext(BusinessContext);
+  const { businessProfile, profileProduct, businessCompleteDetails } =
+    useContext(BusinessContext);
   return (
     <>
       <div className={style.ProfileProductSection_main_container}>
@@ -14,7 +15,7 @@ export default function ProfileProductSection() {
         </div>
         {/* Card Section start */}
         <div>
-          <ProfileCards items={profileProduct} />
+          <ProfileCards items={businessCompleteDetails.products} />
         </div>
         {/* Card section End */}
       </div>

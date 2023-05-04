@@ -111,6 +111,19 @@ export default function PageLayOut({ children }) {
                 </span>
               </a>
             </li>
+
+            <li>
+              <a href="/categories/main-categories">
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                >
+                  <FontAwesomeIcon icon={faGauge} size="2x" />
+                </span>
+                <span className={style.UserAdminLayout_sidebar_item}>
+                  View All Categories
+                </span>
+              </a>
+            </li>
           </ul>
           <ul className={style.UserAdminLayout_sidebar_bottom_items}>
             <li>
