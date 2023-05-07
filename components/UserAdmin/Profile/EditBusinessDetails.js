@@ -9,6 +9,10 @@ import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
+import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
+import LocationFillter from "../../UserAdmin/Enquires/LocationFillter";
+import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
+
 import Spinner from "react-bootstrap/Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,17 +20,63 @@ import "react-toastify/dist/ReactToastify.css";
 export default function EditBusinessDetails({ Userbusiness }) {
   const { setUserbusiness, handelChnage, updateBusiness } =
     useContext(BusinessContext);
-  const { formloading, setformloading } = useContext(AppUtilsContext);
+  const { formloading, setformloading, handleModelShow } =
+    useContext(AppUtilsContext);
+  const { handleShowLocation } = useContext(EnquiryContext);
   const { token, loginUser } = useContext(UserContext);
+  const {
+    selectedCity,
+    stateSlected,
+    selectDistric,
+    setSelectedCity,
+    setselectDistric,
+    setstateSlected,
+  } = useContext(ExternalApiContaxt);
+
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    setValue,
+    // formState: { errors, isValid },
   } = useForm({
     mode: "all",
   });
 
+  function handleLocationSelect(city, district, state) {
+    // Update the value of the input field
+    setValue("city", city);
+    setValue("district", district);
+    setValue("state", state);
+
+    // Trigger the onChange event on City
+    const inputCityField = document.querySelector('input[name="city"]');
+    const Cityevent = new Event("input", { bubbles: true });
+    inputCityField.dispatchEvent(Cityevent);
+
+    // Trigger the onChange event on district
+    const inputdistrictField = document.querySelector('input[name="district"]');
+    const districtevent = new Event("input", { bubbles: true });
+    inputdistrictField.dispatchEvent(districtevent);
+
+    // Trigger the onChange event on state
+    const inputStateField = document.querySelector('input[name="state"]');
+    const Stateevent = new Event("input", { bubbles: true });
+    inputStateField.dispatchEvent(Stateevent);
+  }
+
+  const handelSelect = (e) => {
+    console.log(e.target.textContent);
+    const city = e.target.textContent.split(",")[0].trim();
+    const district = e.target.textContent.split(",")[1].trim();
+    const state = e.target.textContent.split(",")[2].trim();
+    setSelectedCity(city);
+    setselectDistric(district);
+    setstateSlected(state);
+    handleLocationSelect(city, district, state);
+  };
+
+  //
   const onSubmit = async (formdata) => {
     try {
       setformloading(true);
@@ -44,6 +94,7 @@ export default function EditBusinessDetails({ Userbusiness }) {
 
   return (
     <div className={styles.BusinessDetails_container}>
+      <LocationFillter handelSelect={handelSelect} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.BusinessDetails_detailsBox}>
           <div className={styles.BusinessDetails_NameFiled}>
@@ -63,20 +114,85 @@ export default function EditBusinessDetails({ Userbusiness }) {
             />
           </div>
         </div>
+        <div
+          className={styles.Select_location_bar}
+          onClick={handleShowLocation}
+        >
+          <div>Select location</div>
+        </div>
+
         <div className={styles.BusinessDetails_detailsBox}>
           <div className={styles.BusinessDetails_NameFiled}>
-            <h4>PAN</h4>
+            <h4>State</h4>
           </div>
           <div>
             <input
               className={styles.input_bootstrap_form_control_style}
-              name="PanNumber"
+              name="state"
               type="text"
               placeholder="Enter Your GST Number"
               onChange={handelChnage}
-              defaultValue={Userbusiness?.PanNumber}
-              {...register("PanNumber", {
+              defaultValue={Userbusiness?.state}
+              {...register("state", {
+                required: "valaid state is Required",
+              })}
+            />
+          </div>
+        </div>
+
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>City</h4>
+          </div>
+          <div>
+            <input
+              className={styles.input_bootstrap_form_control_style}
+              name="city"
+              type="text"
+              placeholder="Enter Your GST Number"
+              onChange={handelChnage}
+              defaultValue={Userbusiness?.city}
+              {...register("city", {
                 required: "valaid Email is Required",
+              })}
+              // ref={register({ required: true })}
+            />
+          </div>
+        </div>
+
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>District</h4>
+          </div>
+          <div>
+            <input
+              className={styles.input_bootstrap_form_control_style}
+              name="district"
+              type="text"
+              placeholder="Select Your district"
+              onChange={handelChnage}
+              defaultValue={Userbusiness?.district}
+              {...register("district", {
+                required: "valaid district is Required",
+              })}
+            />
+          </div>
+        </div>
+
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>State</h4>
+          </div>
+          <div>
+            <input
+              className={styles.input_bootstrap_form_control_style}
+              name="state"
+              type="text"
+              placeholder="Enter Your GST Number"
+              onChange={handelChnage}
+              defaultValue={Userbusiness?.state}
+              {...register("state", {
+                required: "valaid state is Required",
               })}
             />
           </div>

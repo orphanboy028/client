@@ -32,13 +32,13 @@ export default function PageLayOut({ children }) {
           </h2>
         </div>
         <div className={style.UserAdminLayout_search_notification_profile}>
-          <div className={style.UserAdminLayout_Search}>
+          {/* <div className={style.UserAdminLayout_Search}>
             <input type="text" placeholder="search " />
             <button>
               {" "}
               <FontAwesomeIcon icon={faSearch} />
             </button>
-          </div>
+          </div> */}
           <div className={style.UserAdminLayout_notification_profile}>
             <div className={`${style.rightIcon} ${style.bell}`}>
               <FontAwesomeIcon icon={faBell} size="2x" />

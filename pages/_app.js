@@ -12,6 +12,8 @@ import { CategriesContextProvider } from "../ContaxtApi/CategoriesContaxApi";
 import { EnquiryContextProvider } from "../ContaxtApi/EnquiryContaxApi";
 import { SEOContextProvider } from "../ContaxtApi/SEOContaxApi";
 import { SuperAdminCategoriesContextProvider } from "../ContaxtApi/superAdminContext/CategoriesContaxApi";
+import { BannerContextProvider } from "../ContaxtApi/superAdminContext/BannerContextApi";
+import { EXternalApiProvider } from "../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -24,7 +26,11 @@ function MyApp({ Component, pageProps }) {
                 <CategriesContextProvider>
                   <EnquiryContextProvider>
                     <SuperAdminCategoriesContextProvider>
-                      <Component {...pageProps} />
+                      <BannerContextProvider>
+                        <EXternalApiProvider>
+                          <Component {...pageProps} />
+                        </EXternalApiProvider>
+                      </BannerContextProvider>
                     </SuperAdminCategoriesContextProvider>
                   </EnquiryContextProvider>
                 </CategriesContextProvider>

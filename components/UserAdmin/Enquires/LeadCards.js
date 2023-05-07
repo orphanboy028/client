@@ -12,7 +12,7 @@ export default function LeadCards({ allEnquiryes }) {
     useContext(EnquiryContext);
 
   // sort the enquires based on the current sortOrder
-  const sortedEnquiryes = allEnquiryes.slice().sort((enquiry1, enquiry2) => {
+  const sortedEnquiryes = allEnquiryes?.slice().sort((enquiry1, enquiry2) => {
     const date1 = new Date(enquiry1.createdAt);
     const date2 = new Date(enquiry2.createdAt);
     if (togglesortFiilter === "recent") {
@@ -21,6 +21,7 @@ export default function LeadCards({ allEnquiryes }) {
       return date1 - date2;
     }
   });
+
   return (
     <>
       <div>{}</div>
@@ -61,7 +62,7 @@ export default function LeadCards({ allEnquiryes }) {
                     />
                   </div>
                   <div className={style.LeadCards_location}>
-                    {enquie?.city}/ {enquie?.state}
+                    {enquie?.city}/ {enquie?.district}/ {enquie?.state}
                   </div>
                 </div>
               </div>

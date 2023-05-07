@@ -15,6 +15,7 @@ import {
 import { useForm } from "react-hook-form";
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
+import trandingbanner from "../../../public/banners-images/tranding-banner.png";
 
 export default function SingleProduct() {
   const router = useRouter();
@@ -28,7 +29,6 @@ export default function SingleProduct() {
   } = useContext(ProductContext);
 
   console.log(singleProduct);
-
   const myRef = useRef(null);
 
   const scrollToSection = () => {
@@ -190,17 +190,19 @@ export default function SingleProduct() {
             <>
               <div className={style.Related_Product_CardContainer}>
                 <div className={style.Realted_CardImageBox}>
-                  <Image src={productImage} width={100} />
+                  <Image src={productImage} fill alt="Related product" />
                 </div>
                 <div className={style.SingleProduct_Related_Card_title}>
                   <h5>Mild Steel CNC Turning Fixtures</h5>
                 </div>
-                <div className={style.SingleProduct_Related_Card_PriceBox}>
-                  <div>
+                <div
+                  className={style.SingleProduct_Related_Card_Price_Container}
+                >
+                  <div className={style.SingleProduct_Related_Card_PriceBox}>
                     <span className={style.SingleProduct_Rs_iconBox}>
-                      <FontAwesomeIcon icon={faIndianRupeeSign} size="2x" />
+                      <FontAwesomeIcon icon={faIndianRupeeSign} />
                     </span>
-                    <span>13,600</span>
+                    <span className={style.Related_Card_PriceBox}>13,600</span>
                   </div>
                 </div>
                 <div className={style.SingleProduct_RelatedProduct_card_BtnBox}>
@@ -214,6 +216,12 @@ export default function SingleProduct() {
         })}
       </div>
       {/* Related Product End */}
+
+      <div className={style.Home_page_Banner_Container}>
+        <div className={style.Home_page_annerBox}>
+          <Image src={trandingbanner} alt="Tranding Banner" fill />
+        </div>
+      </div>
 
       {/* Product main Details Container Start */}
       <div className={style.SingleProduct_Main_detailContainer} ref={myRef}>

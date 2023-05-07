@@ -1,6 +1,7 @@
 .SingleProduct_top_container {
   display: flex;
   margin: 10px 10px;
+  flex-direction: row;
 }
 
 .SingleProduct_Image_container {
@@ -9,21 +10,24 @@
 
 .SingleProduct_detail_container {
   width: 40%;
-  padding: 10px 20px;
+  padding: 10px 0px 10px 20px;
+  flex-grow: 1;
+  margin-right: 30px;
 }
 
 .SingleProduct_companyDetails_container {
   width: 20%;
   border: 1px solid #eee;
+  order: 1;
+  font-family: Arial;
 }
 
 .SingleProduct_ImageBox {
-  border: 2px solid #eee;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 320px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow3);
   position: relative;
 }
 
@@ -33,6 +37,11 @@
 
 .SingleProduct_Rs_iconBox {
   margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.Related_Card_PriceBox {
+  font-size: 1.4rem;
 }
 
 .SingleProduct_descreptionBox {
@@ -46,7 +55,6 @@
 }
 
 .SingleProduct_enquiryBtn {
-  border: 1px solid #2874f0;
   padding: 10px 35px;
   color: #fff;
   background-color: #2874f0;
@@ -54,16 +62,11 @@
   font-weight: 500;
   letter-spacing: 0.2rem;
   cursor: pointer;
+  box-shadow: var(--box-shadow2);
 }
 
-.SingleProduct_ReadBtn {
-  border: 1px solid #fb641b;
-  padding: 10px 35px;
-  color: #fff;
-  background-color: #fb641b;
-  font-size: 1.4rem;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
+.SingleProduct_enquiryBtn:hover {
+  background-color: rgba(45, 83, 235, 0.7);
 }
 
 .SingleProduct_companyDetails_container {
@@ -87,7 +90,7 @@
   padding: 2px;
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow3);
 }
 
 .SingleProduct_company_Title {
@@ -105,6 +108,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--icon-color);
 }
 
 .SingleProduct_static_Owner {
@@ -125,6 +129,7 @@
 
 .SingleProduct_static_addressIcon {
   padding: 5px 15px 5px 0px;
+  color: var(--icon-color);
 }
 
 .SingleProduct_static_Address {
@@ -142,10 +147,9 @@
   margin-top: 10px;
 }
 
+/* Related product section start */
 .SingleProduct_realted_prductContainer {
-  border: 1px solid #eee;
   margin-top: 50px;
-  box-shadow: var(--box-shadow);
   width: 100%;
   height: 300px;
   display: flex;
@@ -173,13 +177,23 @@
   border: 1px solid #eee;
   margin: 0px 10px;
   height: 250px;
+  box-shadow: var(--box-shadow3);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Related_Product_CardContainer > div:last-child {
+  order: 999; /* set a higher order value for the last child element */
 }
 
 .Realted_CardImageBox {
   border: 1px solid #eee;
   display: flex;
+  height: 120px;
   justify-content: center;
   padding: 5px;
+  position: relative;
 }
 
 .SingleProduct_Related_Card_title {
@@ -187,11 +201,20 @@
   padding: 5px;
 }
 
+.SingleProduct_Related_Card_Price_Container {
+  padding: 5px;
+}
+
+.SingleProduct_Related_Card_PriceBox {
+  display: flex;
+  align-items: center;
+}
+
 .SingleProduct_RelatedProduct_card_BtnBox {
   display: flex;
   justify-content: end;
   padding: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .SingleProduct_RelatedProduct_CardBtn {
   border: 1px solid #2874f0;
@@ -201,7 +224,10 @@
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
+  box-shadow: var(--box-shadow2);
 }
+
+/* Related Product End */
 
 .SingleProduct_Main_detailContainer {
   display: flex;
@@ -213,7 +239,7 @@
 .SingleProduct_main_Details_container {
   width: 50%;
   min-height: 200px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow3);
   padding: 10px;
 }
 
@@ -247,13 +273,18 @@
 
 .SingleProduct_Enquery_Form_Container {
   width: 45%;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow3);
 }
 
 .SingleProduct_EnqueryForm_Heading {
   border: 1px solid #eee;
   padding: 5px;
-  background-color: #2874f0;
+  background-color: var(--icon-color);
+  color: #fff;
+  font-family: Arial;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 
 .SingleProduct_EnqueryForm_UserMail_container {
@@ -280,18 +311,19 @@
 }
 
 .SingleProduct_EnqueryForm_imageBox {
-  border: 1px solid #eee;
   width: 10%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   margin-right: 10px;
   position: relative;
 }
 
 .Enquery_Form_ProductTitle {
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .SingleProduct_mesasageContainer {
@@ -309,6 +341,7 @@
   height: 100%;
   padding: 10px;
   outline: none;
+  border: none;
 }
 
 .Email_Send_btnBox {
@@ -320,6 +353,9 @@
 
 .Enquery_Email_Send_btn {
   border: 1px solid #2874f0;
+  background-color: #2874f0;
+  color: #fff;
+  box-shadow: var(--box-shadow2);
   width: 100px;
   display: flex;
   align-items: center;
@@ -366,6 +402,19 @@
   font-size: 1.6rem;
 }
 
+.Home_page_Banner_Container {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.Home_page_annerBox {
+  width: 600px;
+  height: 120px;
+  position: relative;
+}
 @media screen and (max-width: 690px) {
   .SingleProduct_top_container {
     display: flex;
@@ -386,6 +435,11 @@
 
   .SingleProduct_companyDetails_container {
     width: 100%;
+  }
+
+  .SingleProduct_enquiryBtn {
+    width: 100%;
+    text-align: center;
   }
 
   .SingleProduct_Main_detailContainer {

@@ -140,6 +140,21 @@ export default function SuperAdminLayout({ children }) {
                 </a>
               </Link>
             </li>
+
+            <li>
+              <Link href="/super-admin/Banner/home-slider" legacyBehavior>
+                <a>
+                  <span
+                    className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                  >
+                    <FontAwesomeIcon icon={faGauge} size="2x" />
+                  </span>
+                  <span className={style.UserAdminLayout_sidebar_item}>
+                    Home Slider Banner
+                  </span>
+                </a>
+              </Link>
+            </li>
           </ul>
           <ul className={style.UserAdminLayout_sidebar_bottom_items}>
             <li>

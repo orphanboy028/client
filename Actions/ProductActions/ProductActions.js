@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const getAllProductsAction = async () => {
   try {
+    console.log("fired");
     const res = await axios.get(
       `http://127.0.0.1:5000/api/V1/industy/product/`,
 

@@ -5,67 +5,48 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
 import Badge from "react-bootstrap/Badge";
+import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 
-export default function LocationFillter() {
+export default function LocationFillter({
+  handelSelect,
+  title,
+  showProps,
+  handelClose,
+}) {
+  const { nominatimsearchAPIAction, locationResult } =
+    useContext(ExternalApiContaxt);
   // API LOCATION
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [stateSlected, setstateSlected] = useState(null);
-  const [citySlected, setcitySlected] = useState(null);
 
   const handleQueryChange = (event) => {
     const value = event.target.value;
     setQuery(value);
 
-    // only search when query is at least 3 characters long
     if (value.length >= 3) {
-      search(value);
+      nominatimsearchAPIAction(value);
     }
-  };
-
-  const search = (query) => {
-    const endpoint = `https://nominatim.openstreetmap.org/search?q=${query}&format=json`;
-
-    fetch(endpoint)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.length > 0) {
-          setResults(data);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   };
 
   const {
     enquesies,
     allEnquiryes,
-    selectedCity,
     setSelectedCity,
     locationFillterShow,
     handleCloseLocation,
     handleShowLocation,
   } = useContext(EnquiryContext);
 
-  const handelSelect = (e) => {
-    console.log(e.target.textContent);
-    const city = e.target.textContent.split(",")[0].trim();
-    const state = e.target.textContent.split(",")[1].trim();
-    setSelectedCity(city);
-    setstateSlected(state);
-  };
-
   return (
     <>
       <Offcanvas
-        show={locationFillterShow}
-        onHide={handleCloseLocation}
+        show={showProps}
+        onHide={handelClose}
         placement="top"
         className={style.Offcanvas_container_Style}
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Search Location</Offcanvas.Title>
+          <Offcanvas.Title>{title}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className={style.location_fillter_container}>
@@ -77,7 +58,7 @@ export default function LocationFillter() {
                     className={style.OffCanvasResult_Badge_Style}
                   >
                     {" "}
-                    {citySlected} {stateSlected}
+                    {/* {selectedCity} - {selectDistric} - {stateSlected} */}
                   </Badge>{" "}
                 </div>
               </div>
@@ -93,7 +74,7 @@ export default function LocationFillter() {
                 </div>
 
                 <ul className={style.searchListUl}>
-                  {results.map((result) => (
+                  {locationResult.map((result) => (
                     <li
                       className={style.SearchList}
                       key={result.place_id}

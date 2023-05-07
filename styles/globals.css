@@ -42,6 +42,8 @@ html {
   --font-family2 : "Poppins", sans-serif;
   --font-weight400: 400;
   --font-size14: 1.4rem;
+  --icon-color :  rgba(45, 83, 235, 0.7); 
+  --box-shadow3: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 .linkStyle{

@@ -12,6 +12,7 @@ export const AppUilsContextProvider = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState("");
   const [formSeleted, setformSeleted] = useState([]);
   const [showModel, setshowModel] = useState(false);
+  const [appFillterShow, setappFillterShow] = useState(false);
 
   // Profile tab
   const [toggleState, setToggleState] = useState(1);
@@ -85,6 +86,8 @@ export const AppUilsContextProvider = ({ children }) => {
         handleModelShow,
         toggleTab,
         toggleState,
+        appFillterShow,
+        setappFillterShow,
       }}
     >
       {children}

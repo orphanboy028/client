@@ -4,8 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
-import slider1 from "../../public/banners-images/slider1.jpg";
+import slider1 from "../../public/banners-images/banner4.png";
 import slider2 from "../../public/banners-images/slider2.jpg";
+import Banner3 from "../../public/banners-images/Banner3.png";
 
 import "swiper/css";
 // Import Swiper styles
@@ -34,10 +35,18 @@ export default function HomePageSlider() {
           className={style.SwiperStyle}
         >
           <SwiperSlide className={style.SwiperSlideStyle}>
-            <Image className={style.slider_image} src={slider1} />
+            <Image
+              className={style.slider_image}
+              src={slider1}
+              alt="slider-banner"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <Image className={style.slider_image} src={slider2} />
+            <Image
+              className={style.slider_image}
+              src={Banner3}
+              alt="slider-banner"
+            />
           </SwiperSlide>
         </Swiper>
       </div>

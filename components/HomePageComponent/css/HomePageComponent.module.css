@@ -2,6 +2,26 @@
   margin: 50px 0px;
 }
 
+.Home_page_Banner_Container {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home_page_annerBox {
+  width: 600px;
+  height: 120px;
+  position: relative;
+}
+
+@media screen and (max-width: 620px) {
+  .Home_page_annerBox {
+    width: 95%;
+    height: 120px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .HomePageComponent_section_box {
     margin: 5px 0px;

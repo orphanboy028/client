@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import style from "../css/ProductList.module.css";
-import webBanner from "../../../public/banners-images/web-design.png";
+import webBanner from "../../../public/banners-images/Product-page-top-banner.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,23 +16,27 @@ import productImage from "../../../public/product-feature-imges/user-64318e45799
 import Link from "next/link";
 
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
 import Spinner from "react-bootstrap/Spinner";
+import AppElementFillter from "../../../utilsComponents/AppElementFillter";
 
 export default function ProductList() {
   const router = useRouter();
   const { q } = router.query;
-
   const { allProducts, getSearchProduct } = useContext(ProductContext);
+  const { appFillterShow, setappFillterShow } = useContext(AppUtilsContext);
+  // console.log(allProducts);
 
-  console.log(allProducts);
+  const handleShow = () => setappFillterShow(true);
 
   return (
     <>
+      <AppElementFillter />
       {allProducts.length > 0 ? (
         <>
           <div className={style.ProductList_Banner_Container}>
             <div className={style.ProductList_Banner_ImageBox}>
-              <Image src={webBanner} width={600} />
+              <Image src={webBanner} fill alt="Product-page-banner" />
             </div>
           </div>
           {/* search bar section start */}
@@ -47,11 +51,17 @@ export default function ProductList() {
                     size="2x"
                   />
                 </div>
-                <div className={style.Location_TextBox}>Location</div>
+                <div
+                  className={style.Location_TextBox}
+                  style={{ cursor: "pointer" }}
+                  onClick={handleShow}
+                >
+                  Location
+                </div>
               </div>
               {/* Location Box End */}
               {/* search Input start */}
-              <div className={style.location_SearchBox}>
+              {/* <div className={style.location_SearchBox}>
                 <input type="text" />
                 <div className={style.location_SerachIconBox}>
                   <FontAwesomeIcon
@@ -60,7 +70,7 @@ export default function ProductList() {
                     size="1x"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* search Input End */}
             </div>
             <div className={style.location_cityBox}>
@@ -76,7 +86,7 @@ export default function ProductList() {
           {/* Search Bar section End */}
 
           <div className={style.ProductList_main_Container}>
-            <div className={style.ProductList_left_sideBar}>Left Bar</div>
+            <div className={style.ProductList_left_sideBar}></div>
             <div className={style.product_centerBox}>
               {allProducts.map((product, i) => {
                 return (
@@ -130,11 +140,22 @@ export default function ProductList() {
                         </div>
                       </div>
                     </div>
+                    {(i + 1) % 3 === 0 && (
+                      <div className={style.Product_card_Banner_Container}>
+                        <div className={style.Product_card_Banner_ImageBox}>
+                          <Image
+                            src={webBanner}
+                            fill
+                            alt="Product-page-banner"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </>
                 );
               })}
             </div>
-            <div className={style.ProductList_rightBox}>right box</div>
+            <div className={style.ProductList_rightBox}></div>
           </div>
         </>
       ) : (

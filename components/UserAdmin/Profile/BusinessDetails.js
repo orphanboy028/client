@@ -45,6 +45,35 @@ export default function BusinessDetails({ Userbusiness }) {
             <p>{Userbusiness?.address}</p>
           </div>
         </div>
+
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>City </h4>
+          </div>
+          <div>
+            {" "}
+            <p>{Userbusiness?.city}</p>
+          </div>
+        </div>
+
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>District </h4>
+          </div>
+          <div>
+            {" "}
+            <p>{Userbusiness?.district}</p>
+          </div>
+        </div>
+        <div className={styles.BusinessDetails_detailsBox}>
+          <div className={styles.BusinessDetails_NameFiled}>
+            <h4>State </h4>
+          </div>
+          <div>
+            {" "}
+            <p>{Userbusiness?.state}</p>
+          </div>
+        </div>
       </div>
     </>
   );

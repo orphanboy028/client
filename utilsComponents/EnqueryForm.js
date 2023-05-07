@@ -25,13 +25,29 @@ export default function EnqueryForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     watch,
     formState: { errors, isValid },
   } = useForm({
     mode: "all",
   });
 
-  const inputValue = watch("Seletedlefcategory");
+  function trigerCategoriesSelect(Seletedlefcategory) {
+    // Update the value of the input field
+    setValue("Seletedlefcategory", Seletedlefcategory);
+
+    // Trigger the onChange event on City
+    const inputSeletedlefcategoryField = document.querySelector(
+      'input[name="Seletedlefcategory"]'
+    );
+    const Seletedlefcategoryevent = new Event("input", { bubbles: true });
+    inputSeletedlefcategoryField.dispatchEvent(Seletedlefcategoryevent);
+  }
+  //  Handel Radio Change
+  function handleRadioChange(event) {
+    setSelectedItem(event.target.value);
+    trigerCategoriesSelect(event.target.value);
+  }
 
   // Create Enquires
   const onSubmit = async (formdata) => {
@@ -95,13 +111,13 @@ export default function EnqueryForm() {
                       <input
                         type="text"
                         defaultValue={selectedItem}
-                        value={selectedItem}
+                        // value={selectedItem}
                         placeholder="select categories"
                         name="Seletedlefcategory"
                         {...register("Seletedlefcategory", {
                           required: "categories name required",
                         })}
-                        onBlur={(e) => setSelectedItem(e.target.value)}
+                        // onChange={(e) => setSelectedItem(e.target.value)}
                       />
                     </div>
                     <div>
@@ -154,7 +170,10 @@ export default function EnqueryForm() {
                 </button>
               </div>
               <div>
-                <CategoriesModel setSelectedItem={setSelectedItem} />
+                <CategoriesModel
+                  setSelectedItem={setSelectedItem}
+                  handleRadioChange={handleRadioChange}
+                />
               </div>
             </form>
           </div>
