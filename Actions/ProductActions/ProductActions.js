@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAllProductsAction = async () => {
   try {
-    console.log("fired");
+    console.log("get all product");
     const res = await axios.get(
       `http://127.0.0.1:5000/api/V1/industy/product/`,
 
@@ -13,7 +13,6 @@ export const getAllProductsAction = async () => {
         },
       }
     );
-
     return res;
   } catch (error) {
     console.log(error.response);
@@ -22,10 +21,10 @@ export const getAllProductsAction = async () => {
 };
 
 export const getSeachProductsAction = async (q) => {
-  console.log("get seacrh action ", q);
+  console.log("searchAction");
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/product/search?q=${q}`,
+      `http://127.0.0.1:5000/api/V1/industy/product/search?${q}`,
 
       {
         headers: {

@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { useRouter } from "next/router";
+import { parse } from "url";
 import PageLayOut from "../../components/layouts/PageLayOut";
 import ProductList from "../../components/ProductComponent/Product/ProductList";
 import { ProductContext } from "../../ContaxtApi/ProductContextApi";
@@ -7,9 +9,11 @@ import {
   getSingleProductsAction,
   getSeachProductsAction,
 } from "../../Actions/ProductActions/ProductActions";
+import queryString from "query-string";
+
 export default function ProductsPage({ initialProducts }) {
   const { setallProducts } = useContext(ProductContext);
-
+  console.log(initialProducts);
   setallProducts(initialProducts);
   return (
     <>
@@ -23,12 +27,11 @@ export default function ProductsPage({ initialProducts }) {
 // Get Static Props
 export async function getServerSideProps(context) {
   try {
-    const { q } = context.query;
-    console.log(q);
-    // Fetch products data here
+    console.log();
+    const qs = queryString.stringify(context.query);
     let result;
-    if (q) {
-      const res = await getSeachProductsAction(q);
+    if (qs) {
+      const res = await getSeachProductsAction(qs);
       result = res.data.Searchproducts;
     } else {
       const res = await getAllProductsAction();
