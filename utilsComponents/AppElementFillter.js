@@ -8,26 +8,28 @@ import Tab from "react-bootstrap/Tab";
 import { AppUtilsContext } from "../ContaxtApi/AppUtilsContaxApi";
 import CategoriesFilliter from "./CategoriesFilliter";
 import { useRouter } from "next/router";
+import LocationInput from "./LocationInput";
+import { ExternalApiContaxt } from "../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 
-export default function AppElementFillter() {
+export default function AppElementFillter({
+  onInputChange,
+  onSubmit,
+  filterFor,
+}) {
   const { appFillterShow, setappFillterShow } = useContext(AppUtilsContext);
+  const {
+    selectedCity,
+    setSelectedCity,
+    selectDistric,
+    setselectDistric,
+    setstateSlected,
+    stateSlected,
+    handelSelectCity,
+    handelSelectDistric,
+    handelSelectState,
+  } = useContext(ExternalApiContaxt);
+
   const handleClose = () => setappFillterShow(false);
-  const [formData, setFormData] = useState({});
-  const router = useRouter();
-
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const query = Object.entries(formData)
-      .filter(([, value]) => value !== "") // filter out fields with empty values
-      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-      .join("&");
-    router.push(`/products?${query}`);
-  }
 
   return (
     <>
@@ -55,69 +57,66 @@ export default function AppElementFillter() {
                     <Nav.Item>
                       <Nav.Link eventKey="State">State</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="Categories">Categories</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="Product">Product</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="Price">Price</Nav.Link>
-                    </Nav.Item>
+                    {filterFor === "Product" && (
+                      <>
+                        <Nav.Item>
+                          <Nav.Link eventKey="Categories">Categories</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                          <Nav.Link eventKey="Product">Product</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                          <Nav.Link eventKey="Price">Price</Nav.Link>
+                        </Nav.Item>
+                      </>
+                    )}
                   </Nav>
                 </Col>
                 <Col xs={9} md={9}>
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={onSubmit}>
                     <Tab.Content>
                       <Tab.Pane eventKey="City">
-                        <input
-                          name="city"
-                          type="text"
-                          onChange={handleInputChange}
-                        />
+                        {selectedCity}
+                        <LocationInput handelSelect={handelSelectCity} />
                       </Tab.Pane>
                       <Tab.Pane eventKey="Distric">
-                        <input
-                          name="district"
-                          type="text"
-                          onChange={handleInputChange}
-                        />
+                        <LocationInput handelSelect={handelSelectDistric} />
                       </Tab.Pane>
                       <Tab.Pane eventKey="State">
-                        <input
-                          name="state"
-                          type="text"
-                          onChange={handleInputChange}
-                        />
+                        <LocationInput handelSelect={handelSelectState} />
                       </Tab.Pane>
-                      <Tab.Pane eventKey="Categories">
-                        <div>
-                          <CategoriesFilliter />
-                        </div>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="Product">
-                        <div>
-                          <input
-                            name="name"
-                            type="text"
-                            onChange={handleInputChange}
-                          />
-                        </div>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="Price">
-                        <div>
-                          <input
-                            name="price[gte]"
-                            type="number"
-                            onChange={handleInputChange}
-                          />
-                          <input
-                            name="price[lte]"
-                            type="number"
-                            onChange={handleInputChange}
-                          />
-                        </div>
-                      </Tab.Pane>
+                      {filterFor === "Product" && (
+                        <>
+                          <Tab.Pane eventKey="Categories">
+                            <div>
+                              <CategoriesFilliter />
+                            </div>
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="Product">
+                            <div>
+                              <input
+                                name="name"
+                                type="text"
+                                onChange={onInputChange}
+                              />
+                            </div>
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="Price">
+                            <div>
+                              <input
+                                name="price[gte]"
+                                type="number"
+                                onChange={onInputChange}
+                              />
+                              <input
+                                name="price[lte]"
+                                type="number"
+                                onChange={onInputChange}
+                              />
+                            </div>
+                          </Tab.Pane>
+                        </>
+                      )}
                     </Tab.Content>
                     <div
                       style={{

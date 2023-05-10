@@ -9,7 +9,8 @@ import { EnquiryContext } from "../ContaxtApi/EnquiryContaxApi";
 export default function CategoriesFilliter() {
   const { selectedItem, setSelectedItem } = useContext(AppUtilsContext);
   const { allCategories } = useContext(categoriesContext);
-  const { setselectedCategories } = useContext(EnquiryContext);
+  const { setselectedCategories, selectedCategories } =
+    useContext(EnquiryContext);
   const [searchResult, setSearchResult] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -79,6 +80,7 @@ export default function CategoriesFilliter() {
 
   function handleRadioChange(event) {
     setSelectedItem(event.target.value);
+
     setselectedCategories(event.target.value);
   }
   return (
@@ -88,6 +90,7 @@ export default function CategoriesFilliter() {
           <input
             type="text"
             placeholder="search Categories"
+            name="lefCategory"
             value={searchTerm}
             onChange={(e) => handleSearch(e)}
           />

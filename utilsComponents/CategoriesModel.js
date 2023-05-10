@@ -8,6 +8,7 @@ import { categoriesContext } from "../ContaxtApi/CategoriesContaxApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import CategoriesFilliter from "./CategoriesFilliter";
+import { EnquiryContext } from "../ContaxtApi/EnquiryContaxApi";
 
 export default function CategoriesModel({
   setSelectedItem,
@@ -20,6 +21,7 @@ export default function CategoriesModel({
     handleModelShow,
     selectedItem,
   } = useContext(AppUtilsContext);
+  const { setselectedCategories } = useContext(EnquiryContext);
   const { allCategories } = useContext(categoriesContext);
   const [searchResult, setSearchResult] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -106,7 +108,10 @@ export default function CategoriesModel({
             <Modal.Title>Select Categories</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <CategoriesFilliter />
+            <CategoriesFilliter
+              selectedState={setselectedCategories}
+              connectWith="seprateState"
+            />
           </Modal.Body>
           <Modal.Footer>
             <Button

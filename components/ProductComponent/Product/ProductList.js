@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import style from "../css/ProductList.module.css";
 import webBanner from "../../../public/banners-images/Product-page-top-banner.png";
@@ -17,21 +17,76 @@ import Link from "next/link";
 
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
+import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 import Spinner from "react-bootstrap/Spinner";
 import AppElementFillter from "../../../utilsComponents/AppElementFillter";
 
 export default function ProductList() {
   const router = useRouter();
   const { q } = router.query;
+  const {
+    selectedCity,
+    setSelectedCity,
+    selectDistric,
+    setselectDistric,
+    setstateSlected,
+    stateSlected,
+  } = useContext(ExternalApiContaxt);
   const { allProducts, getSearchProduct } = useContext(ProductContext);
-  const { appFillterShow, setappFillterShow } = useContext(AppUtilsContext);
+  const {
+    appFillterShow,
+    setappFillterShow,
+    handleInputChange,
+    formData,
+    setFormData,
+  } = useContext(AppUtilsContext);
+  const { setselectedCategories, selectedCategories } =
+    useContext(EnquiryContext);
   // console.log(allProducts);
 
   const handleShow = () => setappFillterShow(true);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    let modifiedFormData = { ...formData };
+    // Modify the formData object to include the "lefCategories" property
+    if (selectedCategories !== null) {
+      modifiedFormData = { ...formData, lefCategory: selectedCategories };
+    }
+    if (selectedCity !== null) {
+      modifiedFormData = { ...formData, city: selectedCity };
+    }
+
+    if (selectDistric !== null) {
+      modifiedFormData = { ...formData, district: selectDistric };
+    }
+
+    if (stateSlected !== null) {
+      modifiedFormData = { ...formData, state: stateSlected };
+    }
+
+    const query = Object.entries(modifiedFormData)
+      .filter(([, value]) => value !== "") // Filter out fields with empty values
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join("&");
+
+    router.push(`/products?${query}`);
+    setappFillterShow(false);
+    setselectedCategories(null);
+    setSelectedCity(null);
+    setselectDistric(null);
+    setstateSlected(null);
+  }
+
   return (
     <>
-      <AppElementFillter />
+      <AppElementFillter
+        onInputChange={handleInputChange}
+        onSubmit={handleSubmit}
+        filterFor="Product"
+      />
       {allProducts.length > 0 ? (
         <>
           <div className={style.ProductList_Banner_Container}>

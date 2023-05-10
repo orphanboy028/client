@@ -56,6 +56,27 @@ export const EXternalApiProvider = ({ children }) => {
     setstateSlected(state);
   };
 
+  const handelSelectCity = (e) => {
+    console.log(e.target.textContent);
+    const city = e.target.textContent.split(",")[0].trim();
+    console.log("city Extract", city);
+
+    setSelectedCity(city, () => {
+      console.log("selected city", selectedCity);
+    });
+  };
+
+  const handelSelectDistric = (e) => {
+    const district = e.target.textContent.split(",")[1].trim();
+    console.log(district);
+    setselectDistric(district);
+  };
+
+  const handelSelectState = (e) => {
+    const state = e.target.textContent.split(",")[0].trim();
+    setstateSlected(state);
+  };
+
   return (
     <>
       <ExternalApiContaxt.Provider
@@ -79,6 +100,9 @@ export const EXternalApiProvider = ({ children }) => {
           cityLocationFillterShow,
           districLocationFillterShow,
           stateLocationFilltershow,
+          handelSelectCity,
+          handelSelectDistric,
+          handelSelectState,
         }}
       >
         {children}

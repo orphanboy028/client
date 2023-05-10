@@ -6,6 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
 import Badge from "react-bootstrap/Badge";
 import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
+import LocationInput from "../../../utilsComponents/LocationInput";
 
 export default function LocationFillter({
   handelSelect,
@@ -13,20 +14,7 @@ export default function LocationFillter({
   showProps,
   handelClose,
 }) {
-  const { nominatimsearchAPIAction, locationResult } =
-    useContext(ExternalApiContaxt);
   // API LOCATION
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-
-  const handleQueryChange = (event) => {
-    const value = event.target.value;
-    setQuery(value);
-
-    if (value.length >= 3) {
-      nominatimsearchAPIAction(value);
-    }
-  };
 
   const {
     enquesies,
@@ -65,25 +53,21 @@ export default function LocationFillter({
 
               <div className={style.search_Input_list}>
                 <div className={style.Location_searchInput_Box}>
-                  <input
-                    type="text"
-                    value={query}
-                    onChange={handleQueryChange}
-                    placeholder="Search Location"
-                  />
+                  <LocationInput handelSelect={handelSelect} />
                 </div>
-
-                <ul className={style.searchListUl}>
-                  {locationResult.map((result) => (
-                    <li
-                      className={style.SearchList}
-                      key={result.place_id}
-                      onClick={(e) => handelSelect(e)}
-                    >
-                      <p>{result.display_name} </p>
-                    </li>
-                  ))}
-                </ul>
+                {/* <div>
+                  <ul className={style.searchListUl}>
+                    {locationResult.map((result) => (
+                      <li
+                        className={style.SearchList}
+                        key={result.place_id}
+                        onClick={(e) => handelSelect(e)}
+                      >
+                        <p>{result.display_name} </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div> */}
               </div>
             </div>
           </div>

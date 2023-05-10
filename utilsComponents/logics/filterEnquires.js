@@ -9,7 +9,7 @@ export const filterEnquiresByLocation = (
   console.log(city, Distric, state, categories);
   if (city && categories === null) {
     console.log("city && categories === null -1");
-    return allEnquiryes.filter(
+    return allEnquiryes?.filter(
       (enqures) =>
         enqures?.city?.toLowerCase() === city.toLowerCase() ||
         enqures?.state?.toLowerCase() === city.toLowerCase() ||

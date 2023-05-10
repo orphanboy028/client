@@ -64,6 +64,14 @@ export const AppUilsContextProvider = ({ children }) => {
     getFormAction();
   }, [selectedItem]);
 
+  const [formData, setFormData] = useState({});
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+    console.log("lefcategories", formData.leftCategory);
+  }
+
   return (
     <AppUtilsContext.Provider
       value={{
@@ -88,6 +96,9 @@ export const AppUilsContextProvider = ({ children }) => {
         toggleState,
         appFillterShow,
         setappFillterShow,
+        handleInputChange,
+        formData,
+        setFormData,
       }}
     >
       {children}
