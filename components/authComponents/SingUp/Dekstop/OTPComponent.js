@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../css/OTP.module.css";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
@@ -6,8 +6,11 @@ import { submitOTP } from "../../../../Actions/UserAuth/userAuth";
 import Router from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AppUtilsContext } from "../../../../ContaxtApi/AppUtilsContaxApi";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function OTPComponent() {
+  const { formloading, setformloading } = useContext(AppUtilsContext);
   const router = useRouter();
   const { urltoken } = router.query;
   const {
@@ -21,6 +24,7 @@ export default function OTPComponent() {
 
   const onSubmit = async (formdata) => {
     try {
+      setformloading(true);
       const jsonData = JSON.stringify(formdata);
       const result = await submitOTP(formdata, urltoken);
       const { data } = result;
@@ -29,10 +33,12 @@ export default function OTPComponent() {
         toast.error(data.message, {
           position: toast.POSITION.TOP_LEFT,
         });
+        setformloading(false);
       } else {
         toast.success(data.message, {
           position: toast.POSITION.TOP_CENTER,
         });
+        setformloading(false);
       }
     } catch (error) {
       console.log(error);
@@ -43,9 +49,7 @@ export default function OTPComponent() {
     <div className={styles.SingUpComponent_main_container}>
       <ToastContainer position="top-right" autoClose={5000} />
       <div className={styles.OTPComponent_Form_container}>
-        <div className={styles.SingUpComponent_Form_Title}>
-          <h2>---</h2>
-        </div>
+        <div className={styles.SingUpComponent_Form_Title}></div>
         <div className={styles.form_Box}>
           <form
             className={styles.SingUp_form}
@@ -91,9 +95,15 @@ export default function OTPComponent() {
                   isValid ? styles.form_btn_full_width_Box : styles.disabledbtn
                 }
               >
-                <button className={styles.btnStyle} disabled={!isValid}>
-                  Submit Now
-                </button>
+                {formloading ? (
+                  <button className={styles.btnStyle} disabled={true}>
+                    <Spinner animation="border" variant="light" />
+                  </button>
+                ) : (
+                  <button className={styles.btnStyle} disabled={!isValid}>
+                    Submit Now
+                  </button>
+                )}
               </div>
             </div>
           </form>

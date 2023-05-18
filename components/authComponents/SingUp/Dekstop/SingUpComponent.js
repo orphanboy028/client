@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styles from "../css/SingUp.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
@@ -8,8 +8,10 @@ import {
   getCookies,
   otpAuth,
 } from "../../../../Actions/UserAuth/userAuth";
-
+import { AppUtilsContext } from "../../../../ContaxtApi/AppUtilsContaxApi";
+import Spinner from "react-bootstrap/Spinner";
 export default function SingUpComponent() {
+  const { formloading, setformloading } = useContext(AppUtilsContext);
   const {
     register,
     handleSubmit,
@@ -24,10 +26,12 @@ export default function SingUpComponent() {
 
   const onSubmit = async (formdata) => {
     try {
+      setformloading(true);
       const jsonData = JSON.stringify(formdata);
       const result = await singUpNewAccount(formdata);
       const { data } = result;
       console.log(data);
+      setformloading(false);
       otpAuth(data, () => {
         Router.push(`/otp-verification/${getCookies()}`);
       });
@@ -210,7 +214,18 @@ export default function SingUpComponent() {
                   </div>
                   <div className={styles.form_checkBox_text}>
                     {!errors.termsAndConditions && (
-                      <p>I agree to the User Agreement and the Privacy Polcy</p>
+                      <p>
+                        I agree to the User Agreement and the{" "}
+                        <span>
+                          <Link
+                            href="/privacypolicy"
+                            style={{ textDecoration: "none" }}
+                          >
+                            {" "}
+                            Privacy policy{" "}
+                          </Link>
+                        </span>
+                      </p>
                     )}
                   </div>
                   <div className={styles.input_ErrorBox}>
@@ -229,9 +244,15 @@ export default function SingUpComponent() {
                       : styles.disabledbtn
                   }
                 >
-                  <button className={styles.btnStyle} disabled={!isValid}>
-                    SEND OTP
-                  </button>
+                  {formloading ? (
+                    <button className={styles.btnStyle} disabled={true}>
+                      <Spinner animation="border" variant="light" />
+                    </button>
+                  ) : (
+                    <button className={styles.btnStyle} disabled={!isValid}>
+                      SEND OTP
+                    </button>
+                  )}
                 </div>
               </div>
             </form>

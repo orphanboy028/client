@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from "../SingUp/css/SingUp.module.css";
 import { useForm } from "react-hook-form";
@@ -6,8 +6,10 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginAccount, authenticate } from "../../../Actions/UserAuth/userAuth";
-
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import Spinner from "react-bootstrap/Spinner";
 export default function LoginComponent() {
+  const { formloading, setformloading } = useContext(AppUtilsContext);
   const router = useRouter();
   const {
     register,
@@ -23,6 +25,7 @@ export default function LoginComponent() {
 
   const onSubmit = async (formdata) => {
     try {
+      setformloading(true);
       const jsonData = JSON.stringify(formdata);
       const result = await loginAccount(formdata);
       if (result.data.status === "Fails") {
@@ -36,6 +39,7 @@ export default function LoginComponent() {
         if (data.user.role === "user") {
           toast.success("Login sucessfully");
           router.push("/user-admin");
+          setformloading(false);
         } else if (data.user.role === "admin") {
           // Router.push("/super-admin");
         }
@@ -116,9 +120,15 @@ export default function LoginComponent() {
                       : styles.disabledbtn
                   }
                 >
-                  <button className={styles.btnStyle} disabled={!isValid}>
-                    LOGIN
-                  </button>
+                  {formloading ? (
+                    <button className={styles.btnStyle} disabled={true}>
+                      <Spinner animation="border" variant="light" />
+                    </button>
+                  ) : (
+                    <button className={styles.btnStyle} disabled={!isValid}>
+                      LOGIN
+                    </button>
+                  )}
                 </div>
               </div>
             </form>

@@ -70,9 +70,22 @@ export default function NavBarRightPart() {
             ) : (
               <>
                 <div className={style.Login_Box}>
-                  <Button onClick={() => router.push("/sing-up")}>
-                    Log in
-                  </Button>
+                  <Button onClick={() => router.push("/login")}>Log in</Button>
+                  <div className={style.Register_TextBox}>
+                    <p>
+                      If You Have no Account then{" "}
+                      <span>
+                        {" "}
+                        <Link
+                          href="/sing-up"
+                          className={style.Common_LinkStyle}
+                        >
+                          {" "}
+                          Register Now
+                        </Link>{" "}
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </>
             )}
