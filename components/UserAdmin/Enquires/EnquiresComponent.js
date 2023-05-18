@@ -3,7 +3,7 @@ import LeadCards from "./LeadCards";
 import style from "../css/Enquires.module.css";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
-import LocationFillter from "./LocationFillter";
+import LocationFillter from "../../../utilsComponents/LocationFillter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import Badge from "react-bootstrap/Badge";
@@ -146,6 +146,7 @@ export default function EnquiresComponent() {
           showProps={cityLocationFillterShow}
           handelClose={handleCityCloseLocation}
         />
+
         <CategoriesModel
           setSelectedItem={setselectedCategories}
           as="setSelectedItem"

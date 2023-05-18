@@ -13,6 +13,9 @@ import Button from "react-bootstrap/Button";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import Link from "next/link";
 import DropDownMenu from "./DropDownMenu";
+import NavBarSearchInput from "../../../utilsComponents/NavBarSearchInput";
+import NavEnquireBtn from "../../../utilsComponents/NavEnquireBtn";
+import NavBarComponent from "../../../utilsComponents/NavBarComponent";
 
 export default function DekstopNavBar() {
   const [query, setQuery] = useState("");
@@ -39,83 +42,7 @@ export default function DekstopNavBar() {
   return (
     <>
       <div className={style.DekstopNavBar_mainContainer}>
-        <div className={style.DekstopNavBar_left_Part}>
-          <div className={style.brand_container}>
-            <Image src={logo} alt="Company-logo" width={100} />
-          </div>
-          <div className={style.search_InputBox}>
-            <input
-              type={"text"}
-              placeholder="search your query"
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <div className={style.search_iconBox}>
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                style={{ color: "#2874f0" }}
-                className={style.search_icon}
-                onClick={handleSearch}
-              />
-            </div>
-          </div>
-        </div>
-        <div className={style.DekstopNavBar_center_part}>
-          <button>Enquiry</button>
-        </div>
-        <div className={style.DekstopNavBar_Right_part}>
-          <div className={style.DekstopNavBar_sellerPanel}>
-            <Link href={"/user-admin"} legacyBehavior>
-              <a className={style.linkStyle}> S-Panel </a>
-            </Link>
-          </div>
-          <div className={style.DekstopNavBar_sellerPanel}>
-            <Link href={"/products"} legacyBehavior>
-              <a className={style.linkStyle}>Products</a>
-            </Link>
-          </div>
-
-          <div>
-            <NotificationBell w={25} />
-          </div>
-          <div className={style.userProfileBox}>
-            <Dropdown>
-              <div>
-                <Dropdown.Toggle
-                  variant="transprant"
-                  id="dropdown-basic"
-                  style={{ outline: "none", border: "none" }}
-                >
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    style={{ color: "#ffffff" }}
-                    className={style.userIconStyle}
-                    size="2x"
-                  />
-                </Dropdown.Toggle>
-              </div>
-
-              <Dropdown.Menu
-                show={openProfleBox}
-                style={{ zIndex: 10 }}
-                className={isLogin}
-              >
-                {loginUser?.email ? (
-                  <>
-                    <DropDownMenu />
-                  </>
-                ) : (
-                  <>
-                    <div className={style.Login_Box}>
-                      <Button onClick={() => router.push("/sing-up")}>
-                        Log in
-                      </Button>
-                    </div>
-                  </>
-                )}
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        </div>
+        <NavBarComponent hangburIcon={false} />
       </div>
     </>
   );

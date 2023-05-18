@@ -3,6 +3,7 @@ import PageLayOut from "../../components/layouts/PageLayOut";
 import CompanyProfile from "../../components/CompanyProfile/Sections/CompanyProfile";
 import { getBusinessDetailsBySlugAction } from "../../Actions/UserAuth/BusinessAction";
 import { BusinessContext } from "../../ContaxtApi/BusinessContaxApi";
+import UserAdminLayout from "../../components/UserAdmin/UserAdminLayout";
 
 export default function CompanyProfilePage({ initialBusinessList }) {
   const { setbusinessCompleteDetails } = useContext(BusinessContext);
@@ -11,9 +12,9 @@ export default function CompanyProfilePage({ initialBusinessList }) {
 
   return (
     <>
-      <PageLayOut>
+      <UserAdminLayout>
         <CompanyProfile />
-      </PageLayOut>
+      </UserAdminLayout>
     </>
   );
 }

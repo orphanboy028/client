@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { UserContext } from "../../../ContaxtApi/UserContaxApi";
 import Spinner from "react-bootstrap/Spinner";
 import style from "../../../utilsComponents/css/Utils.module.css";
+import DekstopFooter from "../../../utilsComponents/DekstopFooter";
+import MobileFooter from "../../../utilsComponents/MobileFooter";
 
 export default function DekstopHomeLayOut({ children }) {
   const { loading } = useContext(UserContext);
@@ -30,7 +32,15 @@ export default function DekstopHomeLayOut({ children }) {
               <DCategoriesSlider />
             </div>
             <div>{children}</div>
-            <div>Footer</div>
+            <div className={style.layout_Footer_Container}>
+              <div className={style.layout_Dekstop_Footer}>
+                <DekstopFooter />
+              </div>
+
+              <div className={style.layOut_Mobile_Footer}>
+                <MobileFooter />
+              </div>
+            </div>
           </div>
         </>
       )}

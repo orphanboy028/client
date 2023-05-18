@@ -13,6 +13,10 @@ export const AppUilsContextProvider = ({ children }) => {
   const [formSeleted, setformSeleted] = useState([]);
   const [showModel, setshowModel] = useState(false);
   const [appFillterShow, setappFillterShow] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const handelSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
 
   // Profile tab
   const [toggleState, setToggleState] = useState(1);
@@ -99,6 +103,9 @@ export const AppUilsContextProvider = ({ children }) => {
         handleInputChange,
         formData,
         setFormData,
+        handelSidebar,
+        isSidebarVisible,
+        setIsSidebarVisible,
       }}
     >
       {children}

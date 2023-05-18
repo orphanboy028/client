@@ -3,7 +3,7 @@ import style from "../css/Enquires.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
-import LocationFillter from "./LocationFillter";
+import LocationFillter from "../../../utilsComponents/LocationFillter";
 
 export default function DistricFillter() {
   const {

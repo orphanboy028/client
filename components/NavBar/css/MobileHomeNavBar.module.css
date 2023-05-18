@@ -2,6 +2,10 @@
   display: none;
 }
 
+.SideBar_DrawerContainer {
+  display: none;
+}
+
 @media screen and (max-width: 550px) {
   .MobileHomeNavBar_Main_Container {
     display: flex;
@@ -9,6 +13,7 @@
     height: 100px;
     flex-direction: column;
     padding: 5px;
+    position: relative;
   }
   .MobileHomeNavBar_Top_part {
     display: flex;
@@ -63,5 +68,48 @@
   .MobileHomeNavBar_searchInputBox {
     height: 40px;
     margin: 5px 10px;
+  }
+
+  .SideBar_DrawerContainer {
+    background-color: rgba(135, 135, 135, 0.24);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    transition: width 2s linear;
+  }
+  .SideBar_Drawer_InnerContainer {
+    background-color: #fff;
+    width: 50%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0px;
+    z-index: 10;
+    padding-top: 30px;
+    transition: width 2s linear;
+  }
+
+  .HideDrawer {
+    background-color: #fff;
+    width: 50%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: -250px;
+    z-index: 10;
+    padding-top: 30px;
+    transition: width 2s linear;
+  }
+
+  .Hide_SideBarContainer {
+    background-color: rgba(135, 135, 135, 0.24);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: -500px;
+    transition: width 2s linear;
   }
 }

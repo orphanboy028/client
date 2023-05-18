@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API } from "../../config";
 
 export const creatEnquriy = async (data, token) => {
   try {
@@ -37,7 +38,7 @@ export const getAllEnquies = async (token) => {
 export const getrequestDetails = async (slug, token) => {
   try {
     return await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/get-request-details/${slug}`,
+      `${API}/api/V1/industy/sendenquiry/get-request-details/${slug}`,
 
       {
         headers: {
@@ -55,7 +56,7 @@ export const getrequestDetails = async (slug, token) => {
 export const sendEnquiryAction = async (data, slug, token) => {
   try {
     return await axios.post(
-      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/send-enquiry/${slug}`,
+      `${API}/api/V1/industy/sendenquiry/send-enquiry/${slug}`,
       data,
       {
         headers: {
@@ -92,6 +93,24 @@ export const SuperAdmingetrequestDetailsAction = async (slug, token) => {
   try {
     return await axios.get(
       `http://127.0.0.1:5000/api/V1/industy/sendenquiry/super-admin-get-request-details/${slug}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    return error.response;
+  }
+};
+
+// List of All Enquires which craeted by user
+export const ListOfCreatedEnquiresAction = async (token) => {
+  try {
+    return await axios.get(
+      `${API}/api/V1/industy/enquiry/user-created-enquires-list`,
 
       {
         headers: {

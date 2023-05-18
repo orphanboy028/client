@@ -4,15 +4,8 @@ import style from "../css/ProductList.module.css";
 import webBanner from "../../../public/banners-images/Product-page-top-banner.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLocationDot,
-  faMagnifyingGlass,
-  faLocationCrosshairs,
-  faIndianRupeeSign,
-} from "@fortawesome/free-solid-svg-icons";
-import { locationList } from "../../FormData/location.js";
+import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 
-import productImage from "../../../public/product-feature-imges/user-64318e457993fb3620054341-1681334334557.jpeg";
 import Link from "next/link";
 
 import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
@@ -21,6 +14,7 @@ import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
 import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 import Spinner from "react-bootstrap/Spinner";
 import AppElementFillter from "../../../utilsComponents/AppElementFillter";
+import LocationListBar from "../../../utilsComponents/LocationListBar";
 
 export default function ProductList() {
   const router = useRouter();
@@ -80,6 +74,13 @@ export default function ProductList() {
     setstateSlected(null);
   }
 
+  // handel City redirect
+  const handelProductListByCity = (e) => {
+    console.log(e.target.textContent);
+    const cityName = e.target.textContent;
+    router.push(`/products?city=${cityName}`);
+  };
+
   return (
     <>
       <AppElementFillter
@@ -96,47 +97,10 @@ export default function ProductList() {
           </div>
           {/* search bar section start */}
           <div className={style.ProductList_search_locationBar_Container}>
-            <div className={style.location_RightBox}>
-              {/* Location Box start */}
-              <div className={style.locationBox}>
-                <div className={style.locationIconBox}>
-                  <FontAwesomeIcon
-                    icon={faLocationDot}
-                    style={{ color: "#ed747a" }}
-                    size="2x"
-                  />
-                </div>
-                <div
-                  className={style.Location_TextBox}
-                  style={{ cursor: "pointer" }}
-                  onClick={handleShow}
-                >
-                  Location
-                </div>
-              </div>
-              {/* Location Box End */}
-              {/* search Input start */}
-              {/* <div className={style.location_SearchBox}>
-                <input type="text" />
-                <div className={style.location_SerachIconBox}>
-                  <FontAwesomeIcon
-                    icon={faMagnifyingGlass}
-                    style={{ color: "#cbced2" }}
-                    size="1x"
-                  />
-                </div>
-              </div> */}
-              {/* search Input End */}
-            </div>
-            <div className={style.location_cityBox}>
-              {locationList.map((city, i) => {
-                return (
-                  <>
-                    <div className={style.cityBox}>{city.name}</div>
-                  </>
-                );
-              })}
-            </div>
+            <LocationListBar
+              handelAppFillterShow={handleShow}
+              handelCity={handelProductListByCity}
+            />
           </div>
           {/* Search Bar section End */}
 

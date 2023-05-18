@@ -10,6 +10,7 @@ import {
   getSeachProductsAction,
 } from "../../Actions/ProductActions/ProductActions";
 import queryString from "query-string";
+import UserAdminLayout from "../../components/UserAdmin/UserAdminLayout";
 
 export default function ProductsPage({ initialProducts }) {
   const { setallProducts } = useContext(ProductContext);
@@ -17,9 +18,9 @@ export default function ProductsPage({ initialProducts }) {
   setallProducts(initialProducts);
   return (
     <>
-      <PageLayOut>
+      <UserAdminLayout>
         <ProductList />
-      </PageLayOut>
+      </UserAdminLayout>
     </>
   );
 }

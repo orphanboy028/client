@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API } from "../../config";
 
 export const createProduct = async (data, token) => {
   try {
@@ -177,7 +178,7 @@ export const SendSingleproductEnqiires = async (data, token, slug) => {
   try {
     console.log("data", data);
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/Send-Single-product-Enqiires/${slug}`,
+      `${API}/api/V1/industy/product/Send-Single-product-Enqiires/${slug}`,
       data,
       {
         headers: {

@@ -1,12 +1,10 @@
 .DekstopNavBar_mainContainer {
   box-sizing: border-box;
   width: 100%;
-  background-color: var(--color-brand-blue);
-  box-shadow: var(--container-box-shadow);
   height: 56px;
   display: flex;
   justify-content: center;
-  padding: 0px 50px;
+  padding: 0px;
 }
 
 .DekstopNavBar_left_Part {

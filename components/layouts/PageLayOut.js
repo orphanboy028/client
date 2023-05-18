@@ -72,7 +72,7 @@ export default function PageLayOut({ children }) {
               </a>
             </li>
             <li>
-              <a href="/user-admin">
+              <a href="/profile">
                 <span
                   className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
                 >
@@ -121,6 +121,18 @@ export default function PageLayOut({ children }) {
                 </span>
                 <span className={style.UserAdminLayout_sidebar_item}>
                   View All Categories
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/login">
+                <span
+                  className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                >
+                  <FontAwesomeIcon icon={faGauge} size="2x" />
+                </span>
+                <span className={style.UserAdminLayout_sidebar_item}>
+                  Login
                 </span>
               </a>
             </li>

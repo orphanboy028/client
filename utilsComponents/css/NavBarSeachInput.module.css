@@ -1,0 +1,106 @@
+.search_InputBox {
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 3px 0px;
+  position: relative;
+}
+
+.search_InputBox input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0px 10px;
+  outline: none;
+  border-radius: var(--border-radius);
+  border: none;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
+}
+
+.search_iconBox {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.DekstopNavBar_center_part {
+  width: 100%;
+  margin: 0px 0%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
+}
+
+.DekstopNavBar_center_part button {
+  border: 1px solid #fff;
+  background-color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 7px;
+  width: 100%;
+  box-shadow: var(--container-box-shadow);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
+}
+
+/* NavRightSideOption_Box */
+
+.NavRightSideOption_Box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.navLinkBox {
+  font-size: 1.6rem;
+  margin: 0px 10px;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: var(--font-size14);
+  font-weight: var(--font-weight400);
+  font-family: var(--font-faily);
+  cursor: pointer;
+}
+
+.linkStyle {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.linkStyle:hover {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.UserProfileBox {
+  padding: 0px 10px;
+}
+
+.DekstopNavBar_DropDoen_Menu {
+  width: 180px;
+  height: 230px;
+  font-size: 1.2rem;
+}
+
+.DekstopNavBar_DropDoen_Menu_GustUser {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (max-width: 690px) {
+  .hidNavRightOption {
+    display: none;
+  }
+}

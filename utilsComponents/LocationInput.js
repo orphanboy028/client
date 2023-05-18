@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import style from "../components/UserAdmin/css/LocationFillter.module.css";
+import style from "./css/LocationFillter.module.css";
 import { ExternalApiContaxt } from "../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 
 export default function LocationInput({ handelSelect }) {

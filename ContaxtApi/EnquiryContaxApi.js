@@ -6,6 +6,7 @@ import {
   sendEnquiryAction,
   ListAllEnquiryRequestAction,
   SuperAdmingetrequestDetailsAction,
+  ListOfCreatedEnquiresAction,
 } from "../Actions/EnquiryActions/EnquiryActions";
 
 import { useRouter } from "next/router";
@@ -26,6 +27,7 @@ export const EnquiryContextProvider = ({ children }) => {
   const [enquieDetails, setenquieDetails] = useState({});
   const [ApplyedUserDetails, setApplyedUserDetails] = useState([]);
   const [enquiedCreatedBy, setenquiedCreatedBy] = useState({});
+  const [userEnquireList, setuserEnquireList] = useState([]);
 
   const handelToogleSort = (index) => {
     settogglesortFiilter(index);
@@ -45,7 +47,10 @@ export const EnquiryContextProvider = ({ children }) => {
   const [locationFillterShow, setlocationFillterShow] = useState(false);
 
   const handleCloseLocation = () => setlocationFillterShow(false);
-  const handleShowLocation = () => setlocationFillterShow(true);
+  const handleShowLocation = () => {
+    console.log("Select location click to open");
+    setlocationFillterShow(true);
+  };
 
   // OffCanvash for Categoties
   const [categoriesFillterShow, setcategoriesFillterShow] = useState(false);
@@ -103,7 +108,6 @@ export const EnquiryContextProvider = ({ children }) => {
   };
 
   // ListAllEnquiryRequestAction
-
   const getListAllEnquiryRequestAction = async (token) => {
     try {
       const result = await ListAllEnquiryRequestAction(token);
@@ -133,6 +137,15 @@ export const EnquiryContextProvider = ({ children }) => {
       setenquiedCreatedBy(user);
     } catch (error) {
       return error;
+    }
+  };
+
+  const ListOfCreatedEnquires = async (token) => {
+    try {
+      const result = await ListOfCreatedEnquiresAction(token);
+      setuserEnquireList(result.data.CreatedEnquires);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -171,6 +184,8 @@ export const EnquiryContextProvider = ({ children }) => {
         enquieDetails,
         ApplyedUserDetails,
         enquiedCreatedBy,
+        ListOfCreatedEnquires,
+        userEnquireList,
       }}
     >
       {children}

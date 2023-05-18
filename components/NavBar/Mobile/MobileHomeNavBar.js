@@ -1,18 +1,29 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import style from "../css/MobileHomeNavBar.module.css";
 import menu from "../../../public/app-static-images/menu.png";
 import NotificationBell from "../../../utilsComponents/NotificationBell";
 import SearchInput from "../../../utilsComponents/SearchInput";
 import Link from "next/link";
+import SideBarDrawe from "../../../utilsComponents/SideBarDrawe";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+
 export default function MobileHomeNavBar() {
+  const { isSidebarVisible, setIsSidebarVisible, handelSidebar } =
+    useContext(AppUtilsContext);
+
   return (
     <>
       <div className={style.MobileHomeNavBar_Main_Container}>
         <div className={style.MobileHomeNavBar_Top_part}>
           <div className={style.MobileHomeNavBar_Top_part_left}>
             <div className={style.Top_part_left_IconBox}>
-              <Image src={menu} alt="Menu-icon" width={20} />
+              <Image
+                src={menu}
+                alt="Menu-icon"
+                width={20}
+                onClick={handelSidebar}
+              />
             </div>
             <div className={style.left_part_userNameBox}>Hi Pawan</div>
           </div>
@@ -33,6 +44,24 @@ export default function MobileHomeNavBar() {
         {/* search Input part */}
         <div className={style.MobileHomeNavBar_searchInputBox}>
           <SearchInput />
+        </div>
+      </div>
+      <div
+        className={`${
+          isSidebarVisible
+            ? style.SideBar_DrawerContainer
+            : style.Hide_SideBarContainer
+        }`}
+        onClick={handelSidebar}
+      >
+        <div
+          className={` ${
+            isSidebarVisible
+              ? style.SideBar_Drawer_InnerContainer
+              : style.HideDrawer
+          } `}
+        >
+          <SideBarDrawe />
         </div>
       </div>
     </>

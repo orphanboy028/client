@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API } from "../../config";
 
 export const getUserBusinessDetails = async (token) => {
   try {
@@ -23,7 +24,7 @@ export const getUserBusinessDetails = async (token) => {
 export const updateBusinessProfile = async (formdata, token) => {
   try {
     const res = await axios.patch(
-      "http://127.0.0.1:5000/api/V1/industy/business/update-business-profile",
+      `${API}/api/V1/industy/business/update-business-profile`,
       formdata,
       {
         headers: {

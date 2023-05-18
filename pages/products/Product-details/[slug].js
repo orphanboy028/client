@@ -6,6 +6,7 @@ import { ProductContext } from "../../../ContaxtApi/ProductContextApi";
 import { getSingleProductsAction } from "../../../Actions/ProductActions/ProductActions";
 import style from "../../../components/ProductComponent/css/SingleProduct.module.css";
 import Spinner from "react-bootstrap/Spinner";
+import UserAdminLayout from "../../../components/UserAdmin/UserAdminLayout";
 
 export default function ProductDetails({ initialProducts }) {
   const { setsingleProduct, sendingEmail, singleProduct } =
@@ -62,7 +63,7 @@ export default function ProductDetails({ initialProducts }) {
           content={`http://www.example.com/${singleProduct.slug}`}
         />
       </Head>
-      <PageLayOut>
+      <UserAdminLayout>
         {sendingEmail ? (
           <>
             <div className={style.SendingEmail_loading_Container}>
@@ -83,7 +84,7 @@ export default function ProductDetails({ initialProducts }) {
         )}
 
         <SingleProduct />
-      </PageLayOut>
+      </UserAdminLayout>
     </>
   );
 }

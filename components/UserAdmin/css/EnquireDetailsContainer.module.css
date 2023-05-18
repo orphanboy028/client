@@ -1,0 +1,145 @@
+.Enquire_Deatils_MainContainer {
+  border: 1px solid #eee;
+  width: 100%;
+  padding: 5px;
+}
+
+.Element_wrapper {
+  width: 100%;
+}
+
+.Enquire_Deatils_Header {
+  width: 100%;
+  background-color: #f0f2f5;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.circleBox {
+  border: 1px solid #2874f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #2874f0;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.Header_details_Box {
+  padding: 2px;
+  width: 90%;
+  min-height: 50px;
+}
+.Header_TitleBox {
+  font-size: 1.4rem;
+  margin: 5px 0px;
+  font-weight: 500;
+}
+
+.companies_Deatils_container {
+  width: 100%;
+  background-color: #fff;
+  min-height: 100px;
+  border: 1px solid #eee;
+  padding: 20px;
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+.companies_Deatils_container:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.Company_detailsBox {
+  display: flex;
+}
+
+.Company_LogoBox {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #2874f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.Company_locationBox {
+  display: flex;
+}
+
+.location_point {
+  display: flex;
+  margin-right: 5px;
+}
+
+.location_IconBox {
+  /* padding: 2px 1px; */
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 20px;
+  color: #2874f0;
+}
+
+.address_PlaceBox {
+  font-size: 1.4rem;
+  padding: 0px 2px;
+}
+
+.Enquire_MessageBox {
+  display: flex;
+  margin: 10px 0px;
+  width: 100%;
+}
+
+.static_MessageBox {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 7%;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.dynimic_MessageBox {
+  width: 75%;
+  font-size: 1.4rem;
+}
+
+.Company_Profile_LinkBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 2px;
+  font-size: 1.4rem;
+  color: #2874f0;
+}
+
+.EnquireTime_Box {
+  display: flex;
+}
+
+.applyTimeIcon_Box {
+  padding: 2px 5px;
+}
+
+.applyedTime_Box {
+  padding: 2px 5px;
+}
+
+.goTo_Icon {
+  cursor: pointer;
+}

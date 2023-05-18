@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { BusinessContext } from "../../../ContaxtApi/BusinessContaxApi";
 import { EnquiryContext } from "../../../ContaxtApi/EnquiryContaxApi";
-import LocationFillter from "../../UserAdmin/Enquires/LocationFillter";
+import LocationFillter from "../../../utilsComponents/LocationFillter";
 import { ExternalApiContaxt } from "../../../ContaxtApi/ExternalConaxt/ExternalContaxtApi";
 
 import Spinner from "react-bootstrap/Spinner";

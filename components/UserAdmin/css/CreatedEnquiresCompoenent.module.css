@@ -1,0 +1,25 @@
+.CreatedEnquiresComponent_mainContainer {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.Compoenet_stats_Container {
+  width: 100%;
+  border: 1px solid #eee;
+  min-height: 200px;
+}
+
+.CreatedEnquiresList_Container {
+  display: flex;
+}
+
+.Enquires_MesageBox {
+  width: 50%;
+  border: 1px solid #eee;
+  height: 670px;
+  overflow-y: scroll;
+}
+
+.enquire_Deatil_Container {
+  width: 100%;
+}

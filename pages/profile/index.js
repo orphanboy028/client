@@ -3,6 +3,7 @@ import PageLayOut from "../../components/layouts/PageLayOut";
 import CompanyListComponent from "../../components/CompanyProfile/CompanyListComponent/CompanyListComponent";
 import { BusinessContext } from "../../ContaxtApi/BusinessContaxApi";
 import { getAllBusinessList } from "../../Actions/UserAuth/BusinessAction";
+import UserAdminLayout from "../../components/UserAdmin/UserAdminLayout";
 
 export default function CompaniesList({ initialBussinesList }) {
   const { setlistedBusiness } = useContext(BusinessContext);
@@ -10,9 +11,9 @@ export default function CompaniesList({ initialBussinesList }) {
   setlistedBusiness(initialBussinesList);
   return (
     <div>
-      <PageLayOut>
+      <UserAdminLayout>
         <CompanyListComponent />
-      </PageLayOut>
+      </UserAdminLayout>
     </div>
   );
 }

@@ -41,7 +41,8 @@ export default function LoginComponent() {
         }
       });
     } catch (error) {
-      console.log(error);
+      toast.error("mobile error");
+      console.log(error.response);
     }
   };
   return (

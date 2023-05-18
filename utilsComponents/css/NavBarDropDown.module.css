@@ -1,0 +1,167 @@
+.userIconStyle {
+  cursor: pointer;
+}
+
+.DekstopNavBar_DropDoen_Menu {
+  width: 180px;
+  height: 230px;
+  font-size: 1.2rem;
+  border: 2px solid red;
+}
+
+.DekstopNavBar_DropDoen_Menu_GustUser {
+  width: 100px;
+  height: 100px;
+  border: 2px solid green;
+}
+
+.DekstopNavBar_DropDown_ItemBox {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--theme-color);
+}
+
+.DekstopNavBar_MobileNumber {
+  height: 20px;
+}
+
+.DekstopNavBar_verfiedBox {
+  display: flex;
+}
+
+.DekstopNavBar_DropDown_OptionBox {
+  display: flex;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.DekstopNavBar_DropDown_OptionBoxBtn {
+  display: flex;
+  height: 30px;
+  padding: 0px 10px;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.DekstopNavBar_DropDown_OptionBox:hover {
+  background-color: #f9f9f9;
+}
+
+.DekstopNavBar_IconBox {
+  margin-right: 10px;
+  display: flex;
+}
+
+.DekstopNavBar_LinkName {
+  display: flex;
+  font-size: 1.3rem;
+  height: 20px;
+}
+
+.userProfile_DropDown_Box {
+  box-sizing: border-box;
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  box-shadow: var(--container-box-shadow);
+  left: -80px;
+  top: 40px;
+  z-index: 100px;
+  padding: 30px 0px;
+}
+
+.userProfile_DropDown_Box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 45px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 50px 30px 50px;
+  border-color: transparent transparent #fff transparent;
+  transform: rotate(0deg);
+  z-index: -10px;
+}
+
+.userName h1 {
+  font-size: 1.6rem;
+  padding: 0px 5px;
+}
+
+.userNumberDeatils {
+  display: flex;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.userNumber {
+  margin-right: 0.5rem;
+  padding: 0px 5px;
+}
+
+.OptionBox {
+  display: flex;
+  padding: 10px 5px;
+  box-sizing: border-box;
+}
+
+.OptionBox:hover {
+  background-color: #eee;
+  cursor: pointer;
+  transition: 0.5s linear;
+  box-sizing: border-box;
+}
+
+.icon_Name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.LogOut_Box {
+  box-sizing: border-box;
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.LogOut_Box button {
+  box-sizing: border-box;
+  background-color: var(--color-brand-blue);
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  box-shadow: var(--container-box-shadow);
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.Login_Box {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}

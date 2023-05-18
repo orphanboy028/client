@@ -1,80 +1,72 @@
 .UserAdminLayout_NavBar {
-  height: 60px;
+  box-sizing: border-box;
   width: 100%;
+  height: 56px;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #f1f1f1;
+  padding: 0px;
+  z-index: 100 !important;
+  position: fixed;
 }
 
-.UserAdminLayout_logo {
-  display: flex;
-  align-items: center;
-  width: 300px;
-  padding-left: 40px;
-}
-
-.hangburgIcon {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.UserAdminLayout_logo span {
-  color: #5073fb;
-}
-
-.UserAdminLayout_Search {
-  background-color: #f1f4f8;
-  border-radius: 50px;
-  width: 400px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.UserAdminLayout_Search input {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  text-indent: 15px;
-  width: 85%;
-}
-
-.UserAdminLayout_Search button {
-  outline: none;
-  border: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: #fff;
-  padding: 8px;
+.navbar_HangburgBox {
+  color: #fff;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50px;
 }
 
-.UserAdminLayout_search_notification_profile {
+.NavBarLogoBox {
   display: flex;
-  align-items: center;
+  min-width: 300px;
+  height: 50px;
   justify-content: space-between;
-  width: calc(100% - 300px);
-  padding: 0px 40px;
+  align-items: center;
 }
 
-.UserAdminLayout_notification_profile {
+.navLogo_Box {
+  width: 150px;
+  height: 35px;
+  position: relative;
+}
+
+.NavBarCenter_part {
+  width: 50%;
+  height: 50px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBarSearchInput_Box {
+  width: 75%;
+}
+
+.navBarEnquire_Box {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NavbarRigtBox {
+  width: 25%;
+  height: 50px;
   display: flex;
   align-items: center;
 }
 
-.rightIcon {
-  margin-left: 20px;
-  font-size: 1.1rem;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: green;
-  cursor: pointer;
+.linkStyle {
+  color: #ffff;
+  text-decoration: none;
 }
 
+.linkStyle:hover {
+  color: #ffff;
+  text-decoration: none;
+}
 .bell {
   color: #5073fb;
   background-color: rgb(80, 115, 251, 0.2);
@@ -95,12 +87,13 @@
   position: relative;
   width: 100%;
   min-height: calc(900px - 60px);
+  min-height: 100%;
   background-color: transparent;
 }
 
 .UserAdminLayout_sidebar {
   position: fixed;
-  top: 60px;
+  top: 0px;
   left: 0;
   height: 100%;
   width: 200px;
@@ -108,16 +101,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border-right: 2px solid #f1f1f1; */
-  /* padding-left: 50px; */
   box-shadow: var(--box-shadow);
   border: 1px solid #eee;
+  z-index: 1;
+  padding: 60px 0px 10px 0px;
+}
+.SideBarDrawe_main_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.SideBarDrawe_main_Container ul {
+  padding: 0px;
+  margin: 0px;
 }
 
 .active {
   width: 55px;
   overflow: hidden;
-  padding-left: 60px;
+  padding-left: 1px;
   align-items: center;
 }
 
@@ -182,48 +187,97 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: calc(100% - 200px);
-  background-color: #fff;
+  width: calc(100%);
   transition: 0.3s;
-  padding: 10px;
+  padding-left: 60px;
+  margin-top: 50px;
 }
 
 .content_container {
-  width: calc(100% - 55px);
+  width: 100%;
   transition: 0.3s;
-  padding: 10px;
+  padding-left: 60px;
 }
 
-@media screen and (max-width: 590px) {
+.layout_Footer_Container {
+  position: relative;
+  bottom: 10px;
+  left: 0px;
+  margin-top: 100px;
+}
+
+.layout_Dekstop_Footer {
+  display: block;
+}
+
+.layOut_Mobile_Footer {
+  display: none;
+}
+
+@media screen and (max-width: 690px) {
+  .UserAdminLayout_NavBar {
+    padding: 0px 0px;
+    z-index: 100 !important;
+  }
+  .NavBarLogoBox {
+    min-width: 100px;
+  }
+
+  .navLogo_Box {
+    width: 80px;
+    height: 20px;
+    position: relative;
+  }
+  .navbar_HangburgBox {
+    width: 30px;
+  }
+
+  .NavBarCenter_part {
+    display: none;
+  }
   .UserAdminLayout_sidebar {
     transform: translateX(0);
     width: 180px;
     padding-left: 0px;
-    z-index: 100;
+    z-index: 1;
   }
 
   .active {
     transform: translateX(-100%);
-    background-color: red;
+    z-index: 1;
   }
   .sideBarItem {
     display: block;
   }
 
+  .UserAdminLayout_main {
+    width: 100%;
+  }
   .UserAdminLayout_main_content {
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: calc(100%);
-    background-color: #fff;
+    width: 100% !important;
+    transition: 0.3s;
+    padding: 0px;
+    z-index: -1;
+    margin-top: 50px;
+  }
+
+  .content_container {
+    /* width: calc(100%); */
+    width: 100% !important;
     transition: 0.3s;
     padding: 0px;
   }
 
-  .content_container {
-    width: calc(100%);
-    transition: 0.3s;
-    padding: 0px;
+  .layout_Dekstop_Footer {
+    display: none;
+  }
+
+  .layOut_Mobile_Footer {
+    display: block;
   }
 }

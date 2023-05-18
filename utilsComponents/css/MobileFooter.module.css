@@ -1,0 +1,23 @@
+.MobileFooter_container {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: fixed;
+  bottom: 0px;
+}
+
+.Footer_OptionBox {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.MobileFooter_IconBox {
+  font-size: 2rem;
+}

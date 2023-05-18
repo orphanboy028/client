@@ -16,7 +16,7 @@ export default function SentEnquiriesComponent() {
     <>
       <div>
         <div className={style.SentEnquiriesComponent_stats_container}>
-          <h1>Stats Container</h1>
+          <h1> Sent Stats Container</h1>
         </div>
         <div className={style.SentEnquiriesComponent_table_Conatiner}>
           <SentEnqueryTable />

@@ -1,6 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import CryptoJS from "crypto-js";
+import { API } from "../../config";
+console.log(API);
 
 // Define the encryption key and data to be encrypted
 const encryptionKey = "my-secret-key";
@@ -84,15 +86,11 @@ export const isAuth = () => {
 // Signup Api
 export const singUpNewAccount = async (data) => {
   try {
-    const res = await axios.post(
-      "http://127.0.0.1:5000/api/V1/industry/auth/register",
-      data,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const res = await axios.post(`${API}/api/V1/industry/auth/register`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return res;
   } catch (error) {
     console.log(error.response);
@@ -105,7 +103,7 @@ export const submitOTP = async (data, token) => {
   console.log(data);
   try {
     const res = await axios.post(
-      `http://127.0.0.1:5000/api/V1/industry/auth/verify-otp/${token}`,
+      `${API}/api/V1/industry/auth/verify-otp/${token}`,
       data,
       {
         headers: {
@@ -123,15 +121,11 @@ export const submitOTP = async (data, token) => {
 // LoginApi
 export const loginAccount = async (clData) => {
   try {
-    const res = await axios.post(
-      "http://127.0.0.1:5000/api/V1/industry/auth/login",
-      clData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const res = await axios.post(`${API}/api/V1/industry/auth/login`, clData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     return res;
   } catch (error) {
@@ -143,7 +137,7 @@ export const loginAccount = async (clData) => {
 export const SuperAdminlogin = async (clData) => {
   try {
     const res = await axios.post(
-      "http://127.0.0.1:5000/api/V1/industy/super-admin/login-super-admin",
+      `${API}/api/V1/industy/super-admin/login-super-admin`,
       clData,
       {
         headers: {

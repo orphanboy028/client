@@ -70,3 +70,28 @@
   justify-content: center;
   align-items: center;
 }
+
+.layout_Footer_Container {
+  position: relative;
+  bottom: 10px;
+  left: 0px;
+  margin-top: 100px;
+}
+
+.layout_Dekstop_Footer {
+  display: block;
+}
+
+.layOut_Mobile_Footer {
+  display: none;
+}
+
+@media screen and (max-width: 690px) {
+  .layout_Dekstop_Footer {
+    display: none;
+  }
+
+  .layOut_Mobile_Footer {
+    display: block;
+  }
+}
