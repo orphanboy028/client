@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "../components/UserAdmin/css/Layout.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,9 @@ import {
   faBuilding,
   faInfo,
 } from "@fortawesome/free-solid-svg-icons";
+import { AppUtilsContext } from "../ContaxtApi/AppUtilsContaxApi";
 export default function SideBarDrawe() {
+  const { isSidebarVisible, setIsSidebarVisible } = useContext(AppUtilsContext);
   return (
     <div className={style.SideBarDrawe_main_Container}>
       <ul className={style.UserAdminLayout_sidebar_items}>
@@ -24,11 +26,21 @@ export default function SideBarDrawe() {
           <Link href="#" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon1}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faGauge} size="2x" />
+                <FontAwesomeIcon icon={faGauge} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Dashboard
               </span>
             </a>
@@ -38,11 +50,23 @@ export default function SideBarDrawe() {
           <Link href="/user-admin" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon2}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faAddressCard} size="2x" />
+                <FontAwesomeIcon icon={faAddressCard} />
               </span>
-              Profile
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
+                Profile
+              </span>
             </a>
           </Link>
         </li>
@@ -50,12 +74,46 @@ export default function SideBarDrawe() {
           <Link href="/user-admin/enquiries" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faDiagramProject} size="2x" />
+                <FontAwesomeIcon icon={faDiagramProject} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Enquiries
+              </span>
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/products" legacyBehavior>
+            <a>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+              </span>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
+                Products
               </span>
             </a>
           </Link>
@@ -64,11 +122,21 @@ export default function SideBarDrawe() {
           <Link href="/user-admin/add-product" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faPlus} size="2x" />
+                <FontAwesomeIcon icon={faPlus} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Add Products
               </span>
             </a>
@@ -78,12 +146,50 @@ export default function SideBarDrawe() {
           <Link href="/user-admin/enquiries/product-enquires" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faListCheck} size="2x" />
+                <FontAwesomeIcon icon={faListCheck} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Products Enquires
+              </span>
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/categories/main-categories"
+            legacyBehavior
+            className={style.li_Link}
+          >
+            <a>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
+              >
+                <FontAwesomeIcon icon={faGauge} />
+              </span>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
+                Categories
               </span>
             </a>
           </Link>
@@ -92,11 +198,21 @@ export default function SideBarDrawe() {
           <Link href="/profile" legacyBehavior>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faBuilding} size="2x" />
+                <FontAwesomeIcon icon={faBuilding} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Copanyies
               </span>
             </a>
@@ -109,25 +225,47 @@ export default function SideBarDrawe() {
           >
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faInfo} size="2x" />
+                <FontAwesomeIcon icon={faInfo} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
                 Created Enquires
               </span>
             </a>
           </Link>
         </li>
         <li>
-          <Link href="/login" legacyBehavior>
+          <Link href="/login" legacyBehavior className={style.li_Link}>
             <a>
               <span
-                className={`${style.UserAdminLayout_icon} ${style.sideBarIcon3}`}
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_iconHide
+                    : style.UserAdminLayout_icon
+                } ${style.sideBarIcon1}`}
               >
-                <FontAwesomeIcon icon={faGauge} size="2x" />
+                <FontAwesomeIcon icon={faGauge} />
               </span>
-              <span className={style.UserAdminLayout_sidebar_item}>Login</span>
+              <span
+                className={`${
+                  isSidebarVisible
+                    ? style.UserAdminLayout_sidebar_itemHide
+                    : style.UserAdminLayout_sidebar_item
+                }`}
+              >
+                Login
+              </span>
             </a>
           </Link>
         </li>
@@ -135,18 +273,44 @@ export default function SideBarDrawe() {
       <ul className={style.UserAdminLayout_sidebar_bottom_items}>
         <li>
           <a href="#">
-            <span className={style.UserAdminLayout_icon}>
-              <FontAwesomeIcon icon={faGauge} size="2x" />
+            <span
+              className={`${
+                isSidebarVisible
+                  ? style.UserAdminLayout_iconHide
+                  : style.UserAdminLayout_icon
+              } ${style.sideBarIcon1}`}
+            >
+              <FontAwesomeIcon icon={faGauge} />
             </span>
-            <span className={style.UserAdminLayout_sidebar_item}>seetings</span>
+            <span
+              className={`${
+                isSidebarVisible
+                  ? style.UserAdminLayout_sidebar_itemHide
+                  : style.UserAdminLayout_sidebar_item
+              }`}
+            >
+              seetings
+            </span>
           </a>
         </li>
         <li>
           <a href="#">
-            <span className={style.UserAdminLayout_icon}>
-              <FontAwesomeIcon icon={faGauge} size="2x" />
+            <span
+              className={`${
+                isSidebarVisible
+                  ? style.UserAdminLayout_iconHide
+                  : style.UserAdminLayout_icon
+              } ${style.sideBarIcon1}`}
+            >
+              <FontAwesomeIcon icon={faGauge} />
             </span>
-            <span className={style.UserAdminLayout_sidebar_item}>
+            <span
+              className={`${
+                isSidebarVisible
+                  ? style.UserAdminLayout_sidebar_itemHide
+                  : style.UserAdminLayout_sidebar_item
+              }`}
+            >
               Dashboard
             </span>
           </a>

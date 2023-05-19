@@ -14,8 +14,16 @@ export const AppUilsContextProvider = ({ children }) => {
   const [showModel, setshowModel] = useState(false);
   const [appFillterShow, setappFillterShow] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  // Toogle Side bar
   const handelSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
+    console.log("click toogle");
+  };
+
+  const handelSideBarOpen = () => {
+    setIsSidebarVisible(false);
+    console.log("click");
   };
 
   // Profile tab
@@ -106,6 +114,7 @@ export const AppUilsContextProvider = ({ children }) => {
         handelSidebar,
         isSidebarVisible,
         setIsSidebarVisible,
+        handelSideBarOpen,
       }}
     >
       {children}

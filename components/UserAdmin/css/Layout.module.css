@@ -91,6 +91,7 @@
   background-color: transparent;
 }
 
+/* Sidebar css */
 .UserAdminLayout_sidebar {
   position: fixed;
   top: 0px;
@@ -106,12 +107,14 @@
   z-index: 1;
   padding: 60px 0px 10px 0px;
 }
+
 .SideBarDrawe_main_Container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .SideBarDrawe_main_Container ul {
@@ -120,7 +123,7 @@
 }
 
 .active {
-  width: 55px;
+  width: 45px;
   overflow: hidden;
   padding-left: 1px;
   align-items: center;
@@ -132,8 +135,18 @@
 
 .UserAdminLayout_sidebar li {
   list-style: none;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
 }
 .UserAdminLayout_sidebar a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.UserAdminLayout_sidebar a span {
   text-decoration: none;
 }
 
@@ -150,11 +163,14 @@
 .UserAdminLayout_sidebar_items a {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
   font-size: 1.1rem;
   color: #000;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1.4rem;
 }
 
 .UserAdminLayout_sidebar_bottom_items a:hover,
@@ -168,15 +184,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
-  font-size: 1.3rem;
+  margin-right: 10px;
+  font-size: 2rem;
+  height: 100%;
+  width: 40px;
 }
 
+.UserAdminLayout_iconHide {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 100%;
+}
+
+.UserAdminLayout_sidebar_item {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.UserAdminLayout_sidebar_itemHide {
+  display: none;
+}
 .sideBarIcon1 {
-  color: #c5bc58;
+  color: #a280e9;
 }
 .sideBarIcon2 {
-  color: #a280e9;
+  color: #c5bc58;
 }
 .sideBarIcon3 {
   color: #85ade3;

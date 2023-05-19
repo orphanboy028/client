@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DCategoriesSlider from "../../CategoriesSlider/Dekstop/DCategoriesSlider";
 import { isAuth, getEncryptedData } from "../../../Actions/UserAuth/userAuth";
 import DekstopNavBar from "../../NavBar/Dekstop/DekstopNavBar";
@@ -8,9 +8,13 @@ import Spinner from "react-bootstrap/Spinner";
 import style from "../../../utilsComponents/css/Utils.module.css";
 import DekstopFooter from "../../../utilsComponents/DekstopFooter";
 import MobileFooter from "../../../utilsComponents/MobileFooter";
+import SideBarDrawe from "../../../utilsComponents/SideBarDrawe";
+import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
 
 export default function DekstopHomeLayOut({ children }) {
   const { loading } = useContext(UserContext);
+  const { isSidebarVisible, setIsSidebarVisible, handelSidebar } =
+    useContext(AppUtilsContext);
   console.log(loading);
   return (
     <>
@@ -26,7 +30,20 @@ export default function DekstopHomeLayOut({ children }) {
         </>
       ) : (
         <>
-          <div>
+          <div className={style.Page_Main_Container}>
+            <div
+              className={`${
+                isSidebarVisible
+                  ? style.hideSideBar
+                  : style.HomePage_sideBar_Container
+              }`}
+              onClick={handelSidebar}
+            >
+              <div className={style.Inner_Container}>
+                <SideBarDrawe />
+              </div>
+            </div>
+
             <div>
               <DekstopNavBar />
               <DCategoriesSlider />

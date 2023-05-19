@@ -9,21 +9,23 @@ import SideBarDrawe from "../../../utilsComponents/SideBarDrawe";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
 
 export default function MobileHomeNavBar() {
-  const { isSidebarVisible, setIsSidebarVisible, handelSidebar } =
-    useContext(AppUtilsContext);
+  const {
+    isSidebarVisible,
+    setIsSidebarVisible,
+    handelSidebar,
+    handelSideBarOpen,
+  } = useContext(AppUtilsContext);
 
   return (
     <>
       <div className={style.MobileHomeNavBar_Main_Container}>
         <div className={style.MobileHomeNavBar_Top_part}>
           <div className={style.MobileHomeNavBar_Top_part_left}>
-            <div className={style.Top_part_left_IconBox}>
-              <Image
-                src={menu}
-                alt="Menu-icon"
-                width={20}
-                onClick={handelSidebar}
-              />
+            <div
+              className={style.Top_part_left_IconBox}
+              onClick={handelSideBarOpen}
+            >
+              <Image src={menu} alt="Menu-icon" width={20} />
             </div>
             <div className={style.left_part_userNameBox}>Hi Pawan</div>
           </div>
