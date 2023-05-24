@@ -4,7 +4,7 @@ import { API } from "../../config";
 export const createProduct = async (data, token) => {
   try {
     return await axios.post(
-      "http://127.0.0.1:5000/api/V1/industy/product/create-Product",
+      `${API}/api/V1/industy/product/create-Product`,
       data,
       {
         headers: {
@@ -21,7 +21,7 @@ export const createProduct = async (data, token) => {
 export const getUserProducts = async (token, userId) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/product/user-products/`,
+      `${API}/api/V1/industy/product/user-products/`,
 
       {
         headers: {
@@ -45,7 +45,7 @@ export const getUserProducts = async (token, userId) => {
 export const getUserSingleProduct = async (token, slug) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/product/get-user-single-product/`,
+      `${API}/api/V1/industy/product/get-user-single-product/`,
 
       {
         headers: {
@@ -70,7 +70,7 @@ export const updateProductSpacfification = async (data, token, slug) => {
   console.log(data);
   try {
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/update-product-spacification/${slug}`,
+      `${API}/api/V1/industy/product/update-product-spacification/${slug}`,
       data,
       {
         headers: {
@@ -89,7 +89,7 @@ export const updateOnlyProductImage = async (formData, token, slug) => {
     console.log(formData);
     console.log(slug);
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/feature-image/update-product-image/${slug}`,
+      `${API}/api/V1/industy/product/feature-image/update-product-image/${slug}`,
       formData,
       {
         headers: {
@@ -107,7 +107,7 @@ export const updateBiasieDetails = async (data, token, slug) => {
   console.log(data);
   try {
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/update-prodcut-baise-details/${slug}`,
+      `${API}/api/V1/industy/product/update-prodcut-baise-details/${slug}`,
       data,
       {
         headers: {
@@ -124,7 +124,7 @@ export const updateBiasieDetails = async (data, token, slug) => {
 export const deActivateProduct = async (data, token) => {
   try {
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/deactive-product/`,
+      `${API}/api/V1/industy/product/deactive-product/`,
       data,
       {
         headers: {
@@ -141,7 +141,7 @@ export const deActivateProduct = async (data, token) => {
 export const ActivateProduct = async (data, token) => {
   try {
     return await axios.patch(
-      `http://127.0.0.1:5000/api/V1/industy/product/active-product/`,
+      `${API}/api/V1/industy/product/active-product/`,
       data,
       {
         headers: {
@@ -159,7 +159,7 @@ export const DeleteProduct = async (data, token) => {
   try {
     console.log(data);
     return await axios.delete(
-      "http://127.0.0.1:5000/api/V1/industy/product/delete-product/",
+      `${API}/api/V1/industy/product/delete-product/`,
 
       {
         data,
@@ -196,7 +196,7 @@ export const SendSingleproductEnqiires = async (data, token, slug) => {
 export const productEnquires = async (token) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/product/user-product-Enquires/`,
+      `${API}/api/V1/industy/product/user-product-Enquires/`,
 
       {
         headers: {
@@ -217,7 +217,7 @@ export const productEnquires = async (token) => {
 export const SingleproductEnquires = async (token, slug) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/product/user-single-product-Enquires/${slug}`,
+      `${API}/api/V1/industy/product/user-single-product-Enquires/${slug}`,
 
       {
         headers: {

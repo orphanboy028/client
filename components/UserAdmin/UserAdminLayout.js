@@ -22,12 +22,14 @@ import { AppUtilsContext } from "../../ContaxtApi/AppUtilsContaxApi";
 import SideBarDrawe from "../../utilsComponents/SideBarDrawe";
 import DekstopFooter from "../../utilsComponents/DekstopFooter";
 import MobileFooter from "../../utilsComponents/MobileFooter";
+import EnquireModel from "../../utilsComponents/EnquireModel/EnquireModel";
 
 export default function UserAdminLayout({ children }) {
   const { isSidebarVisible, setIsSidebarVisible } = useContext(AppUtilsContext);
 
   return (
     <>
+      <EnquireModel />
       <div className={style.UserAdminLayout_NavBar}>
         <NavBarComponent hangburIcon={true} />
       </div>

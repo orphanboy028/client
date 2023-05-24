@@ -91,8 +91,6 @@ export default function ProductFormConponent() {
               <h1> spacification</h1>
             </>
           ) : null}
-
-          <div>Next</div>
         </div>
         {/* ------------End------------- */}
       </div>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import Link from "next/link";
 import style from "./css/MobileFooter.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,7 +8,9 @@ import {
   faCirclePlus,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
+import { AppUtilsContext } from "../ContaxtApi/AppUtilsContaxApi";
 export default function MobileFooter() {
+  const { handelEnquireyModelToggle } = useContext(AppUtilsContext);
   return (
     <>
       <div className={style.MobileFooter_container}>
@@ -17,7 +20,10 @@ export default function MobileFooter() {
           </div>
           <div>Home</div>
         </div>
-        <div className={style.Footer_OptionBox}>
+        <div
+          className={style.Footer_OptionBox}
+          onClick={handelEnquireyModelToggle}
+        >
           <div className={style.MobileFooter_IconBox}>
             <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#727477" }} />
           </div>

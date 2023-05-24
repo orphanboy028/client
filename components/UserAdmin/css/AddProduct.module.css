@@ -130,15 +130,18 @@
   justify-content: end;
   align-items: center;
   margin-top: 20px;
+  cursor: pointer;
 }
 .product_basic_btnBox button {
-  border: 1px solid #6b74f5;
-  background-color: #6b74f5;
+  background-color: #2874f0;
   color: #fff;
+  border: none;
+  box-shadow: var(--box-shadow);
   padding: 5px;
   width: 70px;
   font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .chnage_btnBox {
@@ -149,13 +152,14 @@
 }
 
 .chnage_btnBox button {
-  border: 1px solid #6b74f5;
-  background-color: #6b74f5;
+  background-color: #2874f0;
   color: #fff;
+  border: none;
+  box-shadow: var(--box-shadow);
   padding: 5px;
-  width: 100px;
+  width: 200px;
   font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 0px 10px;
   letter-spacing: 1.3px;
 }
@@ -164,11 +168,13 @@
 .AddProductComponenet_outer_tabContainer {
   padding: 0px 45px;
   margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .AddProductComponenet_NavTab {
   background-color: #eee;
   max-height: 40px;
-  margin-top: 15px;
   border-radius: 4px;
   font-size: 16px;
   width: 100%;
@@ -203,7 +209,16 @@
   color: #fff;
 }
 
+.AddProductComponenet_Bascic_details_container {
+  border: none;
+}
+
 @media (max-width: 899px) {
+  .AddProductComponenet_outer_tabContainer {
+    margin: 5px 0px;
+    padding: 0px 2px;
+  }
+
   .AddProductComponenet_container {
     padding: 0px;
   }
@@ -212,13 +227,13 @@
   }
   .AddProductComponenet_imageContainer {
     width: 100%;
-    height: 600px;
-    margin-top: 20px;
+    height: 350px;
+    margin: 20px 0px;
   }
 
   .AddProductComponenet_imageBox {
-    width: 100%;
-    min-height: 570px;
+    width: 85%;
+    min-height: 300px;
     padding: 10px;
   }
 
@@ -228,6 +243,20 @@
   }
   .AddProductComponenet_formContainer {
     width: 100%;
-    margin-top: 50px;
+    margin: 10px 0px;
+    margin-bottom: 100px;
+  }
+  .AddProductComponenet_inner_FormContainer {
+    padding: 0px 5px;
+  }
+
+  .product_basic_btnBox {
+    padding: 5px;
+  }
+
+  .product_basic_btnBox button {
+    width: 100%;
+    padding: 5px;
+    font-size: 1.4rem;
   }
 }

@@ -94,7 +94,7 @@ export default function BaisicDetailsForm() {
           {prductIMagePreview && (
             <>
               <div className={` ${style.chnage_btnBox}`}>
-                <button onClick={handleChangeImage}> Chnage image</button>
+                <button onClick={handleChangeImage}> Change image</button>
               </div>
             </>
           )}

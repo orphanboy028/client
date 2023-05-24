@@ -14,6 +14,43 @@ export const AppUilsContextProvider = ({ children }) => {
   const [showModel, setshowModel] = useState(false);
   const [appFillterShow, setappFillterShow] = useState(false);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [modelactiondelete, setmodelactiondelete] = useState(true);
+  const [slectedProductId, setslectedProductId] = useState(null);
+  const [productDeatciveId, setproductDeatciveId] = useState(null);
+  const [ProductActivateId, setProductActivateId] = useState(null);
+  const [refresPage, setrefresPage] = useState(false);
+  const [EnquireModelShow, setEnquireModelShow] = useState(false);
+  const [MobileCategoriesOffcanvasshow, setMobileCategoriesOffcanvasshow] =
+    useState(false);
+
+  const handelMobileCategoriesOffCanva = () => {
+    setMobileCategoriesOffcanvasshow(!MobileCategoriesOffcanvasshow);
+    setEnquireModelShow(!EnquireModelShow);
+  };
+
+  const handelEnquireyModelToggle = () => {
+    setEnquireModelShow(!EnquireModelShow);
+  };
+
+  const handelToggelActionModel = () => {
+    setmodelactiondelete(!modelactiondelete);
+  };
+
+  const handelProductId = (Id) => {
+    console.log(Id);
+    setslectedProductId(Id);
+
+    setmodelactiondelete(true);
+  };
+
+  const handelProductDeactivate = (Id) => {
+    setproductDeatciveId(Id);
+    setmodelactiondelete(true);
+  };
+
+  const handelProductActivate = (Id) => {
+    setProductActivateId(Id);
+  };
 
   // Toogle Side bar
   const handelSidebar = () => {
@@ -115,6 +152,26 @@ export const AppUilsContextProvider = ({ children }) => {
         isSidebarVisible,
         setIsSidebarVisible,
         handelSideBarOpen,
+        modelactiondelete,
+        setmodelactiondelete,
+        handelToggelActionModel,
+        slectedProductId,
+        setslectedProductId,
+        handelProductId,
+        refresPage,
+        setrefresPage,
+        handelProductDeactivate,
+        productDeatciveId,
+        setproductDeatciveId,
+        handelProductActivate,
+        ProductActivateId,
+        setProductActivateId,
+        handelEnquireyModelToggle,
+        EnquireModelShow,
+        setEnquireModelShow,
+        handelMobileCategoriesOffCanva,
+        MobileCategoriesOffcanvasshow,
+        setMobileCategoriesOffcanvasshow,
       }}
     >
       {children}

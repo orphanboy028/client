@@ -15,6 +15,7 @@ export default function CategoriesFilliter() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (e) => {
+    console.log(e.target.value);
     setSearchTerm(e.target.value);
     const results = [];
     // search in categories, subcategories, lefcategories subCategory subCategories lefCategory lefCategories
