@@ -10,6 +10,7 @@ import DekstopFooter from "../../../utilsComponents/DekstopFooter";
 import MobileFooter from "../../../utilsComponents/MobileFooter";
 import SideBarDrawe from "../../../utilsComponents/SideBarDrawe";
 import { AppUtilsContext } from "../../../ContaxtApi/AppUtilsContaxApi";
+import EnquireModel from "../../../utilsComponents/EnquireModel/EnquireModel";
 
 export default function DekstopHomeLayOut({ children }) {
   const { loading } = useContext(UserContext);
@@ -30,6 +31,7 @@ export default function DekstopHomeLayOut({ children }) {
         </>
       ) : (
         <>
+          <EnquireModel />
           <div className={style.Page_Main_Container}>
             <div
               className={`${

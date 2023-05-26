@@ -51,6 +51,8 @@ export default function EnqueryForm() {
 
   // Create Enquires
   const onSubmit = async (formdata) => {
+    // Seletedlefcategory
+    formdata.Seletedlefcategory = selectedItem;
     console.log(formdata);
     try {
       console.log(formdata);
@@ -111,13 +113,9 @@ export default function EnqueryForm() {
                       <input
                         type="text"
                         defaultValue={selectedItem}
-                        // value={selectedItem}
+                        readOnly
                         placeholder="select categories"
                         name="Seletedlefcategory"
-                        {...register("Seletedlefcategory", {
-                          required: "categories name required",
-                        })}
-                        // onChange={(e) => setSelectedItem(e.target.value)}
                       />
                     </div>
                     <div>

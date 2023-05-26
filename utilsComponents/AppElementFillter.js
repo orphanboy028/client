@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import style from "./css/AppElementFillter.module.css";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Col from "react-bootstrap/Col";
@@ -41,49 +42,55 @@ export default function AppElementFillter({
           style={{ height: "100%" }}
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title>Fillter</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body style={{ height: "100%" }}>
             <Tab.Container id="left-tabs-example" defaultActiveKey="Categories">
-              <Row>
-                <Col xs={3} md={2} lg={2}>
+              <Row className={style.RowContainer}>
+                <Col xs={4} md={3} lg={3} style={{ border: "1px solid #eee" }}>
                   <Nav variant="pills" className="flex-column">
-                    <Nav.Item>
+                    <Nav.Item className={style.NavItem}>
                       <Nav.Link eventKey="City">City</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    <Nav.Item className={style.NavItem}>
                       <Nav.Link eventKey="Distric">Distric</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    <Nav.Item className={style.NavItem}>
                       <Nav.Link eventKey="State">State</Nav.Link>
                     </Nav.Item>
                     {filterFor === "Product" && (
                       <>
-                        <Nav.Item>
+                        <Nav.Item className={style.NavItem}>
                           <Nav.Link eventKey="Categories">Categories</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        <Nav.Item className={style.NavItem}>
                           <Nav.Link eventKey="Product">Product</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        <Nav.Item className={style.NavItem}>
                           <Nav.Link eventKey="Price">Price</Nav.Link>
                         </Nav.Item>
                       </>
                     )}
                   </Nav>
                 </Col>
-                <Col xs={9} md={9}>
+                <Col xs={8} md={6} className={style.right_col}>
                   <form onSubmit={onSubmit}>
                     <Tab.Content>
                       <Tab.Pane eventKey="City">
                         {selectedCity}
-                        <LocationInput handelSelect={handelSelectCity} />
+                        <div className={style.input_box}>
+                          <LocationInput handelSelect={handelSelectCity} />
+                        </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="Distric">
-                        <LocationInput handelSelect={handelSelectDistric} />
+                        <div className={style.input_box}>
+                          <LocationInput handelSelect={handelSelectDistric} />
+                        </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="State">
-                        <LocationInput handelSelect={handelSelectState} />
+                        <div className={style.input_box}>
+                          <LocationInput handelSelect={handelSelectState} />
+                        </div>
                       </Tab.Pane>
                       {filterFor === "Product" && (
                         <>
@@ -93,7 +100,7 @@ export default function AppElementFillter({
                             </div>
                           </Tab.Pane>
                           <Tab.Pane eventKey="Product">
-                            <div>
+                            <div className={style.input_box}>
                               <input
                                 name="name"
                                 type="text"
@@ -118,15 +125,8 @@ export default function AppElementFillter({
                         </>
                       )}
                     </Tab.Content>
-                    <div
-                      style={{
-                        border: "1px solid red",
-                        position: "absolute",
-                        bottom: "50px",
-                        right: "50px",
-                      }}
-                    >
-                      <button>apply</button>
+                    <div className={style.apply_btnBox}>
+                      <button>Apply</button>
                     </div>
                   </form>
                 </Col>

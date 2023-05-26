@@ -12,10 +12,10 @@ export default function SuperAdminPrivate({ children }) {
   useEffect(() => {
     if (!isAuth()) {
       setprtectLoading(true);
-      router.push("/login");
+      // router.push("/login");
     } else if (isAuth().role !== "Super-admin") {
       setprtectLoading(true);
-      router.push("super-admin/login");
+      // router.push("super-admin/login");
     } else {
       setprtectLoading(false);
     }

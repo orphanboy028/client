@@ -68,6 +68,21 @@
   box-shadow: var(--box-shadow2);
 }
 
+.Badge_Box {
+  margin: 5px 0px;
+}
+
+.Bootstrap_Badge {
+  font-size: 1.2rem;
+  font-family: Arial;
+  letter-spacing: 1.2px;
+}
+
+.input_ErrorBox {
+  color: red;
+  font-size: 1.4rem;
+}
+
 /* Mobile view */
 
 @media (max-width: 899px) {
@@ -111,6 +126,16 @@
     box-shadow: var(--box-shadow2);
   }
 
+  .Mobile_btn_box .btn_div {
+    width: 100%;
+    font-size: 1.4rem;
+    background-color: var(--color-brand-blue);
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+  }
+
   .Mobile_btn_box button {
     width: 100%;
     font-size: 1.4rem;
@@ -121,6 +146,23 @@
 
   .Mobile_categories_FillterBox {
     padding: 5px 0px;
-    height: 200px;
+    height: 250px;
+    overflow-y: auto;
+  }
+  .categories_back_btnBox {
+    margin: 5px 0px 20px 0px;
+  }
+
+  .back_IconBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-brand-blue);
+    width: 50px;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: var(--color-brand-blue);
+    box-shadow: var(--box-shadow2);
+    padding: 2px 0px;
   }
 }

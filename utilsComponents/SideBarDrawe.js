@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import style from "../components/UserAdmin/css/Layout.module.css";
+import style from "./css/SideBarDrawe.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -46,7 +46,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/user-admin" legacyBehavior>
             <a>
               <span
@@ -70,7 +70,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/user-admin/enquiries" legacyBehavior>
             <a>
               <span
@@ -94,7 +94,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/products" legacyBehavior>
             <a>
               <span
@@ -118,7 +118,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/user-admin/add-product" legacyBehavior>
             <a>
               <span
@@ -142,7 +142,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/user-admin/enquiries/product-enquires" legacyBehavior>
             <a>
               <span
@@ -166,7 +166,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link
             href="/categories/main-categories"
             legacyBehavior
@@ -194,7 +194,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/profile" legacyBehavior>
             <a>
               <span
@@ -218,7 +218,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link
             href="/user-admin/enquiries/Created-enquires/user-enquires-list"
             legacyBehavior
@@ -245,7 +245,7 @@ export default function SideBarDrawe() {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <Link href="/login" legacyBehavior className={style.li_Link}>
             <a>
               <span
@@ -271,7 +271,7 @@ export default function SideBarDrawe() {
         </li>
       </ul>
       <ul className={style.UserAdminLayout_sidebar_bottom_items}>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <a href="#">
             <span
               className={`${
@@ -293,7 +293,7 @@ export default function SideBarDrawe() {
             </span>
           </a>
         </li>
-        <li>
+        <li className={style.UserAdminLayout_li}>
           <a href="#">
             <span
               className={`${

@@ -4,7 +4,7 @@ import { API } from "../../config";
 export const creatEnquriy = async (data, token) => {
   try {
     return await axios.post(
-      "http://127.0.0.1:5000/api/V1/industy/enquiry/create-enquiry",
+      `${API}/api/V1/industy/enquiry/create-enquiry`,
       data,
       {
         headers: {
@@ -21,7 +21,7 @@ export const creatEnquriy = async (data, token) => {
 export const getAllEnquies = async (token) => {
   try {
     return await axios.get(
-      "http://127.0.0.1:5000/api/V1/industy/enquiry/get-all-enquiry",
+      `${API}/api/V1/industy/enquiry/get-all-enquiry`,
 
       {
         headers: {
@@ -73,7 +73,7 @@ export const sendEnquiryAction = async (data, slug, token) => {
 export const ListAllEnquiryRequestAction = async (token) => {
   try {
     return await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/List-All-Enquiry-Request`,
+      `${API}/api/V1/industy/sendenquiry/List-All-Enquiry-Request`,
 
       {
         headers: {
@@ -92,7 +92,7 @@ export const ListAllEnquiryRequestAction = async (token) => {
 export const SuperAdmingetrequestDetailsAction = async (slug, token) => {
   try {
     return await axios.get(
-      `http://127.0.0.1:5000/api/V1/industy/sendenquiry/super-admin-get-request-details/${slug}`,
+      `${API}/api/V1/industy/sendenquiry/super-admin-get-request-details/${slug}`,
 
       {
         headers: {

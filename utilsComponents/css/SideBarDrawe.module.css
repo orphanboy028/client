@@ -1,0 +1,98 @@
+.SideBarDrawe_main_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.SideBarDrawe_main_Container ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.UserAdminLayout_sidebar_items {
+  padding: 0;
+  margin: 0;
+}
+
+.UserAdminLayout_sidebar_bottom_items a,
+.UserAdminLayout_sidebar_items a {
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 0px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1.4rem;
+  text-decoration: none;
+  /* padding: 5px; */
+}
+
+.UserAdminLayout_sidebar_bottom_items a:hover,
+.UserAdminLayout_sidebar_items a:hover {
+  background-color: #5073fb;
+  color: #fff;
+}
+
+.UserAdminLayout_li {
+  width: 100%;
+  height: 40px;
+}
+
+.UserAdminLayout_iconHide {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 100%;
+}
+
+.UserAdminLayout_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 2rem !important;
+  height: 100%;
+  width: 40px;
+}
+
+.sideBarIcon1 {
+  color: #a280e9;
+}
+
+.UserAdminLayout_sidebar_itemHide {
+  display: none;
+}
+
+.UserAdminLayout_sidebar_item {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.UserAdminLayout_iconHide {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 100%;
+}
+
+.UserAdminLayout_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 2rem;
+  height: 100%;
+  width: 40px;
+}

@@ -4,6 +4,7 @@ import { getForm } from "../Actions/adminAuth/FormAction";
 export const AppUtilsContext = createContext();
 
 export const AppUilsContextProvider = ({ children }) => {
+  const [userPrivatePopUp, setuserPrivatePopUp] = useState(true);
   const [openProfleBox, setopenProfleBox] = useState(false);
   const [formloading, setformloading] = useState(false);
   const [prtectLoading, setprtectLoading] = useState(false);
@@ -22,6 +23,17 @@ export const AppUilsContextProvider = ({ children }) => {
   const [EnquireModelShow, setEnquireModelShow] = useState(false);
   const [MobileCategoriesOffcanvasshow, setMobileCategoriesOffcanvasshow] =
     useState(false);
+  const [Enquiremobiletab, setEnquiremobiletab] = useState(0);
+
+  // handel next btn for mobile Enquirey Model
+  const handelMobileNextBtn = () => {
+    setEnquiremobiletab(1);
+  };
+
+  // handel next btn for mobile Enquirey Model
+  const handelMobileBackBtn = () => {
+    setEnquiremobiletab(0);
+  };
 
   const handelMobileCategoriesOffCanva = () => {
     setMobileCategoriesOffcanvasshow(!MobileCategoriesOffcanvasshow);
@@ -172,6 +184,12 @@ export const AppUilsContextProvider = ({ children }) => {
         handelMobileCategoriesOffCanva,
         MobileCategoriesOffcanvasshow,
         setMobileCategoriesOffcanvasshow,
+        Enquiremobiletab,
+        setEnquiremobiletab,
+        handelMobileNextBtn,
+        handelMobileBackBtn,
+        userPrivatePopUp,
+        setuserPrivatePopUp,
       }}
     >
       {children}
